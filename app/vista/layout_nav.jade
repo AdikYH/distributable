@@ -1,0 +1,143 @@
+doctype html
+html
+  head
+    block title
+    link(rel='stylesheet', href='/css/nav.css')
+    meta(name='viewport', content='width=device-width, user-scalable=0, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0')
+    block css
+    block script
+    script.
+      function showMenu(){
+        if(document.getElementById('menu-nav').style.display == '')
+          document.getElementById('menu-nav').style.display = 'none'
+          //alert('nada')
+        //console.log(document.getElementsByClassName("menu-nav")[0].style.display);
+        if(document.getElementById('menu-nav').style.display == 'none'){
+          document.getElementById('menu-nav').style.display = 'block';
+        }
+        else{
+          document.getElementById('menu-nav').style.display = 'none';
+        }
+      }
+      window.onresize = function() {
+        //alert(window.innerWidth)//("El tamanno ha cambiado!");
+        if(window.innerWidth >= 745){
+          document.getElementById('menu-nav').style.display = 'inline-block';
+          document.getElementById('lista_01').style.display = '';
+          document.getElementById('lista_02').style.display = '';
+          document.getElementById('span_01').className = '';
+          document.getElementById('span_02').className = '';
+          document.getElementById('span_01').style.color = 'rgb(255, 255, 255)';
+          document.getElementById('span_02').style.color = 'rgb(255, 255, 255)';
+        }
+        else{
+          document.getElementById('menu-nav').style.display = 'none';
+        }
+      };
+      function showSubMenu(miId, miSpan){
+        //console.log(document.getElementById(miId).style)
+        if(document.getElementById(miId).style.display == ''){
+          document.getElementById(miId).style.display = 'none'
+        }
+        if(document.getElementById(miId).style.display == 'none'){
+          document.getElementById(miId).style.display = 'block';
+          document.getElementById(miSpan).style.color = 'rgb(255, 197, 0)';
+          document.getElementById(miSpan).className = 'replace';
+        }else{
+          document.getElementById(miId).style.display = 'none'
+          document.getElementById(miSpan).style.color = 'rgb(255, 255, 255)';
+          document.getElementById(miSpan).className = '';
+        }
+      }
+  body
+    nav
+      div(class = 'menu-lit' onclick = 'showMenu()')
+      div(class = 'menu-nav' id = 'menu-nav')
+        ul
+          li
+            a(href='/') Inicio
+          li
+            a(href='/asignacion') Asignaciones
+            span(id = 'span_01' onclick = 'showSubMenu("lista_01", "span_01")')
+            ul(id = 'lista_01')
+              li
+                a(href='/asignacion/nuevo') Nueva asignación
+              li
+                a(href="/asignacion/editar") Editar asignación
+              li
+                a(href="/asignacion/eliminar") Eliminar asignación
+          //li
+            a(href="#") Isométrico
+            ul
+              li
+                a(href="") Nuevo
+              li
+                a(href="#") Editar
+              li
+                a(href="#") Eliminar
+          //li
+            a(href="#") Empresas
+            span(id = 'span_02' onclick = 'showSubMenu("lista_02", "span_02")')
+            ul(id = 'lista_02')
+              li
+                a(href="#") Nueva
+              li
+                a(href="#") Editar
+              li
+                a(href="#") Eliminar
+
+          //li
+            a(href="#") Cuenta
+            span(id = 'span_02' onclick = 'showSubMenu("lista_02", "span_02")')
+            ul(id = 'lista_02')
+          li
+            a(href= '#{ulink}') #{direccion}
+            span(id = 'span_02' onclick = 'showSubMenu("lista_02", "span_02")')
+            ul(id = 'lista_02')
+          //li
+            a(href="#") Informes
+            ul
+              li
+                a(href="#") Instalación
+              li
+                a(href="#") Entrega
+              li
+                a(href="#") Importe
+          //li
+            a(href="#") Personal
+            ul
+              li
+                a(href="#") Nuevo
+              li
+                a(href="#") Editar
+              li
+                a(href="#") Eliminar
+          block lista
+
+      div(class = 'menu-lat')
+        ul
+          li
+            form(action = '/canvas' method = 'post')
+              input(type = 'text' placeholder = 'Buscar')
+              button(type = 'submit')
+                span
+          li
+            a()
+              span #{us}
+            ul
+              li
+                a(href = '/close')
+                  span Cerrar
+
+
+    block content
+
+    footer
+      block footer
+
+
+      //p Aplicación desarrollada por IYI.
+      //p Copyright © 2015
+
+    //script(src = '/js/jquery.js')
+    block subScripts

@@ -1,0 +1,2887 @@
+.loading
+  position fixed
+  left 0
+  top 0
+  width 100%
+  height 100%
+  z-index 9999
+  background url('../images/wloader.svg') 50% 50% no-repeat rgba(0,0,0,0.5)//rgb(241, 83, 0)
+.modal
+  display none /* Hidden by default */
+  position fixed
+  z-index 1
+  padding-top 100px
+  left 0
+  top 0
+  width 100%
+  height 100%
+  overflow auto
+  background-color rgb(0,0,0)
+  background-color rgba(0,0,0,0.4)
+  .modal-content
+    font-family 'roboto-light', Arial, sans-serif
+    position relative
+    background-color rgba(255, 255, 255, 0.5)//#fefefe
+    margin auto
+    padding 0
+    //border 1px solid rgb(224, 54, 38)
+    width 45%
+    box-shadow 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19)
+    animation-name animatetop
+    animation-duration 0.4s
+    .modal-header
+      padding 2px 10px
+      font-size 14px
+      background-color rgb(147, 32, 21)//rgb(224, 54, 38)//#5cb85c
+      color white
+      .close
+        font-family Arial, sans-serif
+        padding 2px
+        margin 0px
+        color white
+        float right
+        font-size 20px
+        cursor pointer
+        &:hover
+          color black
+    .modal-body
+      background-color rgba(255, 255, 255, 0.6)
+      padding 15px 20px 15px 20px
+      span
+        font-family 'roboto-black', Arial, sans-serif
+    .modal-buttons
+      background-color rgba(255, 255, 255, 0.6)
+      padding 0px 40px 40px 40px
+      .btn-Aceptar
+        float left
+        font-size 16px
+        padding 5px
+        border-radius 2px
+        color white
+        background rgb(73, 126, 98)//rgb(93, 156, 84)
+        border 0px solid black
+        cursor pointer
+      .btn-Cancelar
+        float right
+        font-size 16px
+        padding 5px
+        border-radius 2px
+        color white
+        background rgb(230, 81, 61)//rgb(147, 32, 21)
+        border 0px solid black
+        cursor pointer
+    .modal-footer
+      padding 2px 10px
+      background-color rgb(224, 54, 38)//#5cb85c
+      color white
+    
+.contenedor
+  background rgba(23, 23, 23, 0.9)
+  position relative
+  
+  ::-webkit-scrollbar
+    -webkit-border-radius 10px
+    //background rgba(211, 173, 2, 0.4)//rgba(255, 255, 255, 0.6)
+    width 6px
+    height 6px
+    
+  //::-webkit-scrollbar-button
+    
+  ::-webkit-scrollbar-track
+    //-webkit-box-shadow inset 0 0 6px rgba(0,0,0,0.3)
+    -webkit-border-radius 10px
+    
+  //::-webkit-scrollbar-track-piece
+    
+  ::-webkit-scrollbar-thumb
+    -webkit-border-radius 10px
+    background rgb(94, 94, 94)//rgb(69, 69, 69)//rgba(126, 233, 35, 0.9)//rgba(211, 173, 2, 0.8)//rgb(255, 148, 0)
+    //-webkit-box-shadow inset 0 0 6px rgba(0,0,0,0.5)
+    
+  //::-webkit-scrollbar-corner
+    
+  //::-webkit-resizer
+  .tablasAccesoriosCopia
+    ////////////////////////////////////////////
+    //display none
+    //z-index 22
+    overflow-y auto
+    overflow-x hidden
+    height 250px
+    position absolute
+    top 20px !important//718px//480px
+    right 10px
+    color black
+    div
+      table
+        //width 320px
+        background white
+        border-collapse collapse
+        width 280px
+        border 1px solid black
+        tr
+          border 0px solid white
+          transition all 0.4s
+          .center
+            text-align center
+          .total
+            background #A3DCD6//black
+            //color white
+          th
+            font-family 'roboto-light', 'Helvetica Neue', Helvetica, Arial, sans-serif
+            font-size 12px//9px
+            padding 10px//2px
+            border 1px solid black
+            background black//rgba(58, 50, 113, 1)//rgba(147, 32, 21, 1)
+            color white//black
+            //background white
+          td
+            font-family 'roboto-light', 'Helvetica Neue', Helvetica, Arial, sans-serif
+            font-size 12px//9px
+            font-family Arial, sans-serif
+            padding 5px//2px
+            border 1px solid black
+            //background white
+            margin 0
+          &:nth-child(even)
+            background rgba(58, 50, 113, 0.2)//rgba(147, 32, 21, 0.2)
+          &:nth-child(odd)
+            background rgba(58, 50, 113, 0.1)//rgba(147, 32, 21, 0.1)
+  
+  .tablasAccesorios
+    ////////////////////////////////////////////
+    display none
+    z-index 22
+    position absolute
+    top 680px//718px//480px
+    right 10px
+    div
+      table
+        //width 320px
+        width 300px
+        border-collapse collapse
+        border 1px solid black
+        tr
+          th
+            font-family Arial, sans-serif
+            font-size 9px
+            padding 2px
+            border 1px solid black
+            color black
+            background white
+          td
+            font-family Arial, sans-serif
+            font-size 9px
+            padding 2px
+            border 1px solid black
+            background white
+    
+  .menu-dinamico
+    font-family 'roboto-regular', Arial, sans-serif
+    position absolute//fixed
+    right 5px
+    top 280px//////////////
+    .menu-instalaciones
+      
+      overflow-y auto
+      overflow-x hidden
+      height 350px//246px
+      
+      width 200px//166px
+      padding 0px
+      margin 0px
+      margin-top 10px
+      border 2px solid black
+      .instalacion-header
+        text-align center
+        background #A82929//black
+        color white//rgb(255, 197, 0)
+        font-size 14px
+        padding 2px
+        border-bottom 2px solid black
+      .instalacion-body
+        //color white
+        //background rgba(168, 41, 41, 0.2)
+        //background rgba(255 ,255 ,255 , 0.2)
+        //background rgba(210, 70, 70, 0.2)
+        .instalacion
+          //background rgba(210, 70, 70, 1)
+          //background rgba(255, 255, 255, 0.9)
+          text-align center
+          //padding-left 15px
+          font-size 14px
+          color #80FFE8//#00F0C5//#00BD9B
+          border-bottom 2px solid black//red
+          position relative
+          //margin-left 5px
+          .installSegmentControls
+            position absolute
+            top 0px
+            right 5px
+            .segmentShow
+              padding 2px
+              display table-cell
+              text-align center
+              vertical-align middle
+              color rgba(255, 255, 255, 0.6)//#57CBFF
+              &:hover
+                cursor pointer
+                color rgba(255, 255, 255, 1)//#0080BB
+                transition 0.3s
+              &:after
+                font-family 'esentialIcons'
+                content '\f13a'
+                font-size 15px
+                display inline-block
+            .segmentHide
+              padding 2px
+              display table-cell
+              text-align center
+              vertical-align middle
+              color rgba(255, 255, 255, 0.6)//#57CBFF
+              &:hover
+                cursor pointer
+                color rgba(255, 255, 255, 1)//#0080BB
+                transition 0.3s
+              &:after
+                font-family 'esentialIcons'
+                content '\f139'
+                font-size 15px
+                display inline-block
+          /*.installSegmentInfoTotal
+            position absolute
+            top 0px
+            right 55px
+            .segmentTotal
+              //font-size 14px
+              //border 2px solid #2D2D2D//black
+              border-radius 10px
+              background rgb(52, 20, 39)//rgba(144, 197, 63, 0.8)
+              padding 2px
+              display table-cell
+              text-align center
+              vertical-align middle
+              color white//rgba(144, 197, 63, 1)//white
+          .installSegmentInfoHere
+            position absolute
+            top 0px
+            right 25px
+            .segmentHere
+              border-radius 10px
+              background rgb(0, 66, 97)//rgb(72, 61, 139)
+              padding 2px
+              display table-cell
+              text-align center
+              vertical-align middle
+              color white*/
+              
+          .installControls
+            padding 0px 5px
+            .instAdd
+              padding 2px
+              display table-cell
+              text-align center
+              vertical-align middle
+              color #57CBFF
+              &:hover
+                cursor pointer
+                color #0080BB
+                transition 0.3s
+              &:after
+                font-family 'esentialIcons'
+                content '\f055'//e114'//
+                font-size 15px
+                display inline-block
+            .instDel
+              padding 2px
+              display table-cell
+              text-align center
+              vertical-align middle
+              color #57CBFF
+              &:hover
+                cursor pointer
+                color #0080BB
+                transition 0.3s
+              &:after
+                font-family 'esentialIcons'
+                content '\f057'//e115'//
+                font-size 15px
+                display inline-block
+            .instSel
+              padding 2px
+              display table-cell
+              text-align center
+              vertical-align middle
+              color #57CBFF
+              &:hover
+                cursor pointer
+                color #0080BB
+                transition 0.3s
+              &:after
+                font-family 'esentialIcons'
+                content '\f058'//e116'//
+                font-size 15px
+                display inline-block
+            .instVer
+              padding 2px
+              display table-cell
+              text-align center
+              vertical-align middle
+              color #57CBFF
+              &:hover
+                cursor pointer
+                color #0080BB
+                transition 0.3s
+              &:after
+                font-family 'esentialIcons'
+                content '\e000'//\e901'
+                font-size 15px
+                display inline-block
+            .segmentTotal
+              font-size 13px
+              border 1px solid black//#2D2D2D//
+              border-right 0px
+              //border-radius 10px
+              background #610012//#E03626//#00A186//#610012//rgba(144, 197, 63, 0.8)
+              padding 2px
+              display table-cell
+              text-align center
+              vertical-align middle
+              color white//rgba(144, 197, 63, 1)//white//rgba(144, 197, 63, 1)//white
+            .segmentHere
+              font-size 13px
+              border 1px solid black
+              //border-radius 5px
+              background #004261//#FAC613//#FF9D00//rgb(52, 20, 39)//rgba(144, 197, 63, 0.8)
+              padding 2px
+              display table-cell
+              text-align center
+              vertical-align middle
+              color white//black//#FAC613//#FF9D00//black//white//rgba(144, 197, 63, 1)//white
+          &:last-child
+            border none
+          /*.installControls div:nth-of-type(5)
+            background: red;*/
+          .segmentContainer 
+            background #142734//#141734
+            display none
+            overflow-y auto
+            overflow-x hidden
+            height 50px//100px
+            .segmento
+              //display none
+              font-size 14px
+              color #FBCE50
+              padding 0px 5px
+              //background rgba(210, 70, 70, 0.4)
+              .segAdd
+                padding 2px
+                display table-cell
+                text-align center
+                vertical-align middle
+                color #EBF0F1//#FFC500
+                &:hover
+                  cursor pointer
+                  color #DB5925
+                  transition 0.3s
+                &:after
+                  font-family 'esentialIcons'
+                  content '\f055'
+                  font-size 15px
+                  display inline-block
+              .segDel
+                padding 2px
+                display table-cell
+                text-align center
+                vertical-align middle
+                color #F15300//#FFC500
+                &:hover
+                  cursor pointer
+                  color #DB5925
+                  transition 0.3s
+                &:after
+                  font-family 'esentialIcons'
+                  content '\f057'
+                  font-size 15px
+                  display inline-block
+              .segSel
+                padding 2px
+                display table-cell
+                text-align center
+                vertical-align middle
+                color #FFC500
+                &:hover
+                  cursor pointer
+                  color #DB5925
+                  transition 0.3s
+                &:after
+                  font-family 'esentialIcons'
+                  content '\f058'
+                  font-size 15px
+                  display inline-block
+              .segVer
+                padding 2px
+                display table-cell
+                text-align center
+                vertical-align middle
+                color #FFC500
+                &:hover
+                  cursor pointer
+                  color #DB5925
+                  transition 0.3s
+                &:after
+                  font-family 'esentialIcons'
+                  content '\e000'//'\e901'
+                  font-size 15px
+                  display inline-block
+              .segUnion
+                padding 2px
+                display table-cell
+                text-align center
+                vertical-align middle
+                color #188C4C//#FFC500
+                &:hover
+                  cursor pointer
+                  color #188C4C//#DB5925
+                  transition 0.3s
+                &:after
+                  font-family 'esentialIcons'
+                  content '\e90f'//e91c'//'\e901'
+                  font-size 20px//25px
+                  display inline-block
+              .segBroken
+                padding 2px
+                display table-cell
+                text-align center
+                vertical-align middle
+                color #D22D1E//#FFC500
+                &:hover
+                  cursor pointer
+                  color #D22D1E//#DB5925
+                  transition 0.3s
+                &:after
+                  font-family 'esentialIcons'
+                  content '\e910'//e91e'//'\e901'
+                  font-size 20px//25px
+                  display inline-block
+              /*&:nth-child(2n+1)
+              background rgba(210, 70, 70, 0.8)
+            &:nth-child(2n)
+              background rgba(210, 70, 70, 0.4)*/
+      /*
+        div(class = 'instalacion-body')
+          div(class = 'instalacion') PRINCIPAL
+            div(class = 'installControls')
+              div(class = 'textAdd') A
+              div(class = 'textDel') B
+              div(class = 'textSel') C
+              div(class = 'textVer') D
+            div(class = 'segmento') segmento
+              div(class = 'installControls')
+                div(class = 'textAdd') A
+                div(class = 'textDel') B
+                div(class = 'textSel') C
+                div(class = 'textVer') D
+            div(class = 'segmento') segmento
+              div(class = 'installControls')
+                div(class = 'textAdd') A
+                div(class = 'textDel') B
+                div(class = 'textSel') C
+                div(class = 'textVer') D
+            div(class = 'segmento') segmento
+          div(class = 'instalacion') SECUNDARIA 1
+            div(class = 'installControls')
+              div(class = 'textAdd') A
+              div(class = 'textDel') B
+              div(class = 'textSel') C
+              div(class = 'textVer') D
+            div(class = 'segmento') segmento
+              div(class = 'installControls')
+                div(class = 'textAdd') A
+                div(class = 'textDel') B
+                div(class = 'textSel') C
+                div(class = 'textVer') D
+            div(class = 'segmento') segmento
+              div(class = 'installControls')
+                div(class = 'textAdd') A
+                div(class = 'textDel') B
+                div(class = 'textSel') C
+                div(class = 'textVer') D
+            div(class = 'segmento') segmento
+              div(class = 'installControls')
+                div(class = 'textAdd') A
+                div(class = 'textDel') B
+                div(class = 'textSel') C
+                div(class = 'textVer') D
+      */
+      /*ul
+        
+        li
+          text-align center
+          background black
+          color rgb(255, 197, 0)
+          font-size 12px
+          h1 
+            font-family 'roboto-light'
+            font-size 14px
+            padding 5px
+          &:hover > ul
+            //display block
+            //animation-name animateDraw
+            //animation-duration 2s
+            //display block
+            /*overflow-y auto
+            overflow-x hidden
+            height 80px
+            transition 0.5s
+          ul
+            //animation-name animateRDraw
+            //animation-duration 2s
+            //display none
+            overflow hidden
+            height 0px
+            transition 0.5s
+            background rgb(53, 53, 53)
+            li
+              padding 3px 5px
+              text-align left
+              list-style none
+              background rgb(53, 53, 53)
+              cursor pointer
+              color rgb(0, 205, 106)//white*/
+              
+              
+    .menu-componentes
+      display none
+      overflow-y auto
+      overflow-x hidden
+      height 255px
+      //top 200px
+      width 200px//166px
+      padding 0px
+      margin 0px
+      margin-top 10px
+      border 2px solid black
+      .componentes-header
+        text-align center
+        background #B4BD32
+        color black
+        font-size 14px
+        padding 2px
+        border-bottom 2px solid black
+      .componentes-body
+        .componente
+          text-align center
+          font-size 14px
+          color #BDC4C9//#80FFE8//#00BD9B//#EBF0F1//#B4BD32////#00F0C5//
+          //border-bottom 2px solid black//red
+          position relative
+          /*.componenteMedidor
+            padding 0px 5px
+            .medidorIzquierda
+              padding 2px 10px 2px 50px
+              display table-cell
+              text-align center
+              vertical-align middle
+              color black//white//#57CBFF
+              &:hover
+                cursor pointer
+                color #B1BA31//white//#0080BB
+                transition 0.3s
+              &:after
+                border-radius 5px
+                border 2px solid black
+                font-family 'esentialIcons'
+                content '\e920'
+                font-size 40px
+                display inline-block
+            .medidorDerecha
+              padding 2px
+              display table-cell
+              text-align center
+              vertical-align middle
+              color black//#57CBFF
+              &:hover
+                cursor pointer
+                color #B1BA31//#0080BB
+                transition 0.3s
+              &:after
+                border-radius 5px
+                border 2px solid black
+                font-family 'esentialIcons'
+                content '\e91f'
+                font-size 40px
+                display inline-block
+          &:last-child
+            border none*/
+          .componenteContainerMedidor
+            position relative
+            height 50px
+            .componenteMedidorIzquierda
+              position absolute
+              left 45px
+              padding 0px
+              margin 0px
+              width 48px
+              .medidorIzquierda
+                border-radius 5px
+                border 2px solid black
+                color black
+                background rgba(255, 255, 255, 0.5)
+                transition 0.3s
+                &:hover
+                  background #B1BA31
+                  cursor pointer
+                  transition 0.3s
+                &:after
+                  padding 2px
+                  font-family 'esentialIcons'
+                  content '\e920'
+                  font-size 40px
+                  //display inline-block
+              .clicked
+                background rgb(205, 218, 27)
+            .componenteMedidorDerecha
+              position absolute
+              left 115px
+              padding 0px
+              margin 0px
+              width 48px
+              .medidorDerecha
+                border-radius 5px
+                border 2px solid black
+                color black
+                background rgba(255, 255, 255, 0.5)
+                transition 0.3s
+                &:hover
+                  background #B1BA31
+                  cursor pointer
+                  transition 0.3s
+                &:after
+                  padding 2px
+                  font-family 'esentialIcons'
+                  content '\e91f'
+                  font-size 40px
+                  //display inline-block
+              .clicked
+                background rgb(205, 218, 27)
+          .componenteContainerTe
+            position relative
+            height 100px
+            .componenteTe_30
+              position absolute
+              left 2px
+              padding 0px
+              margin 0px
+              width 48px
+              .te_30
+                border-radius 5px
+                border 2px solid black
+                color black
+                background rgba(255, 255, 255, 0.5)
+                transition 0.3s
+                &:hover
+                  background #B1BA31
+                  cursor pointer
+                  transition 0.3s
+                &:after
+                  padding 2px
+                  font-family 'esentialIcons'
+                  content '\e939'//e919'//e91a'
+                  font-size 40px
+                  display inline-block
+              .clicked
+                background rgb(205, 218, 27)
+            .componenteTe_90
+              position absolute
+              left 50px
+              padding 0px
+              margin 0px
+              width 48px
+              .te_90
+                border-radius 5px
+                border 2px solid black
+                color black
+                background rgba(255, 255, 255, 0.5)
+                transition 0.3s
+                &:hover
+                  background #B1BA31
+                  cursor pointer
+                  transition 0.3s
+                &:after
+                  padding 2px
+                  font-family 'esentialIcons'
+                  content '\e938'//e919'//e91a'
+                  font-size 40px
+                  display inline-block
+              .clicked
+                background rgb(205, 218, 27)
+              
+            .componenteTe_150
+              position absolute
+              left 98px
+              padding 0px
+              margin 0px
+              width 48px
+              .te_150
+                border-radius 5px
+                border 2px solid black
+                color black
+                background rgba(255, 255, 255, 0.5)
+                transition 0.3s
+                &:hover
+                  background #B1BA31
+                  cursor pointer
+                  transition 0.3s
+                &:after
+                  padding 2px
+                  font-family 'esentialIcons'
+                  content '\e937'//e91a'
+                  font-size 40px
+                  display inline-block
+              .clicked
+                background rgb(205, 218, 27)
+            .componenteTe_210
+              position absolute
+              left 146px
+              padding 0px
+              margin 0px
+              width 48px
+              .te_210
+                border-radius 5px
+                border 2px solid black
+                color black
+                background rgba(255, 255, 255, 0.5)
+                transition 0.3s
+                &:hover
+                  background #B1BA31
+                  cursor pointer
+                  transition 0.3s
+                &:after
+                  padding 2px
+                  font-family 'esentialIcons'
+                  content '\e936'//e91a'
+                  font-size 40px
+                  display inline-block
+              .clicked
+                background rgb(205, 218, 27)
+            .componenteTe_270
+              position absolute
+              left 50px
+              top 50px
+              padding 0px
+              margin 0px
+              width 48px
+              .te_270
+                border-radius 5px
+                border 2px solid black
+                color black
+                background rgba(255, 255, 255, 0.5)
+                transition 0.3s
+                &:hover
+                  background #B1BA31
+                  cursor pointer
+                  transition 0.3s
+                &:after
+                  padding 2px
+                  font-family 'esentialIcons'
+                  content '\e935'//e91a'
+                  font-size 40px
+                  display inline-block
+              .clicked
+                background rgb(205, 218, 27)
+            .componenteTe_330
+              position absolute
+              top 50px
+              left 98px
+              padding 0px
+              margin 0px
+              width 48px
+              .te_330
+                border-radius 5px
+                border 2px solid black
+                color black
+                background rgba(255, 255, 255, 0.5)
+                transition 0.3s
+                &:hover
+                  background #B1BA31
+                  cursor pointer
+                  transition 0.3s
+                &:after
+                  padding 2px
+                  font-family 'esentialIcons'
+                  content '\e934'//e91a'
+                  font-size 40px
+                  display inline-block
+              .clicked
+                background rgb(205, 218, 27)
+          .componenteContainerTubForro
+            position relative
+            height 50px
+            .componenteTubForro
+              position absolute
+              left 75px
+              padding 0px
+              margin 0px
+              width 48px
+              .tubForro
+                border-radius 5px
+                border 2px solid black
+                color black
+                background rgba(255, 255, 255, 0.5)
+                transition 0.3s
+                &:hover
+                  background #B1BA31
+                  cursor pointer
+                  transition 0.3s
+                &:after
+                  padding 2px
+                  font-family 'esentialIcons'
+                  content '\e91b'
+                  font-size 40px
+                  display inline-block
+              .clicked
+                background rgb(205, 218, 27)
+          .componenteContainerInstalacion
+            position relative
+            height 50px
+            .componenteTePorInstalacion
+              position absolute
+              left 75px
+              padding 0px
+              margin 0px
+              width 48px
+              .instalacion
+                border-radius 5px
+                border 2px solid black
+                color black
+                background rgba(255, 255, 255, 0.5)
+                transition 0.3s
+                &:hover
+                  background #B1BA31
+                  cursor pointer
+                  transition 0.3s
+                &:after
+                  padding 2px
+                  font-family 'esentialIcons'
+                  content '\e93a'//e91b'
+                  font-size 40px
+                  display inline-block
+              .clicked
+                background rgb(205, 218, 27)
+                  
+                  
+    .menu-tagsTool
+      
+      width 200px//170px
+      //display table
+      //table-layout fixed
+      .tags-title
+        margin 5px 0px 0px 0px
+        text-align center
+        font-size 14px
+        color white
+        //padding 10px
+        padding 2px
+        background rgb(52, 20, 39)//rgba(0, 0, 0, 0.8)//#365D2C
+        border 2px solid black
+        border-radius 5px 5px 0px 0px
+        h1
+          font-size 14px
+      .tags-listModifier
+        overflow-y auto
+        overflow-x hidden
+        height 150px//250px
+        background rgba(20, 39, 52, 0.6)
+        font-size 14px
+        padding 2px
+        border 2px solid black
+        border-radius 0px 0px 0px 0px
+        border-top 0px
+        text-align center
+        label
+          //padding-top 5px
+          //margin-top 5px
+          color white
+        input[type = 'text']
+          text-align center
+          background transparent
+          margin 0px
+          padding 0px
+          border 0px
+          animation-name restoreInputTag
+          animation-duration 1s
+          color rgba(255, 255, 255, 0.6)//rgba(255, 197, 0, 0.6)//
+          border-bottom 2px solid rgba(255, 255, 255, 0.0)//rgba(255, 197, 0, 0.0)//
+          font-size 16px
+        input[type = 'text']:focus
+          outline none
+          animation-name changeInputTag
+          animation-duration 1s
+          color rgba(255, 255, 255, 1)//rgba(255, 197, 0, 1)
+          border-bottom 2px solid rgba(255, 255, 255, 1)//rgba(255, 197, 0, 1)
+        
+        input[type = 'number']
+          text-align center
+          background transparent
+          margin 0px
+          padding 0px
+          border 0px
+          animation-name restoreInputTag
+          animation-duration 1s
+          color rgba(255, 255, 255, 0.6)//rgba(255, 197, 0, 0.6)//
+          border-bottom 2px solid rgba(255, 255, 255, 0.0)//rgba(255, 197, 0, 0.0)//
+          font-size 16px
+        input[type = 'number']:focus
+          outline none
+          animation-name changeInputTag
+          animation-duration 1s
+          color rgba(255, 255, 255, 1)//rgba(255, 197, 0, 1)
+          border-bottom 2px solid rgba(255, 255, 255, 1)//rgba(255, 197, 0, 1)
+          
+        .label
+          padding-top 5px
+        .textOrientation
+           padding 5px
+           text-align center
+           
+          .tagAngle
+            padding 2px
+            background-color rgba(61, 61, 61,0.8)//rgb(0, 189, 155)//
+            display table-cell
+            text-align center
+            vertical-align middle
+            color black
+            &:hover
+              background-color #4A7B3E//rgb(0, 176, 92)//
+              color white
+              transition 0.3s
+          .clicked
+            background-color #0C5537
+            //color white
+            &:after
+              color white
+          .tg-0
+            border 2px solid black
+            &:after
+              font-family 'esentialIcons'//'grades'
+              content '\e90e'//'\e905'
+              font-size 20px
+              //color white
+              display inline-block
+          .tg-30
+            border-top 2px solid black
+            border-bottom 2px solid black
+            border-right 2px solid black
+            &:after
+              font-family 'esentialIcons'//'grades'
+              content '\e902'//'\e905'
+              font-size 20px
+              //color white
+              display inline-block
+          .tg-90
+            border-top 2px solid black
+            border-bottom 2px solid black
+            border-right 2px solid black
+            &:after
+              font-family 'esentialIcons'//'grades'
+              content '\e903'//'\e905'
+              font-size 20px
+              //color white
+              display inline-block
+          .tg-150
+            border-top 2px solid black
+            border-bottom 2px solid black
+            border-right 2px solid black
+            &:after
+              font-family 'esentialIcons'//'grades'
+              content '\e904'//'\e905'
+              font-size 20px
+              //color white
+              display inline-block
+          .tg-210
+            border-top 2px solid black
+            border-bottom 2px solid black
+            border-right 2px solid black
+            &:after
+              font-family 'esentialIcons'//'grades'
+              content '\e905'//'\e905'
+              font-size 20px
+              //color white
+              display inline-block
+          .tg-270
+            border-top 2px solid black
+            border-bottom 2px solid black
+            &:after
+              font-family 'esentialIcons'//'grades'
+              content '\e906'//'\e905'
+              font-size 20px
+              //color white
+              display inline-block
+          .tg-330
+            border 2px solid black
+            &:after
+              font-family 'esentialIcons'//'grades'
+              content '\e907'//'\e905'
+              font-size 20px
+              //color white
+              display inline-block
+        .textControls
+          padding 0px 5px
+          .textAdd
+            padding 2px
+            background-color rgba(61, 61, 61,0.8)//rgb(0, 189, 155)//
+            display table-cell
+            text-align center
+            vertical-align middle
+            color black
+            &:hover
+              background-color #4A7B3E//rgb(0, 176, 92)//
+              color white
+              transition 0.3s
+            //border 2px solid black
+            &:after
+              font-family 'esentialIcons'//'grades'
+              content '\f055'//'\e905'
+              font-size 15px
+              //color white
+              display inline-block
+          .textDel
+            padding 2px
+            background-color rgba(61, 61, 61,0.8)//rgb(0, 189, 155)//
+            display table-cell
+            text-align center
+            vertical-align middle
+            color black
+            &:hover
+              background-color #4A7B3E//rgb(0, 176, 92)//
+              color white
+              transition 0.3s
+            //border 2px solid black
+            &:after
+              font-family 'esentialIcons'//'grades'
+              content '\f057'//'\e905'
+              font-size 15px
+              //color white
+              display inline-block
+          .textSel
+            padding 2px
+            background-color rgba(61, 61, 61,0.8)//rgb(0, 189, 155)//
+            display table-cell
+            text-align center
+            vertical-align middle
+            color black
+            &:hover
+              background-color #4A7B3E//rgb(0, 176, 92)//
+              color white
+              transition 0.3s
+            //border 2px solid black
+            &:after
+              font-family 'esentialIcons'//'grades'
+              content '\e914'//e911'//f058'//'\e905'
+              font-size 15px
+              //color white
+              display inline-block
+          .textVer
+            padding 2px
+            background-color rgba(61, 61, 61,0.8)//rgb(0, 189, 155)//
+            display table-cell
+            text-align center
+            vertical-align middle
+            color black
+            &:hover
+              background-color #4A7B3E//rgb(0, 176, 92)//
+              color white
+              transition 0.3s
+            //border 2px solid black
+            &:after
+              font-family 'esentialIcons'//'grades'
+              content '\e901'//'\e905'
+              font-size 15px
+              //color white
+              display inline-block
+      .tags-listModifierSelected
+        
+        font-size 14px
+        padding 2px
+        border 2px solid black
+        border-radius 0px 0px 0px 0px
+        border-top 0px
+        text-align center
+        label
+          //padding-top 5px
+          //margin-top 5px
+          color white
+        input[type = 'text']
+          text-align center
+          background transparent
+          margin 0px
+          padding 0px
+          border 0px
+          animation-name restoreInputTag
+          animation-duration 1s
+          color rgba(255, 255, 255, 0.6)//rgba(255, 197, 0, 0.6)//
+          border-bottom 2px solid rgba(255, 255, 255, 0.0)//rgba(255, 197, 0, 0.0)//
+          font-size 16px
+        input[type = 'text']:focus
+          outline none
+          animation-name changeInputTag
+          animation-duration 1s
+          color rgba(255, 255, 255, 1)//rgba(255, 197, 0, 1)
+          border-bottom 2px solid rgba(255, 255, 255, 1)//rgba(255, 197, 0, 1)
+        
+        input[type = 'number']
+          text-align center
+          background transparent
+          margin 0px
+          padding 0px
+          border 0px
+          animation-name restoreInputTag
+          animation-duration 1s
+          color rgba(255, 255, 255, 0.6)//rgba(255, 197, 0, 0.6)//
+          border-bottom 2px solid rgba(255, 255, 255, 0.0)//rgba(255, 197, 0, 0.0)//
+          font-size 16px
+        input[type = 'number']:focus
+          outline none
+          animation-name changeInputTag
+          animation-duration 1s
+          color rgba(255, 255, 255, 1)//rgba(255, 197, 0, 1)
+          border-bottom 2px solid rgba(255, 255, 255, 1)//rgba(255, 197, 0, 1)
+          
+        .label
+          padding-top 5px
+        .textOrientation
+           padding 5px
+           text-align center
+           
+          .tagAngle
+            padding 2px
+            background-color rgba(61, 61, 61,0.8)//rgb(0, 189, 155)//
+            display table-cell
+            text-align center
+            vertical-align middle
+            color black
+            &:hover
+              background-color #4A7B3E//rgb(0, 176, 92)//
+              color white
+              transition 0.3s
+          .clicked
+            background-color #0C5537
+            //color white
+            &:after
+              color white
+          .tg-0
+            border 2px solid black
+            &:after
+              font-family 'esentialIcons'//'grades'
+              content '\e90e'//'\e905'
+              font-size 20px
+              //color white
+              display inline-block
+          .tg-30
+            border-top 2px solid black
+            border-bottom 2px solid black
+            border-right 2px solid black
+            &:after
+              font-family 'esentialIcons'//'grades'
+              content '\e902'//'\e905'
+              font-size 20px
+              //color white
+              display inline-block
+          .tg-90
+            border-top 2px solid black
+            border-bottom 2px solid black
+            border-right 2px solid black
+            &:after
+              font-family 'esentialIcons'//'grades'
+              content '\e903'//'\e905'
+              font-size 20px
+              //color white
+              display inline-block
+          .tg-150
+            border-top 2px solid black
+            border-bottom 2px solid black
+            border-right 2px solid black
+            &:after
+              font-family 'esentialIcons'//'grades'
+              content '\e904'//'\e905'
+              font-size 20px
+              //color white
+              display inline-block
+          .tg-210
+            border-top 2px solid black
+            border-bottom 2px solid black
+            border-right 2px solid black
+            &:after
+              font-family 'esentialIcons'//'grades'
+              content '\e905'//'\e905'
+              font-size 20px
+              //color white
+              display inline-block
+          .tg-270
+            border-top 2px solid black
+            border-bottom 2px solid black
+            &:after
+              font-family 'esentialIcons'//'grades'
+              content '\e906'//'\e905'
+              font-size 20px
+              //color white
+              display inline-block
+          .tg-330
+            border 2px solid black
+            &:after
+              font-family 'esentialIcons'//'grades'
+              content '\e907'//'\e905'
+              font-size 20px
+              //color white
+              display inline-block
+        .textControls
+          padding 0px 5px
+          .textAdd
+            padding 2px
+            background-color rgba(61, 61, 61,0.8)//rgb(0, 189, 155)//
+            display table-cell
+            text-align center
+            vertical-align middle
+            color black
+            &:hover
+              background-color #4A7B3E//rgb(0, 176, 92)//
+              color white
+              transition 0.3s
+            //border 2px solid black
+            &:after
+              font-family 'esentialIcons'//'grades'
+              content '\f055'//'\e905'
+              font-size 15px
+              //color white
+              display inline-block
+          .textDel
+            padding 2px
+            background-color rgba(61, 61, 61,0.8)//rgb(0, 189, 155)//
+            display table-cell
+            text-align center
+            vertical-align middle
+            color black
+            &:hover
+              background-color #4A7B3E//rgb(0, 176, 92)//
+              color white
+              transition 0.3s
+            //border 2px solid black
+            &:after
+              font-family 'esentialIcons'//'grades'
+              content '\f057'//'\e905'
+              font-size 15px
+              //color white
+              display inline-block
+          .textSel
+            padding 2px
+            background-color rgba(61, 61, 61,0.8)//rgb(0, 189, 155)//
+            display table-cell
+            text-align center
+            vertical-align middle
+            color black
+            &:hover
+              background-color #4A7B3E//rgb(0, 176, 92)//
+              color white
+              transition 0.3s
+            //border 2px solid black
+            &:after
+              font-family 'esentialIcons'//'grades'
+              content '\f058'//'\e905'
+              font-size 15px
+              //color white
+              display inline-block
+          .textVer
+            padding 2px
+            background-color rgba(61, 61, 61,0.8)//rgb(0, 189, 155)//
+            display table-cell
+            text-align center
+            vertical-align middle
+            color black
+            &:hover
+              background-color #4A7B3E//rgb(0, 176, 92)//
+              color white
+              transition 0.3s
+            //border 2px solid black
+            &:after
+              font-family 'esentialIcons'//'grades'
+              content '\e901'//'\e905'
+              font-size 15px
+              //color white
+              display inline-block        
+  
+  .menu-lateral
+    font-family 'roboto-regular', Arial, sans-serif
+    position absolute
+    left 5px
+    top 280px
+    //animation-name decrease
+    //animation-duration 1s
+    //left -150px
+    
+    //top 220px//111px
+    &:hover
+      //animation-name growing
+      //animation-duration 1s
+      left 5px
+    .menu-angle
+      width 170px
+      display table
+      table-layout fixed
+      .cabecera
+        margin 5px 0px 0px 0px
+        text-align center
+        font-size 14px
+        color white
+        //padding 10px
+        padding 2px
+        background rgba(0, 0, 0, 0.8)//#365D2C
+        border 2px solid black
+      .angle
+        background-color rgba(61, 61, 61,0.8)
+        display table-cell
+        text-align center
+        vertical-align middle
+        color black
+        &:hover
+          background-color #4A7B3E
+          color white
+          transition 0.3s
+      .clicked
+        background-color #0C5537
+        &:before
+          color white
+
+      .g-30
+        cursor pointer
+        padding 4px
+        border 2px solid #0F060F
+        border-radius 0px 15px 0px 0px 
+        &:before
+          font-family 'esentialIcons'//'grades'
+          content '\e908'//'\e905'
+          font-size 45px
+          display inline-block
+      .g-90
+        cursor pointer
+        padding 4px
+        border-top 2px solid #0F060F
+        border-bottom 2px solid #0F060F
+        &:before
+          font-family 'esentialIcons'//'grades'
+          content '\e909'//'\e904'
+          font-size 45px
+          display inline-block
+      .g-150
+        cursor pointer
+        padding 4px
+        border 2px solid #0F060F
+        border-radius 15px 0px 0px 0px 
+        &:before
+          font-family 'esentialIcons'//'grades'
+          content '\e90a'//'\e903'
+          font-size 45px
+          display inline-block
+      .g-210
+        cursor pointer
+        padding 4px
+        border-right 2px solid #0F060F
+        border-left 2px solid #0F060F
+        border-bottom 2px solid #0F060F
+        border-radius 0px 0px 0px 15px 
+        &:before
+          font-family 'esentialIcons'//'grades'
+          content '\e90b'//'\e902'
+          font-size 45px
+          display inline-block
+      .g-270
+        cursor pointer
+        padding 4px
+        border-bottom 2px solid #0F060F
+        &:before
+          font-family 'esentialIcons'//'grades'
+          content '\e90c'//'\e901'
+          font-size 45px
+          display inline-block
+      .g-330
+        cursor pointer
+        padding 4px
+        border-right 2px solid #0F060F
+        border-left 2px solid #0F060F
+        border-bottom 2px solid #0F060F
+        border-radius 0px 0px 15px 0px 
+        &:before
+          font-family 'esentialIcons'//'grades'
+          content '\e90d'//'\e900'
+          font-size 45px
+          display inline-block
+          
+    
+          
+    .menu-tub
+      width 170px
+      display table
+      table-layout fixed
+      .cabecera
+        text-align center
+        font-size 14px
+        color white
+        //padding 5px
+        padding 2px
+        background rgba(0, 0, 0, 0.8)//#365D2C
+        border-bottom 2px solid black
+        border 2px solid black
+        margin-top 5px
+      .tub
+        background-color rgba(61, 61, 61,0.8)
+        display table-cell
+        text-align center
+        vertical-align middle
+        color black
+        &:hover
+          background-color #4A7B3E
+          color white
+          transition 0.3s
+      .clicked
+        background-color #0C5537
+        &:before
+          color white
+      .d_1_2
+        cursor pointer
+        padding 6px
+        border 2px solid black
+        border-radius 15px 0px 0px 15px
+        &:before
+          font-family 'grades'
+          content '\e907'
+          font-size 20px
+          display inline-block
+      .d_1
+        cursor pointer
+        padding 6px
+        border-top 2px solid black
+        border-right 2px solid black
+        border-bottom 2px solid black
+        &:before
+          font-family 'grades'
+          content '\e908'
+          font-size 20px
+          display inline-block
+      .d_1_4
+        cursor pointer
+        padding 6px
+        border-right 2px solid black
+        border-top 2px solid black
+        border-bottom 2px solid black
+        border-radius 0px 15px 15px 0px
+        &:before
+          font-family 'grades'
+          content '\e906'
+          font-size 20px
+          display inline-block
+      .d_3_4
+        cursor pointer
+        padding 6px
+        border-top 2px solid black
+        border-right 2px solid black
+        border-bottom 2px solid black
+        &:before
+          font-family 'grades'
+          content '\e909'
+          font-size 20px
+          display inline-block
+    
+    .menu-distance
+      width 170px
+      padding 2%
+      text-align center
+      .distance
+        width 70%
+        font-size 21px
+        border 2px solid #929292
+        padding 10px
+        margin 5px
+        border-radius 5px
+        &:focus
+          outline none
+          border 2px solid #4A7B3E
+          box-shadow 0px 0px 20px #4A7B3E
+    
+    .menu-drawProperties
+      //display none
+      font-size 12px
+      width 166px
+      background rgba(255, 255, 255, 0.1)//rgba(235, 240, 241, 0.8)
+      border-radius 5px
+      margin 5px 0px
+      border 2px solid black
+      //animation-name growing
+      //animation-duration 4s
+      &:hover > div
+        display block
+      .properties-title
+        border-radius 2px 2px 0px 0px
+        background rgba(0, 0, 0, 0.8)//#365D2C//
+        padding 4px 0px
+        h1
+          color white
+          font-size 14px
+          text-align center
+      .stroke-width
+        .label
+          text-align center
+          padding 2px 0px
+        .range
+          padding 5px
+          input
+            width 100%
+          input[type=range]
+            -webkit-appearance none
+          input[type=range]:focus
+            outline none
+            
+          input[type=range]::-webkit-slider-runnable-track
+            width 100%
+            height 4px
+            cursor pointer
+            background rgb(186, 186, 186)//rgb(12, 85, 55)
+          input[type=range]::-webkit-slider-thumb
+            box-shadow 1px 1px 1px #000000, 0px 0px 1px #0d0d0d
+            border 1px solid #000000
+            height 30px
+            width 16px
+            border-radius 3px
+            background #fff//#a9ffff
+            cursor pointer
+            -webkit-appearance none
+            margin-top -15px
+
+        .number
+          padding 5px
+          text-align center
+          input
+            border-radius 5px
+            padding 2px
+            width 30%
+            box-sizing border-box
+      .draw-second-letters
+        position relative
+        .label
+          text-align left
+          padding 2px 10px
+          color rgba(255, 255, 255, 1)//rgba(6, 40, 26, 1)
+        .checkbox
+          position absolute
+          top 5px
+          right 10px
+      .draw-scale
+        //display none/////////////////////////////
+        padding 0px 0px 10px 0px
+        .label
+          text-align center
+          padding 2px 0px
+        .range
+          padding 5px
+          input
+            width 100%
+          input[type=range]
+            -webkit-appearance none
+          input[type=range]:focus
+            outline none
+          input[type=range]::-webkit-slider-runnable-track
+            width 100%
+            height 4px
+            cursor pointer
+            background rgb(186, 186, 186)//rgb(12, 85, 55)
+          input[type=range]::-webkit-slider-thumb
+            box-shadow 1px 1px 1px #000000, 0px 0px 1px #0d0d0d
+            border 1px solid #000000
+            height 30px
+            width 16px
+            border-radius 3px
+            background #fff//#a9ffff//
+            cursor pointer
+            -webkit-appearance none
+            margin-top -15px//-9px
+             
+        .number
+          padding 5px
+          text-align center
+          input
+            border-radius 5px
+            padding 2px
+            width 35%
+            box-sizing border-box
+    
+    .menu-button
+      //background blue
+      width 170px
+      text-align center
+      .button
+        width 170px
+        background #365D2C//rgba(144, 197, 63, 0.8)//rgba(70, 86, 149, 0.8)//rgba(44, 54, 93, 0.8)//
+        border-radius 5px
+        ///padding 10px 0px
+        padding 5px 0px
+        margin 2px 0px
+        font-size 14px
+        color white
+        text-decoration none
+        border 2px solid black
+        cursor pointer
+        &:hover
+          background #378228//rgba(144, 197, 63, 1)//rgba(70, 86, 149, 1)//
+          text-decoration none
+        &:focus
+          outline none
+      form
+        input[type = 'text']
+          display none
+        input[type = 'submit']
+          background rgba(147, 32, 21, 0.8)
+          border-radius 5px
+          padding 10px 56.5px
+          //padding 5px 56.5px
+          margin 2px 0px
+          font-size 14px
+          color white
+          text-decoration none
+          border 2px solid black
+          &:hover
+            background rgba(147, 32, 21, 1)
+            text-decoration none
+          &:focus
+            outline none
+      .button-extend
+        width 170px
+        background rgba(255, 157, 0, 0.8)
+        border-radius 5px
+        padding 5px 
+        margin 2px 0px
+        font-size 14px
+        color white
+        text-decoration none
+        border 2px solid black
+        &:hover
+          background rgba(255, 157, 0, 1)
+          text-decoration none
+        &:focus
+          outline none
+      .button-cleaner
+        width 170px
+        background rgba(255, 255, 255, 0.8)//rgba(255, 157, 0, 0.8)
+        border-radius 5px
+        padding 5px 
+        margin 2px 0px
+        font-size 14px
+        color black//white
+        text-decoration none
+        border 2px solid black
+        &:hover
+          background rgba(255, 255, 255, 1)//rgba(255, 157, 0, 1)
+          text-decoration none
+        &:focus
+          outline none
+
+      .button-breaker
+        width 170px
+        background rgba(0, 161, 134, 0.8)//rgba(255, 157, 0, 0.8)
+        border-radius 5px
+        padding 5px
+        margin 2px 0px
+        font-size 14px
+        color white
+        text-decoration none
+        border 2px solid black
+        &:hover
+          background rgba(0, 161, 134, 1)//rgba(255, 157, 0, 1)
+          text-decoration none
+        &:focus
+          outline none
+      .button-adder
+        width 170px
+        background rgba(0, 128, 187, 0.8)//rgba(0, 161, 134, 0.8)
+        border-radius 5px
+        padding 5px 
+        margin 2px 0px
+        font-size 14px
+        color white
+        text-decoration none
+        border 2px solid black
+        &:hover
+          background rgba(0, 128, 187, 1)//rgba(0, 161, 134, 1)
+          text-decoration none
+        &:focus
+          outline none
+          
+          
+  .lienzo
+    position relative
+    width 681px
+    //width 665px
+    margin 0 auto
+    .lienzo-cabecera
+      padding 10px 0px 10px 0px
+      //padding 20px 0px 10px 0px
+      //background rgb(74, 123, 62)
+      //margin-bottom 20px
+      h1
+        text-align center
+        text-transform uppercase
+        font-family 'roboto-regular'
+        font-size 26px
+        //font-size 38px
+        color rgba(255, 255, 255, 0.9)
+        text-shadow 2px 2px 1px black
+    .lienzo-modo
+      border-radius 5px
+      padding 5px
+      //padding 20px 0px 10px 0px
+      //background rgb(74, 123, 62)
+      
+      margin-bottom 10px
+      h1
+        text-align center
+        //text-transform uppercase
+        font-family 'roboto-regular'
+        font-size 14px
+        //font-size 38px
+        color rgb(144, 197, 63)//rgba(255, 255, 255, 0.9)
+        text-shadow 2px 2px 1px black
+        //border-radius 5px
+        //border 1px solid rgb(144, 197, 63)
+        
+    .lienzo-aviso
+      position absolute
+      //top 140px
+      top 145px
+      overflow-y auto
+      //white-space nowrap
+      //display none
+      background rgba(0, 0, 0, 0.4)//rgba(255, 197, 0, 1)//rgba(222, 13, 13, 0.9)
+      border-radius 2px
+      padding 10px
+      margin 5px 150px
+      width 361px
+      height 50px
+      h3
+        //text-align center
+        
+        color rgba(255, 197, 0, 1)
+        font-family 'roboto-light'
+        font-size 12px
+      p
+        text-align justify
+        font-family 'roboto-light'
+        font-size 12px
+        color white
+        padding-bottom 12px
+      h2
+        //text-align center
+        
+        color rgba(144, 197, 63, 1)
+        font-family 'roboto-light'
+        font-size 12px
+    .lienzo-limpiarAviso
+      position absolute
+      top 200px
+      left 140px
+      &:after
+        //background black
+        border 0px
+        border-radius 2px
+        color rgb(255, 128, 10)//white
+        padding 2px
+        font-family 'util-One'
+        content '\e900'
+        cursor pointer
+    .lienzo-botonera
+      width 661px
+      height 47px
+      //line-height 60px
+      overflow-x auto
+      white-space nowrap
+      margin 75px 10px 5px 10px
+      .boton
+        display inline-block
+        font-family 'roboto-light'
+        font-size 14px
+        color black
+        animation-name restoreColor
+        animation-duration 1s
+        background rgba(12, 85, 55, 1)
+        padding 6px 10px
+        border-radius 5px 0px 5px 0px
+        margin 0px 2px 2px 2px
+        &:first-child
+          margin 0px 2px 0px 0px
+        &:hover
+          color white
+          cursor pointer
+          animation-name changeColor
+          animation-duration 1s
+          background rgba(0, 161, 134, 1)
+      .activo
+        animation-duration 0s
+        background rgba(0, 161, 134, 1)
+        color white
+        &:hover
+          animation-duration 0s
+    .lienzo-propiedadesHoja
+      width 100%
+      /*height 30px
+      &:hover
+        height 70px*/
+      .texto-titulo
+        text-align center
+        input[type = 'text']
+          text-align center
+          background transparent
+          margin 0px
+          padding 0px
+          border 0px
+          animation-name restoreInput
+          animation-duration 1s
+          color rgba(255, 197, 0, 0.6)//rgba(255, 255, 255, 0.5)
+          border-bottom 2px solid rgba(255, 197, 0, 0.0)//rgba(255, 255, 255, 0.5)
+          font-size 16px
+        input[type = 'text']:focus
+          outline none
+          animation-name changeInput
+          animation-duration 1s
+          color rgba(255, 197, 0, 1)
+          border-bottom 2px solid rgba(255, 197, 0, 1)
+          
+      .boton-cambioNombre
+        text-align center
+        input[type = 'button']
+          background rgba(255, 255, 255, 0.2)
+          margin 10px 0px
+          padding 5px 10px
+          border 0px
+          border-radius 5px
+          color white//rgba(255, 255, 255, 0.5)
+          font-size 14px
+          &:hover
+            cursor pointer
+        input[type = 'button']:focus
+          outline none
+          
+    .lienzo-tools-crear
+      position absolute
+      top 155px
+      right 75px
+      width 60px
+      height 60px
+      .boton-crear
+        height 60px
+        box-sizing border-box
+        padding 5px
+        text-align center
+        background rgba(0, 0, 0, 0.4)
+        border-radius 5px
+        animation-name restoreCreate
+        animation-duration 1s
+        color rgba(83, 172, 68, 0.4)
+        &:hover
+          cursor pointer
+          color rgba(83, 172, 68, 1)
+          animation-name changeCreate
+          animation-duration 1s
+          color rgba(83, 172, 68, 1)
+        &:after
+          trxt-align center
+          font-size 50px
+          font-family 'docIcons'
+          content '\e903'
+    .lienzo-tools-eliminar
+      position absolute
+      top 155px
+      right 10px
+      width 60px
+      height 60px
+      .boton-eliminar
+        height 60px
+        box-sizing border-box
+        padding 5px
+        text-align center
+        background rgba(0, 0, 0, 0.4)
+        border-radius 5px
+        animation-name restoreDelete
+        animation-duration 1s
+        color rgba(245, 66, 66, 0.4)
+        &:hover
+          cursor pointer
+          animation-name changeDelete
+          animation-duration 1s
+          color rgba(245, 66, 66, 1)
+        &:after
+          font-size 50px
+          font-family 'docIcons'
+          content '\e901'
+    .lienzo-tools-adelante
+      position absolute
+      top 155px
+      left 10px
+      width 60px
+      height 60px
+      .boton-adelante
+        height 60px
+        box-sizing border-box
+        padding 5px
+        text-align center
+        background rgba(0, 0, 0, 0.4)
+        border-radius 5px
+        animation-name restoreControls
+        animation-duration 1s
+        color rgba(255, 255, 255, 0.4)
+        &:hover
+          cursor pointer
+          animation-name changeControls
+          animation-duration 1s
+          color rgba(255, 255, 255, 1)
+        &:after
+          font-size 50px
+          font-family 'docIcons'
+          content '\e905'
+    .lienzo-tools-atras
+      position absolute
+      top 155px
+      left 75px
+      width 60px
+      height 60px
+      .boton-atras
+        height 60px
+        box-sizing border-box
+        padding 5px
+        text-align center
+        background rgba(0, 0, 0, 0.4)
+        border-radius 5px
+        animation-name restoreControls
+        animation-duration 1s
+        color rgba(255, 255, 255, 0.4)
+        &:hover
+          cursor pointer
+          animation-name changeControls
+          animation-duration 1s
+          color rgba(255, 255, 255, 1)
+        &:after
+          font-size 50px
+          font-family 'docIcons'
+          content '\e907'
+    .lienzo-form01
+      //padding-bottom 300px
+      //padding-bottom 0px
+      //border 2px solid black
+      margin 0 auto
+      background rgba(255,255,255,0.8)
+      font-family 'roboto-regular', Arial, sans-serif
+      .form01Header
+        position relative
+        .centerContent
+          color black
+        input[type = 'text']
+          padding-top 20px
+          font-family 'roboto-blackItalic', 'roboto-regular', Arial, sans-serif
+          font-size 14px
+          text-align center
+          width 100%
+          border 0px
+          background transparent
+        .logoHeaderLeft
+          position absolute
+          top -25px//0px
+          left 0px
+          color black
+        .logoHeaderRight
+          position absolute
+          top 0px
+          right 0px
+          color black
+          
+      .form01-Title
+        position relative
+        height 80px
+        .header
+          text-align center
+          text-transform uppercase
+          font-size 14px
+        .left
+          position absolute
+          left 0px
+          .form-line
+            padding-top 2px
+            label
+              padding-right 5px
+              text-align right
+              display inline-block
+              width 120px
+              font-size 12px
+            input
+              display inline-block
+              width 120px
+              font-size 12px
+              background transparent
+              border 1px solid black
+              text-align center
+              padding 1px 2px
+        .right
+          //width 300px
+          position absolute
+          right 0px
+          .form-line
+            label
+              padding-right 5px
+              text-align right
+              display inline-block
+              width 150px
+              font-size 12px
+              right 150px
+            input
+              display inline-block
+              width 150px
+              font-size 12px
+              background transparent
+              border 1px solid black
+              text-align center
+              padding 1px 2px
+          .form-type
+            height 30px
+            .type
+              float right
+              border 1px solid black
+              font-size 20px
+              text-align center
+              width 154px
+      .form01-Empresa
+        height 100px
+        .header
+          width 100%
+          border 1px solid black
+          text-align center
+          text-transform uppercase
+          font-size 14px
+        .form-line
+          label
+             padding-right 5px
+             text-align right
+             display inline-block
+             width 150px
+             font-size 12px
+             right 150px
+          input
+            display inline-block
+            width 250px
+            font-size 12px
+            background transparent
+            border 1px solid black
+            text-align center
+            padding 1px 2px
+            &:last-child
+              width 100px
+      .form01-Usuario
+        padding-top 20px
+        .header
+          width 100%
+          border 1px solid black
+          text-align center
+          text-transform uppercase
+          font-size 14px
+        .form-line-name
+          label
+             padding-right 5px
+             text-align right
+             display inline-block
+             width 24%
+             font-size 12px
+             right 150px
+          input
+            display inline-block
+            width 24%
+            font-size 12px
+            background transparent
+            border 1px solid black
+            border-right 0px
+            text-align center
+            padding 1px 2px
+            &:last-child
+              border-right 1px solid black
+        .form-line-nameSub
+          padding 0px
+          input
+            color black
+            padding 0px
+            display inline-block
+            width 25%
+            font-size 12px
+            background transparent
+            border 0px
+            text-align center
+        .form-line-data
+          label
+             padding-right 5px
+             text-align right
+             display inline-block
+             width 10%
+             font-size 12px
+             right 150px
+          input
+            display inline-block
+            width 20%
+            font-size 12px
+            background transparent
+            border 1px solid black
+            text-align center
+            padding 1px 2px
+        .form-line-in
+          label
+             padding-right 5px
+             text-align right
+             display inline-block
+             width 160px
+             font-size 12px
+             right 150px
+          input
+            display inline-block
+            width 510px
+            font-size 12px
+            background transparent
+            border 1px solid black
+            text-align center
+            padding 1px 2px
+        .form-line-dp
+          padding-bottom 10px
+          label
+             padding-right 5px
+             text-align right
+             display inline-block
+             width 15%
+             font-size 12px
+             right 150px
+          input
+            display inline-block
+            width 15%
+            font-size 12px
+            background transparent
+            border 1px solid black
+            text-align center
+            padding 1px 2px
+      .form01-DatosInstalacion
+        position relative
+        height 290px
+        .form01-DatosInstalacionTablas
+          position absolute
+          width 45%
+          left 0px
+          .header
+            width 100%
+            border 1px solid black
+            text-align center
+            text-transform uppercase
+            font-size 14px
+          .form-line
+            label
+              padding-right 5px
+              text-align right
+              display inline-block
+              width 40%
+              font-size 12px
+              right 150px
+            input
+              display inline-block
+              width 7%
+              font-size 12px
+              background transparent
+              border 1px solid black
+              border-right 0px
+              text-align center
+              padding 1px 2px
+            .rightV
+              border-right 1px solid black
+            .valvulas
+              border 1px solid black
+              width 100px
+              margin-left 19px
+              color black
+            .leftVl
+              border 1px solid black
+              border-right 0px
+              width 40px
+              margin-left 19px
+              color black
+            .rightVl
+              border 1px solid black
+              width 55px
+              color black
+            
+          .form-tuberia
+            p
+              padding-top 10px
+              font-family 'roboto-black', 'roboto-regular', Arial, sans-serif
+              font-size 10px
+            table
+              width 100%
+              text-align center
+              font-size 12px
+              border-collapse collapse
+              tr
+                td
+                  padding 0px//2px
+                  border 1px solid black
+                    
+              .nota
+                text-align left
+                font-size 10px
+        .form01-Plano
+          position absolute
+          width 50%
+          right 0px
+          .header
+            width 100%
+            border 1px solid black
+            text-align center
+            text-transform uppercase
+            font-size 14px
+          .form-place
+            position relative
+            margin-top 5px
+            border 1px solid black
+            height 257px 
+            img
+              //margin auto
+              position absolute
+              top 50%
+              left 50%
+              transform translate(-50%, -50%)
+              max-height 255px 
+              max-width 338px
+            .iIF
+              input
+                position absolute
+                bottom 0px
+                background rgb(255, 240, 158)//yellow
+                width 100%
+                display none
+            
+      .form01-Aparatos
+        table
+          width 100%
+          text-align center
+          font-size 12px
+          border-collapse collapse
+          tr
+            td
+              padding 0px
+              border 1px solid black
+              input
+                display inline-block
+                //width 510px
+                font-size 12px
+                background transparent
+                border 0px
+                text-align center
+                padding 1px 2px
+            .fProyecto
+              vertical-align bottom//text-top
+            .fSello
+              width 200px
+      .aviso
+        border 1px solid black
+        p
+          padding 0px 2px
+          font-size 10px
+      .primero
+        margin 5px 0px
+      .sup
+        border-bottom 0px
+        
+      .pruebaFondo
+        //width 20px
+        background url('../images/210-g.svg') 50% 50% no-repeat rgba(0,0,0,0.5)
+        width 150px
+        height 150px
+        /////////////////////////////////////////////////////////////////////////
+    .lienzo-hoja
+      ////////////////////////////////
+      display none
+      ////////////////////////////////
+      //padding-bottom 300px
+      //padding-bottom 0px
+      border 2px solid black
+      margin 0 auto
+      background rgba(255,255,255,0.8)
+      .lienzo-svg
+        //background rgba(255,255,255,0.8)
+        //border 2px solid black
+        //border-bottom 0px
+        .text-tag
+          font-family 'roboto-regular', Arial, sans-serif
+          cursor default//pointer
+          font-size 14px
+        .path-dash
+          stroke-dasharray 4,4
+          stroke black
+          fill none
+          stroke-width 2
+        .path
+          stroke black
+          fill none
+          stroke-width 2
+          stroke-linecap 'round'
+        .poligono
+          stroke black
+          fill white
+          stroke-width 2
+          stroke-linecap 'round'
+        .circle-marker-back
+          stroke-width 2
+          fill white//red//yellow
+          stroke black
+        .circle-marker-verMode
+          stroke-width 2
+          fill rgb(0, 161, 134)//green//red//yellow
+          stroke black
+        .circle-marker-verSegMode
+          stroke-width 2
+          fill rgb(255, 197, 0)//rgb(0, 161, 134)//green//red//yellow
+          stroke black
+        .circle-marker-unitSegMode
+          stroke-width 2
+          fill rgb(0, 176, 92)//rgb(54, 93, 44)//rgb(255, 197, 0)//rgb(0, 161, 134)//green//red//yellow
+          stroke black
+        .circle-marker-drawMode
+          stroke-width 2
+          fill #90C53F//green//red//yellow
+          stroke black
+        .circle-marker-editMode
+          stroke-width 2
+          fill rgb(255, 197, 0)//yellow//red//#DEDE4A//#FF9D00//
+          stroke black
+        .circle-marker-moveMode
+          stroke-width 2
+          fill #0099DE//#D5481B//brown//red//
+          stroke black
+        .circle-marker-markMode
+          stroke-width 2
+          fill #D5481B//#932015//#0099DE//brown//red//
+          stroke black
+
+    .lienzoTablaHoja
+      /////////////////////////////////////
+      display none
+      /////////////////////////////////////
+      //margin-top -8px//-6px
+      background rgba(255,255,255,0.8)//background white
+      border 2px solid black
+      border-top 0px
+      width 677px
+      height 198px
+      text-align center
+      //margin-bottom 40px////
+      position relative
+      .rightTable
+        position absolute
+        width 50%
+        color black
+        border-right 2px solid black
+        height 198px
+        .line
+          height 10%
+          .cell
+            padding-top 1px
+            float left
+            font-family 'Helvetica Neue', Helvetica, Arial, sans-serif
+            font-size 10px
+            width 50%
+            .draw
+              float left
+              width 20%
+            .hFlujo
+              &:after
+                font-size 14px
+                font-family 'esentialIcons'
+                content '\e933'
+            .hSolCap
+              &:after
+                font-size 14px
+                font-family 'esentialIcons'
+                content '\e92e'
+            .hUnSol
+              &:after
+                font-size 14px
+                font-family 'esentialIcons'
+                content '\e92f'
+            .hAcSol
+              &:after
+                font-size 14px
+                font-family 'esentialIcons'
+                content '\e92d'
+            .hVaMan
+              &:after
+                font-size 14px
+                font-family 'esentialIcons'
+                content '\e930'
+            .hRegul
+              &:after
+                font-size 14px
+                font-family 'esentialIcons'
+                content '\e932'
+            .hOrCor
+              &:after
+                font-size 14px
+                font-family 'esentialIcons'
+                content '\e931'
+            .hTubFS
+              &:after
+                font-size 14px
+                font-family 'esentialIcons'
+                content '\e92a'
+            .hCanEn
+              &:after
+                font-size 14px
+                font-family 'esentialIcons'
+                content '\e929'
+            .hTubDe
+              &:after
+                font-size 14px
+                font-family 'esentialIcons'
+                content '\e928'
+            .hTubFo
+              &:after
+                font-size 14px
+                font-family 'esentialIcons'
+                content '\e927'
+            .hUnRos
+              &:after
+                font-size 14px
+                font-family 'esentialIcons'
+                content '\e926'
+            .hTapon
+              &:after
+                font-size 14px
+                font-family 'esentialIcons'
+                content '\e925'
+            .hMedid
+              &:after
+                font-size 14px
+                font-family 'esentialIcons'
+                content '\e92c'
+                
+            .hReduc
+              &:after
+                font-size 14px
+                font-family 'esentialIcons'
+                content '\e924'
+            .hTe
+              &:after
+                font-size 14px
+                font-family 'esentialIcons'
+                content '\e923'
+            .hCodo
+              &:after
+                font-size 14px
+                font-family 'esentialIcons'
+                content '\e922'
+            .hCodoR
+              &:after
+                font-size 14px
+                font-family 'esentialIcons'
+                content '\e921'
+
+            
+
+                 
+            .legend
+              float left
+              text-align left
+              width 80%
+          .footerSymbol
+            border-top 2px solid black
+            font-family 'Helvetica Neue', Helvetica, Arial, sans-serif
+            font-size 14px
+          
+      .centerTable
+        border-right 2px solid black
+        position absolute
+        left 50%
+        width 20%
+        height 198px
+        color black
+        .business
+          height 40%
+          border-bottom 2px solid black
+          .header
+            font-family 'Helvetica Neue', Helvetica, Arial, sans-serif
+            font-size 10px
+            text-align left
+            padding-left 5px
+          .name
+            font-family 'Helvetica Neue', Helvetica, Arial, sans-serif
+            font-size 25px
+            padding 5px
+          .description
+            padding 2px
+            font-family 'Helvetica Neue', Helvetica, Arial, sans-serif
+            font-size 12px
+        .owner
+          height 26%
+          border-bottom 2px solid black
+          .header
+            padding 2px
+            padding-left 5px
+            font-family 'Helvetica Neue', Helvetica, Arial, sans-serif
+            font-size 12px
+          .name
+            padding 2px
+            font-family 'Helvetica Neue', Helvetica, Arial, sans-serif
+            font-size 10px
+        .line
+          height 10%
+          border-bottom 2px solid black
+          &:last-child
+            border-bottom 0px
+          .cell
+            font-family 'Helvetica Neue', Helvetica, Arial, sans-serif
+            font-size 10px
+            float left
+            width 100%
+            
+            .title
+              padding 5px
+              float left
+              width 40%
+              border-right 2px solid black
+            .content
+              padding 4px
+              float left
+              width 40%
+              input[type = 'date']
+                font-family 'Helvetica Neue', Helvetica, Arial, sans-serif
+                border 0px
+                width 200%
+                padding 0px
+                margin 0px
+                font-size 10px
+                background transparent
+                &:hover
+                  width 120%
+              input[type = 'text']
+                text-align center
+                font-family 'Helvetica Neue', Helvetica, Arial, sans-serif
+                border 0px
+                width 100%
+                padding 0px
+                margin 0px
+                font-size 10px
+                background transparent
+      .leftTable
+        //border-right 2px solid black
+        position absolute
+        left 70%
+        width 30%
+        height 198px
+        color black
+        .title-iso
+          //padding 5px
+          font-family 'Helvetica Neue', Helvetica, Arial, sans-serif
+          font-size 14px
+          height 20%
+          border-bottom 2px solid black
+          padding-top 5px
+          box-sizing border-box
+        .alone
+          padding-top 10px
+          box-sizing border-box
+        .line
+          font-family 'Helvetica Neue', Helvetica, Arial, sans-serif
+          font-size 8px
+          height 10%
+          border-bottom 2px solid black
+          .first
+            padding-left 2px
+            width 38%
+            height 100%
+            float left
+            border-right 2px solid black
+            padding-top 5px
+            box-sizing border-box
+          .code
+            font-size 7px
+          .second
+            width 30%
+            height 100%
+            float left
+            border-right 2px solid black
+            padding-top 5px
+            box-sizing border-box
+          .third
+            width 30%
+            height 100%
+            float left
+            padding-top 5px
+            box-sizing border-box
+        .data-project
+          padding-left 5px
+          text-align left
+          font-family 'Helvetica Neue', Helvetica, Arial, sans-serif
+          font-size 11px
+          height 50%
+footer
+  padding 0px
+  margin 0px
+  position relative
+  p 
+    display block
+  .documentProject
+    width 100%
+    form
+      .line-form
+        margin 5px
+        display block
+        p
+          font-size 18px
+          color rgb(144, 197, 63)
+        .line-part
+          width 20%
+          display inline-block
+          //background green
+          font-family 'roboto-light', 'Helvetica Neue', Helvetica, Arial, sans-serif
+          font-size 14px
+          label
+            padding 5px
+            //float right
+            
+          input[type = text]
+            //float left
+            color white
+            border-radius 2px
+            border 0px
+            margin 2px
+            font-family 'roboto-light', 'Helvetica Neue', Helvetica, Arial, sans-serif
+            font-size 14px
+            padding 2px
+            width 100px
+            background rgba(255, 255, 255, 0.1)
+      input[type = submit]
+        color white
+        border-radius 5px
+        border 0px
+        margin 2px
+        padding 5px 10px
+        font-family 'roboto-light', 'Helvetica Neue', Helvetica, Arial, sans-serif
+        font-size 20px//16px
+        //padding 2px 10px
+        background rgba(0, 253, 253, 0.4)
+        &:hover
+          background rgba(0, 253, 253, 0.6)
+          
+.none
+  display none
+  
+@keyframes growing {
+  0% {left: -150px}
+  100% {left: 5px}
+}
+
+@keyframes decrease {
+  0% {left: 5px}
+  100% {left: -150px}
+}
+
+@keyframes changeColor {
+  0% {background: rgb(12, 85, 55)}
+  100% {background: rgb(0, 161, 134)}
+}
+
+@keyframes restoreColor {
+  0% {background: rgb(0, 161, 134)}
+  100% {background: rgb(12, 85, 55)}
+}
+
+@keyframes changeCreate {
+  0% {color: rgba(83, 172, 68, 0.4)}
+  100% {color: rgba(83, 172, 68, 1)}
+}
+
+@keyframes restoreCreate {
+  0% {color: rgba(83, 172, 68, 1)}
+  100% {color: rgba(83, 172, 68, 0.4)}
+}
+
+@keyframes changeDelete {
+  0% {color: rgba(245, 66, 66, 0.4)}
+  100% {color: rgba(245, 66, 66, 1)}
+}
+
+@keyframes restoreDelete {
+  0% {color: rgba(245, 66, 66, 1)}
+  100% {color: rgba(245, 66, 66, 0.4)}
+}
+
+@keyframes changeControls {
+  0% {color: rgba(255, 255, 255, 0.4)}
+  100% {color: rgba(255, 255, 255, 1)}
+}
+
+@keyframes restoreControls {
+  0% {color: rgba(255, 255, 255, 1)}
+  100% {color: rgba(255, 255, 255, 0.4)}
+}
+
+@keyframes changeInput {
+  0% {color: rgba(255, 197, 0, 0.6); border-bottom: 2px solid rgba(255, 197, 0, 0.0);}
+  100% {color: rgba(255, 197, 0, 1); border-bottom: 2px solid rgba(255, 197, 0, 1);}
+}
+
+@keyframes restoreInput {
+  0% {color: rgba(255, 197, 0, 1); border-bottom: 2px solid rgba(255, 197, 0, 1);}
+  100% {color: rgba(255, 197, 0, 0.6); border-bottom: 2px solid rgba(255, 197, 0, 0.0);}
+}
+
+@keyframes changeInputTag {
+  0% {color: rgba(255, 255, 255, 0.6); border-bottom: 2px solid rgba(255, 255, 255, 0.0);}
+  //0% {color: rgba(255, 197, 0, 0.6); border-bottom: 2px solid rgba(255, 197, 0, 0.0);}
+  //100% {color: rgba(255, 197, 0, 1); border-bottom: 2px solid rgba(255, 197, 0, 1);}
+  100% {color: rgba(255, 255, 255, 1); border-bottom: 2px solid rgba(255, 255, 255, 1);}
+}
+
+@keyframes restoreInputTag {
+  0% {color: rgba(255, 255, 255, 1); border-bottom: 2px solid rgba(255, 255, 255, 1);}
+  100% {color: rgba(255, 255, 255, 0.6); border-bottom: 2px solid rgba(255, 255, 255, 0.0);}
+}
+
+@keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
+
+@keyframes animateDraw {
+  from {display: none}
+  to {display: block}
+}
+@keyframes animateRDraw {
+  from {display: block}
+  to {display: none}
+}
+
+@media print
+  body
+    margin 0px
+    padding 0px
+  nav
+    display none
+  aside
+    display none
+  .lienzo
+    padding 0px
+    margin 0px
+    border 0px
+    .lienzo-cabecera
+      display none
+    .lienzo-propiedadesHoja
+      display none
+    .lienzo-modo
+      display none
+    .lienzo-aviso
+      display none
+    .lienzo-limpiarAviso
+      display none
+    .lienzo-botonera
+      display none
+    .lienzo-tools-crear
+      display none
+    .lienzo-tools-eliminar
+      display none
+    .lienzo-tools-adelante
+      display none
+    .lienzo-tools-atras
+      display none
+    .lienzo-hoja
+      padding 0px
+      margin 0px
+      border 0px
+      .lienzo-tablaHoja
+        padding 0px
+        margin 0px
+  .contenedor
+    .tablasAccesorios
+      //////////////////////////////////////
+      //display block
+      z-index 22
+      position absolute
+      top 680px//718px//480px
+      right 10px
+      div
+        table
+          //width 320px
+          width 300px
+          border-collapse collapse
+          border 1px solid black
+          tr
+            th
+              font-family Arial, sans-serif
+              font-size 9px
+              padding 2px
+              border 1px solid black
+              color black
+              background white
+            td
+              font-family Arial, sans-serif
+              font-size 9px
+              padding 2px
+              border 1px solid black
+              background white
+        
+  footer
+    display none
+  @page
+    margin 1.5cm 2cm 1cm 2cm//2cm 2cm 1cm 2cm
+
+@font-face {
+	font-family: 'grades';
+	src:url('fonts/icomoon.eot?t05rsc');
+	src:url('fonts/icomoon.eot?t05rsc#iefix') format('embedded-opentype'),
+		url('fonts/icomoon.ttf?t05rsc') format('truetype'),
+		url('fonts/icomoon.woff?t05rsc') format('woff'),
+		url('fonts/icomoon.svg?t05rsc#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'esentialIcons';
+	src:url('esentialIcons/icomoon.eot?t05rsc');
+	src:url('esentialIcons/icomoon.eot?t05rsc#iefix') format('embedded-opentype'),
+		url('esentialIcons/icomoon.ttf?t05rsc') format('truetype'),
+		url('esentialIcons/icomoon.woff?t05rsc') format('woff'),
+		url('esentialIcons/icomoon.svg?t05rsc#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'util-One';
+	src:url('utilIcons-One/icomoon.eot?t05rsc');
+	src:url('utilIcons-One/icomoon.eot?t05rsc#iefix') format('embedded-opentype'),
+		url('utilIcons-One/icomoon.ttf?t05rsc') format('truetype'),
+		url('utilIcons-One/icomoon.woff?t05rsc') format('woff'),
+		url('utilIcons-One/icomoon.svg?t05rsc#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face
+  font-family 'roboto-black'
+  src url('roboto/Roboto-Black.ttf')
+  
+@font-face
+  font-family 'roboto-regular'
+  src url('roboto/Roboto-Regular.ttf')
+  
+@font-face
+  font-family 'roboto-light'
+  src url('roboto/Roboto-Light.ttf')
+  
+@font-face
+  font-family 'roboto-thin'
+  src url('roboto/Roboto-Thin.ttf')

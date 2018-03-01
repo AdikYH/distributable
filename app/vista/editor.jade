@@ -1,0 +1,1548 @@
+extends layout_nav
+
+block title
+  title Creator
+block css
+
+  link(rel = 'stylesheet' href = '/css/editor.css')
+
+block content
+  //div
+    form(action = '/proyecto/editor/canvas' method = 'post')
+
+      input(type = 'text' name = 'cosa' value = 'texto' disabled = true)
+      input(type = 'submit' value = 'enviar')
+
+  div(class = 'editor-container last')
+    div(class = 'editor-title')
+      div(class = 'box') Asignación : #{proyecto}
+      div(class = 'box') Autor : #{autor}
+      div(class = 'box mini')
+        span(id = 'tSp' class = 'ttSp')
+        |Proyectos en total
+      div(class = 'box mini')
+        span(id = 'pSp' class = 'mpSp')
+        |Isométricos para crear
+      div(class = 'box mini')
+        span(id = 'rSp' class = 'mrSp')
+        |Isométricos para ver
+
+    div(class = 'editor-header')
+      h1 Asignación :
+        span(id = 'spProyecto') #{proyecto}
+    div(class = 'editor-header')
+      h2 Autor :
+        span(id = 'spAutor') #{autor}
+
+    div(class = 'editor-header greenLow')
+      h4
+        span(id = 'tSp' class = 'ttSp')
+        |Documentos en total
+
+    div(class = 'editor-header indicador')
+      h4
+        span(id = 'pSp' class = 'mpSp')
+        |Isométricos para crear
+
+
+    div(class = 'editor-header green indicador')
+      h4
+        span(id = 'rSp' class = 'mrSp')
+        |Isométricos para ver
+
+    div(class = 'editor-header')
+      h1 Departamento :
+        span(id = 'cDepartamento') #{pDepartamento}
+
+    div(class = 'editor-header')
+      h1 Codigo departamento :
+        span(id = 'cDepartamento') #{pDepartamentoC}
+
+    div(class = 'editor-header')
+      h1 Localidad :
+        span(id = 'cLocalidad') #{pLocalidad}
+
+    div(class = 'editor-header')
+      h1 Codigo localidad :
+        span(id = 'cLocalidad') #{pLocalidadC}
+
+    ///////////////////////////////////////////////////////////////
+    div(class = 'table-container')
+      div(id = 'table-container-header' class = 'table-container-header')
+
+        div(class = 'title' id = 'xls_btn' onclick = 'showTable("excel")') Excel inicial
+        div(class = 'title' id = 'in1_btn' onclick = 'showTable("in1")') IDC 01
+        div(class = 'title' id = 'iso_btn' onclick = 'showTable("iso")') Isométrico
+        div(class = 'title' id = 'mca_btn' onclick = 'showTable("mca")') Memoria de cálculo
+        div(class = 'title' id = 'pln_btn' onclick = 'showTable("pln")') Plano
+        div(class = 'title' id = 'sol_btn' onclick = 'showTable("sol")') Solicitud tubería YPFB
+
+        div(class = 'title' id = 'dep_btn' onclick = 'showTable("dep")') Material para depósito
+        div(class = 'title' id = 'ins_btn' onclick = 'showTable("ins")') Sueldo instalador
+        div(class = 'title' id = 'deu_btn' onclick = 'showTable("deu")') Deuda dueño
+        div(class = 'title' id = 'rec_btn' onclick = 'showTable("rec")') Recepción
+
+        div(class = 'title' id = 'mat_btn' onclick = 'showTable("mat")') Precio material
+
+        div(class = 'title' id = 'ypf_btn' onclick = 'showTable("ypf")') Precio YPFB
+
+        div(class = 'title none' id = 'gan_btn' onclick = 'showTable("gan")') Ganancia proyectada
+
+
+      div(class = 'table-container-table')
+        table(id = 'tbl_excel')
+          thead
+            tr
+              th(class = 'narrow pad') Nro
+              //////////////////////
+              th(class = 'narrow40 pad') DPTO
+              th(class = 'narrow50 pad') LOCALIDAD
+              /////////////////////
+              th(class = 'narrow40 pad') DIST
+              th(class = 'narrow40 pad') ZONA
+              th(class = 'narrow40 pad') MANZ
+              th(class = 'narrow40 pad') PREDIO
+              th(class = 'narrow50 pad') PISO/DPTO
+              th(class = 'medium pad') APELLIDO PATERNO
+              th(class = 'medium pad') APELLIDO MATERNO
+              th(class = 'extensive pad') NOMBRES
+              th(class = 'medium pad') CARNET
+              th(class = 'extensive pad') AVDA/ CALLE
+              th(class = 'medium pad') TEL/CEL
+              th(class = 'extensive pad') OBSERVACIONES
+            //tr
+              td 1234
+              td 1234
+              td 1234
+              td 1234
+              td 1234
+              td 1234
+              td 1234
+              td 1234
+              td 1234
+              td 1234
+              td 1234
+              td 1234
+              td 1234
+              td 1234
+              td 1234
+      div(class = 'table-container-table')
+        table(id = 'tbl_informe01')
+          tr
+            th(class = 'narrow pad') Nro
+            //////////////////////
+            th(class = 'narrow40 pad') DPTO
+            th(class = 'narrow50 pad') LOCALIDAD
+            /////////////////////
+            th(class = 'narrow40 pad') DIST
+            th(class = 'narrow40 pad') ZONA
+            th(class = 'narrow40 pad') MANZ
+            th(class = 'narrow40 pad') PREDIO
+            th(class = 'narrow50 pad') PISO/DPTO
+            th(class = 'medium pad') APELLIDO PATERNO
+            th(class = 'medium pad') APELLIDO MATERNO
+            th(class = 'extensive pad') NOMBRES
+            th(class = 'medium pad') INFORME 01
+          //tr
+            td 1234
+            td 1234
+            td 1234
+            td 1234
+            td 1234
+            td 1234
+            td 1234
+            td 1234
+            td 1234
+            td 1234
+            td 1234
+            td 1234
+
+      div(class = 'table-container-table')
+        table(id = 'tbl_isometrico')
+          tr
+            th(class = 'narrow pad') Nro
+            th(class = 'narrow40 pad') DPTO
+            th(class = 'narrow50 pad') LOCALIDAD
+            th(class = 'narrow40 pad') DIST
+            th(class = 'narrow40 pad') ZONA
+            th(class = 'narrow40 pad') MANZ
+            th(class = 'narrow40 pad') PREDIO
+            th(class = 'narrow50 pad') PISO/DPTO
+            th(class = 'medium pad') APELLIDO PATERNO
+            th(class = 'medium pad') APELLIDO MATERNO
+            th(class = 'extensive pad') NOMBRES
+            th(class = 'medium pad') ISOMETRICO
+          //tr
+            td 1234
+            td 1234
+            td 1234
+            td 1234
+            td 1234
+            td 1234
+            td 1234
+            td 1234
+            td 1234
+            td 1234
+            td 1234
+            td 1234
+      div(class = 'table-container-table')
+        table(id = 'tbl_memoria')
+          tr
+            th(class = 'narrow pad') Nro
+            th(class = 'narrow40 pad') DPTO
+            th(class = 'narrow50 pad') LOCALIDAD
+            th(class = 'narrow40 pad') DIST
+            th(class = 'narrow40 pad') ZONA
+            th(class = 'narrow40 pad') MANZ
+            th(class = 'narrow40 pad') PREDIO
+            th(class = 'narrow50 pad') PISO/DPTO
+            th(class = 'medium pad') APELLIDO PATERNO
+            th(class = 'medium pad') APELLIDO MATERNO
+            th(class = 'extensive pad') NOMBRES
+            th(class = 'medium pad') MEMORIA
+          //tr
+            td 1234
+            td 1234
+            td 1234
+            td 1234
+            td 1234
+            td 1234
+            td 1234
+            td 1234
+            td 1234
+            td 1234
+            td 1234
+            td 1234
+            td 1234
+            td 1234
+            td 1234
+            td 1234
+      div(class = 'table-container-table')
+        table(id = 'tbl_plano')
+          tr
+            th(class = 'narrow pad') Nro
+            th(class = 'narrow40 pad') DPTO
+            th(class = 'narrow50 pad') LOCALIDAD
+            th(class = 'narrow40 pad') DIST
+            th(class = 'narrow40 pad') ZONA
+            th(class = 'narrow40 pad') MANZ
+            th(class = 'narrow40 pad') PREDIO
+            th(class = 'narrow50 pad') PISO/DPTO
+            th(class = 'medium pad') APELLIDO PATERNO
+            th(class = 'medium pad') APELLIDO MATERNO
+            th(class = 'extensive pad') NOMBRES
+            th(class = 'medium pad') PLANO
+          //tr
+            td 1234
+            td 1234
+            td 1234
+            td 1234
+            td 1234
+            td 1234
+            td 1234
+            td 1234
+            td 1234
+            td 1234
+            td 1234
+            td 1234
+            td 1234
+            td 1234
+            td 1234
+            td 1234
+      div(class = 'table-container-table')
+        table(id = 'tbl_dep')
+          thead
+            tr
+              th(class = 'narrow pad') N°
+              th(class = 'no-rotate pad') Paterno
+              th(class = 'no-rotate pad') Materno
+              th(class = 'extensive pad') Nombres
+              th(class = 'rotate pad')
+                div
+                  span Cañería 1/2" metros
+              th(class = 'rotate pad')
+                div
+                  span Cañería 3/4" metros
+              th(class = 'rotate pad')
+                div
+                  span Cañería 1" metros
+              th(class = 'rotate pad')
+                div
+                  span Cañería 1 1/4" metros
+              th(class = 'rotate pad')
+                div
+                  span Codo 90 de 1/2"
+              th(class = 'rotate pad')
+                div
+                  span Codo 90 de 3/4"
+              th(class = 'rotate pad')
+                div
+                  span Codo 90 de 1"
+              th(class = 'rotate pad')
+                div
+                  span Codo 90 de 1 1/4"
+              th(class = 'rotate pad')
+                div
+                  span Cupla 90 de 1/2"
+              th(class = 'rotate pad')
+                div
+                  span Cupla 90 de 3/4"
+              th(class = 'rotate pad')
+                div
+                  span Cupla 90 de 1"
+              th(class = 'rotate pad')
+                div
+                  span Cupla 90 de 1 1/4"
+              th(class = 'rotate pad')
+                div
+                  span Te de 1/2"
+              th(class = 'rotate pad')
+                div
+                  span Te de 3/4"
+              th(class = 'rotate pad')
+                div
+                  span Te de 1"
+              th(class = 'rotate pad')
+                div
+                  span Te de 1 1/4"
+              th(class = 'rotate pad')
+                div
+                  span Tapón de 1/2"
+              th(class = 'rotate pad')
+                div
+                  span Tapón de 3/4"
+              th(class = 'rotate pad')
+                div
+                  span Tapón de 1"
+              th(class = 'rotate pad')
+                div
+                  span Tapón de 1 1/4"
+
+              th(class = 'rotate pad')
+                div
+                  span Abrazadera de 1/2"
+              th(class = 'rotate pad')
+                div
+                  span Abrazadera de 3/4"
+              th(class = 'rotate pad')
+                div
+                  span Abrazadera de 1"
+              th(class = 'rotate pad')
+                div
+                  span Abrazadera de 1 1/4"
+              th(class = 'rotate pad')
+                div
+                  span Tornillo
+              th(class = 'rotate pad')
+                div
+                  span Rejilla
+              th(class = 'rotate pad')
+                div
+                  span Codo Reductor de 1 1/4" a 1"
+              th(class = 'rotate pad')
+                div
+                  span Codo Reductor de 1" a 3/4"
+              th(class = 'rotate pad')
+                div
+                  span Codo Reductor de 3/4" a 1/2"
+
+              th(class = 'rotate pad')
+                div
+                  span Válvula 1 1/4"
+              th(class = 'rotate pad')
+                div
+                  span Válvula 1"
+              th(class = 'rotate pad')
+                div
+                  span Válvula 3/4"
+              th(class = 'rotate pad')
+                div
+                  span Válvula 1/2"
+
+              th(class = 'rotate pad')
+                div
+                  span Codo pipa 3/4"
+              th(class = 'rotate pad')
+                div
+                  span Exagon 3/4"
+
+              th(class = 'rotate pad')
+                div
+                  span Carburo 1 Kilo
+
+              th(class = 'rotate pad')
+                div
+                  span Terminal
+
+              //th(class = 'rotate')
+                div
+                  span Cupla de 3/4"
+              //th(class = 'rotate')
+                div
+                  span Codo pipa 3/4"
+              //th(class = 'rotate')
+                div
+                  span Exagon 3/4"
+              //th(class = 'rotate')
+                div
+                  span Abrazaderas 3/4"
+              //th(class = 'rotate')
+                div
+                  span Abrazaderas 1"
+              //th(class = 'rotate')
+                div
+                  span Tornillo
+              th(class = 'rotate pad')
+                div
+                  span Teflon unidades
+              //th(class = 'rotate')
+                div
+                  span Te de 3/4"
+              //th(class = 'rotate')
+                div
+                  span Tapon 3/4"
+
+              //th(class = 'rotate')
+                div
+                  span Rejilla
+              //th(class = 'rotate')
+                div
+                  span Codo Reductor de 3/4" a 1/2"
+              //th(class = 'rotate')
+                div
+                  span Válvula 1/2"
+              //th(class = 'rotate')
+                div
+                  span Abrazaderas 1/2"
+              //th(class = 'rotate')
+                div
+                  span Terminal
+              //th(class = 'rotate')
+                div
+                  span Codo 1 Pulg
+              //th(class = 'rotate')
+                div
+                  span Cupla 1 Pulg
+              //th(class = 'rotate')
+                div
+                  span Te 1 Pulg
+              //th(class = 'rotate')
+                div
+                  span Tapón 1 Pulg
+              //th(class = 'rotate')
+                div
+                  span Codo reductor 90 de 1 a 3/4
+              //th(class = 'rotate')
+                div
+                  span Carburo 1 Kilo
+              th(class = 'rotate pad')
+                div
+                  span Varilla
+
+          //tr
+            td 100
+            td YUJRa
+            td HINOJOSA
+            td ADOLFO ISAIAS
+            td 500
+            td 600
+            td 700
+            td 800
+            td 900
+            td 100
+            td 100
+            td 100
+            td 100
+            td 100
+            td 100
+            td 100
+            td 100
+
+            td 100
+            td 200
+            td 300
+            td 400
+            td 500
+            td 600
+            td 700
+            td 800
+            td 900
+            td 100
+            td 110
+            td 120
+
+      div(class = 'table-container-table')
+        table(id = 'tbl_ins')
+          //tr
+            th N°
+            th Paterno
+            th Materno
+          tr
+            th(class = 'narrow') N°
+            th(class = 'no-rotate') Paterno
+            th(class = 'no-rotate') Materno
+            th(class = 'extensive') Nombres
+            th(class = 'no-rotate')
+              div
+                span Cañería 1/2" total
+            th(class = 'no-rotate')
+              div
+                span Cañería 3/4" total
+            th(class = 'no-rotate')
+              div
+                span Cañería 1" total
+            th(class = 'no-rotate')
+              div
+                span Cañería 1 1/4" total
+            th(class = 'no-rotate')
+              div
+                span Bs. A PAGAR DE 1/2"
+            th(class = 'no-rotate')
+              div
+                span Bs. A PAGAR DE 3/4"
+            th(class = 'no-rotate')
+              div
+                span Bs. A PAGAR DE 1"
+            th(class = 'no-rotate')
+              div
+                span Bs. A PAGAR DE 1 1/4"
+            th(class = 'no-rotate')
+              div
+                span TOTAL A PAGAR
+
+
+
+          tr
+            td 100
+            td YUJRa
+            td HINOJOSA
+            td ADOLFO ISAIAS
+            td 500
+            td 600
+            td 700
+            td 800
+            td 900
+          tr
+            td 100
+            td YUJRa
+            td HINOJOSA
+            td ADOLFO ISAIAS
+            td 500
+            td 600
+            td 700
+            td 800
+            td 900
+          tr
+            td 100
+            td YUJRa
+            td HINOJOSA
+            td ADOLFO ISAIAS
+            td 500
+            td 600
+            td 700
+            td 800
+            td 900
+          tr
+            td 100
+            td YUJRa
+            td HINOJOSA
+            td ADOLFO ISAIAS
+            td 500
+            td 600
+            td 700
+            td 800
+            td 900
+      div(class = 'table-container-table')
+        table(id = 'tbl_deu')
+          //tr
+            th N°
+            th Paterno
+            th Materno
+          tr
+            th(class = 'narrow pad') N°
+            th(class = 'no-rotate pad') Paterno
+            th(class = 'no-rotate pad') Materno
+            th(class = 'extensive pad') Nombres
+
+            th(class = 'medium pad')
+              div
+                span Metraje diametro 1 1/4" dentro de los 22 metros
+            th(class = 'medium pad')
+              div
+                span Costo 1 1/4" total 55Bs dentro de los 22 metros
+            th(class = 'medium pad')
+              div
+                span Metros excedentes de 1 1/4"
+            th(class = 'medium pad')
+              div
+                span Costo 1 1/4" total 160Bs excedente
+            ///////////////////////////////////////////////////////
+            th(class = 'medium pad')
+              div
+                span Metraje diametro 1" dentro de los 22 metros
+            th(class = 'medium pad')
+              div
+                span Costo diametro 1" total 55Bs dentro de los 22 metros
+            th(class = 'medium pad')
+              div
+                span Metros excedentes de 1"
+            th(class = 'medium pad')
+              div
+                span Costo 1" total 160Bs excedente
+            ///////////////////////////////////////////////////////
+            th(class = 'medium pad')
+              div
+                span Metraje diametro 3/4" dentro de los 22 metros
+            th(class = 'medium pad')
+              div
+                span Costo diametro 3/4" total 0 Bs dentro de los 22 metros
+            th(class = 'medium pad')
+              div
+                span Metros excedentes de 3/4"
+            th(class = 'medium pad')
+              div
+                span Costo 3/4" total 105Bs excedente
+            ///////////////////////////////////////////////////////
+            th(class = 'medium pad')
+              div
+                span Metraje diametro 1/2" dentro de los 22 metros
+            th(class = 'medium pad')
+              div
+                span Costo diametro 1/2" total 0 Bs dentro de los 22 metros
+            th(class = 'medium pad')
+              div
+                span Metros excedentes de 1/2"
+            th(class = 'medium pad')
+              div
+                span Costo 1/2" total 105Bs excedente
+            th(class = 'medium pad')
+              div
+                span TOTAL DEUDA DUEÑO
+            ///////////////////////////////////////////////////////
+
+
+            //th(class = 'no-rotate')
+              div
+                span (METRAJE) DIAMETRO 3/4" hasta los 22 metros
+            //th(class = 'no-rotate')
+              div
+                span METROS EXEDENTE DE 3/4"
+            //th(class = 'no-rotate')
+              div
+                span pagar 3/4" TOTAL 105Bs. EXCEDENTE
+            //th(class = 'no-rotate')
+              div
+                span (METRAJE) DIAMETRO 1" DENTRO DE 22  metros
+            //th(class = 'no-rotate')
+              div
+                span costo DIAMETRO 1" DENTRO DE 22 METROS A 55 Bs.
+            //th(class = 'no-rotate')
+              div
+                span (METRAJE) DIAMETRO 1" FUERA DE 22
+            //th(class = 'no-rotate')
+              div
+                span DIAMETRO 1" FUERA DE 22 METROS A 160 Bs.
+            //th(class = 'no-rotate')
+              div
+                span TOTAL DE 3/4 Y 1" A PAGAR (DUEÑO)
+
+          tr
+            td 100
+            td YUJRa
+            td HINOJOSA
+            td ADOLFO ISAIAS
+            td 500
+            td 600
+            td 700
+            td 800
+            td 900
+            td 700
+            td 800
+            td 900
+          tr
+            td 100
+            td YUJRa
+            td HINOJOSA
+            td ADOLFO ISAIAS
+            td 500
+            td 600
+            td 700
+            td 800
+            td 900
+            td 700
+            td 800
+            td 900
+          tr
+            td 100
+            td YUJRa
+            td HINOJOSA
+            td ADOLFO ISAIAS
+            td 500
+            td 600
+            td 700
+            td 800
+            td 900
+            td 700
+            td 800
+            td 900
+          tr
+            td 100
+            td YUJRa
+            td HINOJOSA
+            td ADOLFO ISAIAS
+            td 500
+            td 600
+            td 700
+            td 800
+            td 900
+            td 700
+            td 800
+            td 900
+
+      div(class = 'table-container-table')
+        table(id = 'tbl_rec')
+          //tr
+            th N°
+            th Paterno
+            th Materno
+          tr
+            th(class = 'narrow') N°
+            th(class = 'no-rotate') Paterno
+            th(class = 'no-rotate') Materno
+            th(class = 'extensive') Nombres
+            th(class = 'no-rotate')
+              div
+                span UBICACIÓN
+            th(class = 'no-rotate')
+              div
+                span C.I.
+            th(class = 'no-rotate')
+              div
+                span PROYECTO
+            th(class = 'no-rotate')
+              div
+                span CODIGO ASIGNACION
+            th(class = 'no-rotate')
+              div
+                span ZONA
+            th(class = 'no-rotate')
+              div
+                span ENTREGUE CONFORME
+
+
+          tr
+            td 100
+            td YUJRa
+            td HINOJOSA
+            td ADOLFO ISAIAS
+            td 500
+            td 600
+            td 700
+            td 800
+            td 900
+            td 700
+          tr
+            td 100
+            td YUJRa
+            td HINOJOSA
+            td ADOLFO ISAIAS
+            td 500
+            td 600
+            td 700
+            td 800
+            td 900
+            td 700
+          tr
+            td 100
+            td YUJRa
+            td HINOJOSA
+            td ADOLFO ISAIAS
+            td 500
+            td 600
+            td 700
+            td 800
+            td 900
+            td 700
+          tr
+            td 100
+            td YUJRa
+            td HINOJOSA
+            td ADOLFO ISAIAS
+            td 500
+            td 600
+            td 700
+            td 800
+            td 900
+            td 700
+
+      div(class = 'table-container-table')
+        table(id = 'tbl_ypfb')
+          tr
+            th(class = 'narrow pad') N°
+            th(class = 'no-rotate pad') Paterno
+            th(class = 'no-rotate pad') Materno
+            th(class = 'extensive pad') Nombres
+            th(class = 'no-rotate pad') Código asignación
+            th(class = 'no-rotate pad') Metraje instalado
+            th(class = 'no-rotate pad') PagoYPFB
+
+      div(class = 'table-container-table')
+        table(id = 'tbl_material')
+          tr
+            th(class = 'extensive pad') Material
+            th(class = 'narrow pad') Unidad
+            th(class = 'extensive pad') Precio unitario
+            th(class = 'extensive pad') Cantidad
+            th(class = 'extensive pad') Costo total
+
+          //tr
+            //td(class = 'extensive pad') NOMBRES
+            //td(class = 'extensive pad') NOMBRES
+            //td(class = 'extensive pad') NOMBRES
+            //td(class = 'extensive pad') NOMBRES
+            //td(class = 'extensive pad') NOMBRES
+
+          tr(id = 'matR_1')
+            td(class = 'extensive pad') Cañería 1/2" metros
+            td(class = 'narrow pad') MTS.
+            td(class = 'narrow pad') MTS.
+          tr(id = 'matR_2')
+            td(class = 'extensive pad') Cañería 3/4" metros
+            td(class = 'narrow pad') MTS.
+          tr(id = 'matR_3')
+            td(class = 'extensive pad') Cañería 1" metros
+            td(class = 'narrow pad') MTS.
+          tr(id = 'matR_4')
+            td(class = 'extensive pad') Cañería 1 1/4" metros
+            td(class = 'narrow pad') MTS.
+          tr(id = 'matR_5')
+            td(class = 'extensive pad') Codo 90 de 1/2"
+            td(class = 'narrow pad') PZA.
+          tr(id = 'matR_6')
+            td(class = 'extensive pad') Codo 90 de 3/4"
+            td(class = 'narrow pad') PZA.
+          tr(id = 'matR_7')
+            td(class = 'extensive pad') Codo 90 de 1"
+            td(class = 'narrow pad') PZA.
+          tr(id = 'matR_8')
+            td(class = 'extensive pad') Codo 90 de 1 1/4"
+            td(class = 'narrow pad') PZA.
+          tr(id = 'matR_9')
+            td(class = 'extensive pad') Cupla 90 de 1/2"
+            td(class = 'narrow pad') PZA.
+          tr(id = 'matR_10')
+            td(class = 'extensive pad') Cupla 90 de 3/4"
+            td(class = 'narrow pad') PZA.
+          tr(id = 'matR_11')
+            td(class = 'extensive pad') Cupla 90 de 1"
+            td(class = 'narrow pad') PZA.
+          tr(id = 'matR_12')
+            td(class = 'extensive pad') Cupla 90 de 1 1/4"
+            td(class = 'narrow pad') PZA.
+          tr(id = 'matR_13')
+            td(class = 'extensive pad') Te de 1/2"
+            td(class = 'narrow pad') PZA.
+          tr(id = 'matR_14')
+            td(class = 'extensive pad') Te de 3/4"
+            td(class = 'narrow pad') PZA.
+          tr(id = 'matR_15')
+            td(class = 'extensive pad') Te de 1"
+            td(class = 'narrow pad') PZA.
+          tr(id = 'matR_16')
+            td(class = 'extensive pad') Te de 1 1/4"
+            td(class = 'narrow pad') PZA.
+          tr(id = 'matR_17')
+            td(class = 'extensive pad') Tapón de 1/2"
+            td(class = 'narrow pad') PZA.
+          tr(id = 'matR_18')
+            td(class = 'extensive pad') Tapón de 3/4"
+            td(class = 'narrow pad') PZA.
+          tr(id = 'matR_19')
+            td(class = 'extensive pad') Tapón de 1"
+            td(class = 'narrow pad') PZA.
+          tr(id = 'matR_20')
+            td(class = 'extensive pad') Tapón de 1 1/4"
+            td(class = 'narrow pad') PZA.
+          tr(id = 'matR_21')
+            td(class = 'extensive pad') Abrazadera de 1/2"
+            td(class = 'narrow pad') PZA.
+          tr(id = 'matR_22')
+            td(class = 'extensive pad') Abrazadera de 3/4"
+            td(class = 'narrow pad') PZA.
+          tr(id = 'matR_23')
+            td(class = 'extensive pad') Abrazadera de 1"
+            td(class = 'narrow pad') PZA.
+          tr(id = 'matR_24')
+            td(class = 'extensive pad') Abrazadera de 1 1/4"
+            td(class = 'narrow pad') PZA.
+          tr(id = 'matR_25')
+            td(class = 'extensive pad') Tornillo
+            td(class = 'narrow pad') PZA.
+          tr(id = 'matR_26')
+            td(class = 'extensive pad') Rejilla
+            td(class = 'narrow pad') PZA.
+          tr(id = 'matR_27')
+            td(class = 'extensive pad') Codo Reductor de 1 1/4" a 1"
+            td(class = 'narrow pad') PZA.
+          tr(id = 'matR_28')
+            td(class = 'extensive pad') Codo Reductor de 1" a 3/4"
+            td(class = 'narrow pad') PZA.
+          tr(id = 'matR_29')
+            td(class = 'extensive pad') Codo Reductor de 3/4" a 1/2"
+            td(class = 'narrow pad') PZA.
+          tr(id = 'matR_30')
+            td(class = 'extensive pad') Válvula 1 1/4"
+            td(class = 'narrow pad') PZA.
+          tr(id = 'matR_31')
+            td(class = 'extensive pad') Válvula 1"
+            td(class = 'narrow pad') PZA.
+          tr(id = 'matR_32')
+            td(class = 'extensive pad') Válvula 3/4"
+            td(class = 'narrow pad') PZA.
+          tr(id = 'matR_33')
+            td(class = 'extensive pad') Válvula 1/2"
+            td(class = 'narrow pad') PZA.
+          tr(id = 'matR_34')
+            td(class = 'extensive pad') Codo pipa 3/4"
+            td(class = 'narrow pad') PZA.
+          tr(id = 'matR_35')
+            td(class = 'extensive pad') Exagon 3/4"
+            td(class = 'narrow pad') PZA.
+          tr(id = 'matR_36')
+            td(class = 'extensive pad') Carburo 1 Kilo
+            td(class = 'narrow pad') PZA.
+          tr(id = 'matR_37')
+            td(class = 'extensive pad') Terminal
+            td(class = 'narrow pad') PZA.
+          tr(id = 'matR_38')
+            td(class = 'extensive pad') Teflon unidades
+            td(class = 'narrow pad') PZA.
+          tr(id = 'matR_39')
+            td(class = 'extensive pad') Varilla
+            td(class = 'narrow pad') PZA.
+
+          tr(id = 'matR_40')
+            td(class = 'extensive pad' colspan = '4') TOTAL
+
+      div(class = 'table-container-table')
+        table(id = 'tbl_gan')
+          //tr
+            th N°
+            th Paterno
+            th Materno
+          tr
+            th(class = 'narrow') N°
+            th(class = 'no-rotate') Paterno
+            th(class = 'no-rotate') Materno
+            th(class = 'extensive') Nombres
+            th(class = 'no-rotate')
+              div
+                span METRAJE real cañeria media
+            th(class = 'no-rotate')
+              div
+                span Para YPFB total metros medidos de 3/4 y 1/2 hasta 22 metros
+            th(class = 'no-rotate')
+              div
+                span redondeo
+            th(class = 'no-rotate')
+              div
+                span METRAJE real cañeria 1"
+            th(class = 'no-rotate')
+              div
+                span MATERIAL TOTAL  gastado COTIZADO EN Bs.
+            th(class = 'no-rotate')
+              div
+                span COSTO  DE INSTALADOR 3/4 Y 1 PULG
+            th(class = 'no-rotate')
+              div
+                span DEUDA DEL USUARIO 3/4 y 1 pulg
+            th(class = 'no-rotate')
+              div
+                span METROS CANCELADOS POR YPFB EN BS.
+            th(class = 'no-rotate')
+              div
+                span SALDO bs. A FAVOR DE LA EMPRESA proyectado
+
+
+          tr
+            td 100
+            td YUJRa
+            td HINOJOSA
+            td ADOLFO ISAIAS
+            td 500
+            td 600
+            td 700
+            td 800
+            td 900
+            td 700
+          tr
+            td 100
+            td YUJRa
+            td HINOJOSA
+            td ADOLFO ISAIAS
+            td 500
+            td 600
+            td 700
+            td 800
+            td 900
+            td 700
+          tr
+            td 100
+            td YUJRa
+            td HINOJOSA
+            td ADOLFO ISAIAS
+            td 500
+            td 600
+            td 700
+            td 800
+            td 900
+            td 700
+          tr
+            td 100
+            td YUJRa
+            td HINOJOSA
+            td ADOLFO ISAIAS
+            td 500
+            td 600
+            td 700
+            td 800
+            td 900
+            td 700
+      div(class = 'table-container-table')
+        table(id = 'tbl_sol')
+          tr
+            th(class = 'narrow') N°
+            th(class = 'extensive') Codigo de usuario
+            th(class = 'no-rotate') TUB. AG 3/4" (m)
+            th(class = 'extensive') TUB.  AG 1/2" (m)
+            th(class = 'no-rotate') TAPON MACHO 3/4" (pza)
+            th(class = 'no-rotate') CUPLA DE 3/4" (pza)
+            th(class = 'no-rotate') TE 3/4" (pza)
+            th(class = 'no-rotate') CODO 90º 3/4" (pza)
+            th(class = 'no-rotate') CODO REDUCCION DE 3/4" A  1/2" (pza)
+            th(class = 'no-rotate') TAPON MACHO 1/2" (pza)
+            th(class = 'no-rotate') CUPLA DE 1/2" (pza)
+            th(class = 'no-rotate') TEE 1/2" (pza)
+            th(class = 'no-rotate') CODO 90º 1/2" (pza)
+            th(class = 'no-rotate') VALVULA 1/2" (pza)
+
+
+          tr
+            td 100
+            td 215151515
+            td 300
+            td 400
+            td 500
+            td 600
+            td 700
+            td 800
+            td 900
+            td 700
+
+
+
+        //table(id = 'miTablaXLS')
+          tr
+            th Nro
+            //////////////////////
+            th DPTO
+            th LOCALIDAD
+            /////////////////////
+            th DIST
+            th ZONA
+            th MANZ
+            th PREDIO
+            th PISO/DPTO
+            th APELLIDO PATERNO
+            th APELLIDO MATERNO
+            th(class = 'extensive') NOMBRES
+            th CARNET
+            th AVDA/ CALLE
+            th TEL/CEL
+            th(class = 'extensive') OBSERVACIONES
+            th ISOMETRICO
+            th GENERAL
+            th MEMORIA
+            th PLANO
+
+      div(class = 'table-container-export')
+        //input( id = 'exp_btn' type = 'button' value = 'Guardar excel' onclick = 'exportarEsto_Dos()')
+        input( id = 'exp_btn' type = 'button' value = 'Guardar excel' onclick = 'exportar("tbl_excel", "Excel YPFB.xlsx")')
+    ///////////////////////////////////////////////////////////////
+
+
+
+    div(class = 'editor-table none')
+      table(id = 'miTablaXLS')
+        tr
+          th Nro
+          //////////////////////
+          th DPTO
+          th LOCALIDAD
+          /////////////////////
+          th DIST
+          th ZONA
+          th MANZ
+          th PREDIO
+          th PISO/DPTO
+          th APELLIDO PATERNO
+          th APELLIDO MATERNO
+          th NOMBRES
+          th CARNET
+          th AVDA/ CALLE
+          th TEL/CEL
+          th OBSERVACIONES
+          th ISOMETRICO
+          th GENERAL
+          th MEMORIA
+          th PLANO
+
+    input(type = 'text' id = 'myJSON' class = 'jsonData' value = '#{json}')
+
+
+
+    div(class = 'inform-table none')
+      table(class = 'iTable' id = 'miTablaInforme_1')
+        tr
+          th Nro
+          th Código de usuario
+          th(id = 'sTub12H')
+            span TUB AG 1/2" (m)
+          th(id = 'sTub34H')
+            span TUB AG 3/4" (m)
+          th(id = 'sTub01H')
+            span TUB AG 1" (m)
+          th(id = 'sTub14H')
+            span TUB AG 1/4" (m)
+          th
+            span Codo 90º 1/2" (pza)
+          th
+            span Codo 90º 3/4" (pza)
+          th
+            span Codo 90º 1" (pza)
+          th
+            span Codo 90º 1 1/4" (pza)
+          //th
+            Tapón Macho 3/4" (pza)
+            Cupla 3/4" (pza)
+            Te 3/4" (pza)
+          th
+            span Codo reductor de 3/4" a 1/2" (pza)
+          th
+            span Válvula 1/2" (pza)
+        //tr
+          td Mi elemento
+          td Mi elemento
+          td Mi elemento
+          td Mi elemento
+          td Mi elemento
+          td Mi elemento
+          td Mi elemento
+          td Mi elemento
+          td Mi elemento
+          td Mi elemento
+          td Mi elemento
+          td Mi elemento
+    //////////////////////////////////// TABLA LARGA
+    div(class = 'inform-table none')
+      table(class = 'iTable' id = 'miTablaInforme_2')
+        tr
+          th Nro
+          th Paterno
+          th Materno
+          th Nombres
+          th
+            span Cañería 1/2" metros
+          th
+            span Cañería 3/4" metros
+          th
+            span Cañería 1" metros
+          th
+            span Codo 90 de 3/4
+          th
+            span Cupla d 3/4"
+          th
+            span Codo pipa 3/4"
+          th
+            span Exágono de 3/4"
+          th
+            span Abrazadera 3/4"
+          th
+            span Abrazadera 1"
+          th
+            span Tornillo
+          th
+            span Teflón unidades
+          th
+            span Te de 3/4"
+          th
+            span Tapón 3/4
+          th
+            span Rejilla
+          th
+            span Codo reductor 3/4" a 1/2"
+          th
+            span Válvula medio
+          th
+            span Abrazadera 1/2"
+          th
+            span Terminal
+          th
+            span Codo 1"
+          th
+            span Cupla 1"
+          th
+            span Te 1"
+          th
+            span Tapón 1"
+          th
+            span Codo reductor 90 de 1" a 3/4"
+          th
+            span Carburo 1 Kg
+          th
+            span Varilla
+        //tr
+          td 10,051
+          td 10,051
+          td 10,051
+          td 10,051
+          td 10,051
+          td 10,051
+          td 10,051
+          td 10,051
+          td 10,051
+          td 10,051
+          td 10,051
+          td 10,051
+          td 10,051
+          td 10,051
+          td 10,051
+          td 10,051
+          td 10,051
+          td 10,051
+          td 10,051
+          td 10,051
+          td 10,051
+          td 10,051
+          td 10,051
+          td 10,051
+          td 10,051
+          td 10,051
+          td 10,051
+          td 10,051
+          td 10,051
+
+
+
+    div(class = 'inform-table none')
+      table(class = 'iTable' id = 'miTablaInforme_3')
+        tr
+          th Nro
+          th Paterno
+          th Materno
+          th Nombres
+          th
+            span Metraje hasta los 22 metros
+          th
+            span Metros excedente de 3/4
+          th
+            span Pagar 3/4 total 105 Bs excedente
+          th
+            span (Metraje) Diámetro de 1" dentro de 22 metros
+          th
+            span Costo Diametro 1" dentro de 22 metros a 55 Bs
+          th
+            span (Metraje) Diámetro 1" fuera de 22
+          th
+            span Diámetro 1" fuera de 22 metros a 160 Bs
+          th
+            span Total de 3/4 y 1" a pagar (Dueño)
+        //tr
+          td Mi elemento
+          td Mi elemento
+          td Mi elemento
+          td Mi elemento
+          td Mi elemento
+          td Mi elemento
+          td Mi elemento
+          td Mi elemento
+          td Mi elemento
+          td Mi elemento
+          td Mi elemento
+          td Mi elemento
+
+
+block footer
+
+  //form(action = '/asignacion/editor' name = 'formularioTablas' method = 'post')
+  form(action = '/asignacion/editor' name = 'formularioTablas' method = 'post' enctype = 'multipart/form-data')
+    div(class = 'varTitle') Mis variables
+
+    div(class = 'varData')
+      //div(class = 'lineData')
+
+      div(class = 'data')
+        label Mi Asignación
+
+      div(class = 'data none')
+        label Usuario:
+        input(type = 'text' name = 'usuario' value = '#{us}')
+
+      div(class = 'data none')
+        label Proyecto:
+        input(type = 'text' name = 'nProyecto' value = '#{proyecto}')
+
+      //div(class = 'data')
+        label Autor:
+        input(type = 'text' name = 'nProyecto' value = '#{proyecto}')
+
+      div(class = 'data')
+        label Nombre Empresa:
+        input(type = 'text' id = 'eRazonSocial' name = 'eRazonSocial' value = '#{eRazonSocial}')
+
+      div(class = 'data')
+        label Resolución:
+        input(type = 'text' id = 'eResolucion' name = 'eResolucion' value = '#{eResolucion}')
+
+      div(class = 'data')
+        label Dirección:
+        input(type = 'text' id = 'eDireccion' name = 'eDireccion' value = '#{eDireccion}')
+
+      div(class = 'data')
+        label Teléfonos:
+        input(type = 'text' id = 'eTelefono' name = 'eTelefono' value = '#{eTelefono}')
+
+      div(class = 'data none')
+        label Url Logo:
+        input(type = 'text' id = 'eImagenLogo' name = 'eImagenLogo' value = '#{eImagenLogo}')
+      div(class = 'ima')
+        img(src = '#{eImagenLogo}' alt = '#{eTextoLogo}' id = 'eImagenContent')
+
+      div(class = 'ima-change')
+        input(type = 'file' id = 'eNewImagenLogo' name = 'eNewImagenLogo')
+        input(type = 'button' id = 'eNewImagenLogoCambiar' name = 'eNewImagenLogoCambiar' value = 'Cambiar imagen' onclick = 'activarCambioImagen()')
+
+
+      div(class = 'data')
+        label Texto Logo:
+        input(type = 'text' id = 'eTextoLogo' name = 'eTextoLogo' value = '#{eTextoLogo}')
+
+      div(class = 'data')
+        label Proyectista:
+        input(type = 'text' id  = 'eProyectista' name = 'eProyectista' value = '#{eProyectista}')
+
+      div(class = 'data')
+        label Registro infocal:
+        input(type = 'text' id = 'eRegistroP' name = 'eRegistroP' value = '#{eRegistroP}')
+
+      div(class = 'data')
+        label Instalador:
+        input(type = 'text' id = 'eInstalador' name = 'eInstalador' value = '#{eInstalador}')
+
+      div(class = 'data')
+        label Registro infocal:
+        input(type = 'text' id = 'eRegistroI' name = 'eRegistroI' value = '#{eRegistroI}')
+
+
+      div(class = 'data none')
+        label Número de asignación:
+        input(type = 'text' id = 'pNumero' name = 'pNumero' value = '#{pNumero}')
+
+      div(class = 'data')
+        label Nombre zona:
+        input(type = 'text' id = 'pNombreZona' name = 'pNombreZona' value = '#{pNombreZona}')
+
+      div(class = 'data')
+        label Departamento:
+        input(type = 'text' id = 'pDepartamento' name = 'pDepartamento' value = '#{pDepartamento}')
+
+      div(class = 'data')
+        label Código:
+        input(type = 'text' id = 'pLocalidadC' name = 'pLocalidadC' value = '#{pLocalidadC}')
+
+      div(class = 'data')
+        label Localidad:
+        input(type = 'text' id = 'pLocalidad' name = 'pLocalidad' value = '#{pLocalidad}')
+
+      div(class = 'data')
+        label Código:
+        input(type = 'text' id = 'pDepartamentoC' name = 'pDepartamentoC' value = '#{pDepartamentoC}')
+
+
+
+
+      div(class = 'data none')
+        label Modo:
+        input(type = 'text' name = 'mode' value = 'saveVars')
+
+      div(class = 'data')
+        label Materiales
+
+      div(class = 'data')
+        label Longitud cañería:
+        input(type = 'text' id = 'vCaneria' name = 'vCaneria' value = '#{vCaneria}' onchange = 'normalChange("vCaneria")')
+
+      div(class = 'data none')
+        label Codo pipa 3/4":
+        input(type = 'text' id = 'vCodoPipa34' name = 'vCodoPipa34' value = ('#{vCodoPipa34}').toString())
+
+      div(class = 'data none')
+        label Hexagonal 3/4":
+        input(type = 'text' id = 'vHexagonal34' name = 'vHexagonal34' value = ('#{vHexagonal34}').toString())
+
+      div(class = 'data none')
+        label Carburo 1 Kg":
+        input(type = 'text' id = 'vCarburo1K' name = 'vCarburo1K' value = ('#{vCarburo1K}').toString())
+
+      div(class = 'data none')
+        label Material excedente:
+        input(type = 'text' id = 'vMaterialExcedente' name = 'vMaterialExcedente' value = ('#{vMaterialExcedente}').toString())
+
+      ////////////////
+      div(class = 'data none')
+        label Precio materiales:
+        input(type = 'text' id = 'vPrecioMateriales' name = 'vPrecioMateriales' value = ('#{vPrecioMateriales}').toString())
+
+      div(class = 'data none')
+        label Pago instalación :
+        input(type = 'text' id = 'vPagoYPFB' name = 'vPagoYPFB' value = ('#{vPagoYPFB}').toString())
+
+      div(class = 'data-tabPago')
+        label Pago instalación por parte de YPFB
+        input(type = 'button' id = 'ePagoInstalacionCambiar' value = 'Cambiar valores' onclick = 'activarCambioInstalacion()')
+
+      div(class = 'table-data' id = 'table-data')
+        table(id = 'YPFBTable')
+          tr
+            th Distancia
+            th Costo
+          tr(id = 'YPFBRow_0')
+            td
+              input(type = 'text' value = 'Existe' id = '' name = '' onchange = 'cambiarYPFBData()')
+            td(id = 'YPFBRow_0_2')
+              input(type = 'text' value = 'Existe' id = '' name = '' onchange = 'cambiarYPFBData()')
+              input(type = 'button' id = 'YPFBRow_0_PC' value = '+' onclick = 'addFilaYPFB(this.id)')
+              input(type = 'button' id = 'YPFBRow_0_PC' value = '-' onclick = 'removeFilaYPFB(this.id)' class = 'removeBtn')
+          tr(id = 'YPFBRow_1')
+            td
+              input(type = 'text' value = 'Existe' id = '' name = '' onchange = 'cambiarYPFBData()')
+            td(id = 'YPFBRow_1_2')
+              input(type = 'text' value = 'Existe' id = '' name = '' onchange = 'cambiarYPFBData()')
+              input(type = 'button' id = 'YPFBRow_1_PC' value = '+' onclick = 'addFilaYPFB(this.id)')
+          tr(id = 'YPFBRow_2')
+            td
+              input(type = 'text' value = 'Existe' id = '' name = '' onchange = 'cambiarYPFBData()')
+            td(id = 'YPFBRow_2_2')
+              input(type = 'text' value = 'Existe' id = '' name = '' onchange = 'cambiarYPFBData()')
+              input(type = 'button' id = 'YPFBRow_2_PC' value = '+' onclick = 'addFilaYPFB(this.id)')
+          tr(id = 'YPFBRow_3')
+            td
+              input(type = 'text' value = 'Existe' id = '' name = '' onchange = 'cambiarYPFBData()')
+            td(id = 'YPFBRow_3_2')
+              input(type = 'text' value = 'Existe' id = '' name = '' onchange = 'cambiarYPFBData()')
+              input(type = 'button' id = 'YPFBRow_3_PC' value = '+' onclick = 'addFilaYPFB(this.id)')
+
+          tr(id = 'YPFBRow_4')
+            td
+              input(type = 'text' value = 'Existe' id = '' name = '' onchange = 'cambiarYPFBData()')
+            td(id = 'YPFBRow_4_2')
+              input(type = 'text' value = 'Existe' id = '' name = '' onchange = 'cambiarYPFBData()')
+              input(type = 'button' id = 'YPFBRow_4_PC' value = '+' onclick = 'addFilaYPFB(this.id)')
+          tr(id = 'YPFBRow_5')
+            td
+              input(type = 'text' value = 'Existe' id = '' name = '' onchange = 'cambiarYPFBData()')
+            td(id = 'YPFBRow_5_2')
+              input(type = 'text' value = 'Existe' id = '' name = '' onchange = 'cambiarYPFBData()')
+              input(type = 'button' id = 'YPFBRow_5_PC' value = '+' onclick = 'addFilaYPFB(this.id)')
+          tr(id = 'YPFBRow_6')
+            td
+              input(type = 'text' value = 'Existe' id = '' name = '' onchange = 'cambiarYPFBData()')
+            td(id = 'YPFBRow_6_2')
+              input(type = 'text' value = 'Existe' id = '' name = '' onchange = 'cambiarYPFBData()')
+              input(type = 'button' id = 'YPFBRow_6_PC' value = '+' onclick = 'addFilaYPFB(this.id)')
+          tr(id = 'YPFBRow_7')
+            td
+              input(type = 'text' value = 'Existe' id = '' name = '' onchange = 'cambiarYPFBData()')
+            td(id = 'YPFBRow_7_2')
+              input(type = 'text' value = 'Existe' id = '' name = '' onchange = 'cambiarYPFBData()')
+              input(type = 'button' id = 'YPFBRow_7_PC' value = '+' onclick = 'addFilaYPFB(this.id)')
+          tr(id = 'YPFBRow_8')
+            td
+              input(type = 'text' value = 'Existe' id = '' name = '' onchange = 'cambiarYPFBData()')
+            td(id = 'YPFBRow_8_2')
+              input(type = 'text' value = 'Existe' id = '' name = '' onchange = 'cambiarYPFBData()')
+              input(type = 'button' id = 'YPFBRow_8_PC' value = '+' onclick = 'addFilaYPFB(this.id)')
+          tr(id = 'YPFBRow_9')
+            td
+              input(type = 'text' value = 'Existe' id = '' name = '' onchange = 'cambiarYPFBData()')
+            td(id = 'YPFBRow_9_2')
+              input(type = 'text' value = 'Existe' id = '' name = '' onchange = 'cambiarYPFBData()')
+              input(type = 'button' id = 'YPFBRow_9_PC' value = '+' onclick = 'addFilaYPFB(this.id)')
+          tr(id = 'YPFBRow_10')
+            td
+              input(type = 'text' value = 'Existe' id = '' name = '' onchange = 'cambiarYPFBData()')
+            td(id = 'YPFBRow_10_2')
+              input(type = 'text' value = 'Existe' id = '' name = '' onchange = 'cambiarYPFBData()')
+              input(type = 'button' id = 'YPFBRow_10_PC' value = '+' onclick = 'addFilaYPFB(this.id)')
+
+
+      ////////////////
+
+      div(class = 'data')
+        label Sueldo del instalador
+
+      div(class = 'data')
+        label Cañería 1/2":
+        input(type = 'text' id = 'vSueldo12' name = 'vSueldo12' value = '#{vSueldo12}' onchange = 'normalChange("vSueldo12")')
+      div(class = 'data')
+        label Cañería 3/4":
+        input(type = 'text' id = 'vSueldo34' name = 'vSueldo34' value = '#{vSueldo34}' onchange = 'normalChange("vSueldo34")')
+      div(class = 'data')
+        label Cañería 1":
+        input(type = 'text' id = 'vSueldo01' name = 'vSueldo01' value = '#{vSueldo01}' onchange = 'normalChange("vSueldo01")')
+      div(class = 'data')
+        label Cañería 1 1/4":
+        input(type = 'text' id = 'vSueldo14' name = 'vSueldo14' value = '#{vSueldo14}' onchange = 'normalChange("vSueldo14")')
+
+      div(class = 'data')
+        label Costo de instalación
+
+      div(class = 'data')
+        label Dentro de 22 Mts. 1/2":
+        input(type = 'text' id = 'vCostoIn12' name = 'vCostoIn12' value = '#{vCostoIn12}' onchange = 'normalChange("vCostoIn12")')
+      div(class = 'data')
+        label Fuera de 22 Mts. 1/2":
+        input(type = 'text' id = 'vCostoOu12' name = 'vCostoOu12' value = '#{vCostoOu12}' onchange = 'normalChange("vCostoOu12")')
+      div(class = 'data')
+        label Dentro de 22 Mts. 3/4":
+        input(type = 'text' id = 'vCostoIn34' name = 'vCostoIn34' value = '#{vCostoIn34}' onchange = 'normalChange("vCostoIn34")')
+      div(class = 'data')
+        label Fuera de 22 Mts. 3/4":
+        input(type = 'text' id = 'vCostoOu34' name = 'vCostoOu34' value = '#{vCostoOu34}' onchange = 'normalChange("vCostoOu34")')
+      div(class = 'data')
+        label Dentro de 22 Mts. 1":
+        input(type = 'text' id = 'vCostoIn01' name = 'vCostoIn01' value = '#{vCostoIn01}' onchange = 'normalChange("vCostoIn01")')
+      div(class = 'data')
+        label Fuera de 22 Mts. 1":
+        input(type = 'text' id = 'vCostoOu01' name = 'vCostoOu01' value = '#{vCostoOu01}' onchange = 'normalChange("vCostoOu01")')
+      div(class = 'data')
+        label Dentro de 22 Mts. 1 1/4":
+        input(type = 'text' id = 'vCostoIn14' name = 'vCostoIn14' value = '#{vCostoIn14}' onchange = 'normalChange("vCostoIn14")')
+      div(class = 'data')
+        label Fuera de 22 Mts. 1 1/4":
+        input(type = 'text' id = 'vCostoOu14' name = 'vCostoOu14' value = '#{vCostoOu14}' onchange = 'normalChange("vCostoOu14")')
+
+
+    div(class = 'varChanges')
+    div(class = 'submit' onclick = 'document.forms["formularioTablas"].submit();')
+
+block subScripts
+
+  script(src = '/js/jszip.js')
+  script(src = '/js/xlsx.core.min.js')
+  script(src = '/js/Blob.js')
+  script(src = '/js/FileSaver.js')
+  script(src = '/js/Export2Excel.js')
+  script(src = '/js/editor.js')
+
+  script(src = '/js/editorTablasOther.js')

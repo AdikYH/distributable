@@ -1,0 +1,47 @@
+doctype html
+html
+  head
+    title Bienvenido
+    meta(charset = 'UTF-8')
+    link(rel = 'stylesheet' href = 'css/login.css')
+    meta(name="viewport", content="width=device-width, user-scalable=0, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0")
+    script.
+      function preloader(){
+          document.getElementById('loading').style.display = 'none';
+          document.getElementById('container').style.display = 'block';
+      }
+      window.onload = preloader
+  body
+    div(id = 'loading' class = 'loading')
+    div(id = 'container' class = 'container')
+      form(action = '/login' method = 'post' autocomplete = 'on' )
+        div(class = 'form-header')
+          h1 Bienvenido
+        //div(class = 'form-alert') #{message}
+        div(class = 'form-input usuario')
+          label(for = 'user' class = 'usy')
+            //span Usuario
+          input(type = 'text' name = 'usuario' placeholder = 'Usuario' id = 'user')
+        div(class = 'form-input password')
+          label(for = 'password' class = 'pass')
+            //span Contraseña
+          input(type = 'password' name = 'password' placeholder = 'Contraseña' id = 'password')
+          div(class = 'form-alert') #{message}
+        div(class = 'form-button')
+          button(type = 'submit') Iniciar sesión
+
+    div(class = 'createUser')
+      form(action = '/register' method = 'post' autocomplete = 'off' )
+        div(class = 'form-header')
+          h1 Crear cuenta
+        //div(class = 'form-alert') #{message}
+        div(class = 'form-input usuario')
+          label(for = 'user' class = 'usy')
+            span Usuario
+          input(type = 'text' name = 'usuarioC' placeholder = 'Usuario' id = 'userC')
+        div(class = 'form-input password')
+          label(for = 'password' class = 'pass')
+            span Contraseña
+          input(type = 'password' name = 'passwordC' placeholder = 'Contraseña' id = 'passwordC')
+        div(class = 'form-button')
+          button(type = 'submit') Crear cuenta

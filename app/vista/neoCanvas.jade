@@ -1,0 +1,1467 @@
+extends layout_nav
+
+block title
+  title neoIsometrico
+
+block css
+  link(rel = 'stylesheet', href = '/css/neoCanvas.css')
+  //- script(type="application/javascript", src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js")
+  //- script(type="application/javascript", src="/js/jquery.anythingzoomer.js")
+
+
+block lista
+  //li
+    a(href="#") Exportar
+    ul
+      li
+        a(href="#") Dibujo
+      li
+        a(href="#") PDF
+      li
+        a(href="#" onclick= 'window.print()') Imprimir
+
+block content
+  div(id = 'loading' class = 'loading')
+
+  div(id = 'first-draw' class = 'first-draw')
+    div(id = 'window-tutorial' class = 'window-tutorial')
+      div(class = 'window-header') Primer dibujo
+        div(class = 'close' onclick = 'closeTuto()') X
+
+      //div(class = 'parrafo') Bienvenido a este pequeño tutorial, procederá a realizar un dibujo isométrico sencillo.
+      //div(id = 'tDiv_1' class = 'content uno') Seleccione un medidor
+      div(id = 'tDiv_1' class = 'content') Seleccione un Medidor o Regulador
+        //p Bienvenido a este pequeño tutorial, procederá a realizar un dibujo isométrico sencillo.
+        //div(class = 'btn-slt') hola
+        div(class = 'btn-slt')
+          //div(class = 'btn-itm') H
+          div(id = 'btn-medT_1' class = 'btn-itm med1' onclick = 'selectT(this.id, "med", "btn-nxt_1", "btnxI_1")')
+          div(id = 'btn-medT_2' class = 'btn-itm med2' onclick = 'selectT(this.id, "med", "btn-nxt_1", "btnxI_1")')
+          // div(id = 'btn-medT_3' class = 'btn-itm med3' onclick = 'selectT(this.id, "med", "btn-nxt_1", "btnxI_1")')
+          div(id = 'btn-medT_4' class = 'btn-itm med4' onclick = 'selectT(this.id, "med", "btn-nxt_1", "btnxI_1")')
+          div(id = 'btn-medT_5' class = 'btn-itm med5' onclick = 'selectT(this.id, "med", "btn-nxt_1", "btnxI_1")')
+          div(id = 'btn-medT_6' class = 'btn-itm med6' onclick = 'selectT(this.id, "med", "btn-nxt_1", "btnxI_1")')
+          // div(id = 'btn-medT_7' class = 'btn-itm med7' onclick = 'selectT(this.id, "med", "btn-nxt_1", "btnxI_1")')
+          div(id = 'btn-medT_8' class = 'btn-itm med8' onclick = 'selectT(this.id, "med", "btn-nxt_1", "btnxI_1")')
+        
+        div(class = 'btn-slt')
+          div(id = 'btn-regT_1' class = 'btn-itm reg1' onclick = 'selectT(this.id, "med", "btn-nxt_1", "btnxI_1")')
+          div(id = 'btn-regT_2' class = 'btn-itm reg2' onclick = 'selectT(this.id, "med", "btn-nxt_1", "btnxI_1")')
+          div(id = 'btn-regT_3' class = 'btn-itm reg3' onclick = 'selectT(this.id, "med", "btn-nxt_1", "btnxI_1")')
+          div(id = 'btn-regT_4' class = 'btn-itm reg4' onclick = 'selectT(this.id, "med", "btn-nxt_1", "btnxI_1")')
+          div(id = 'btn-regT_5' class = 'btn-itm reg5' onclick = 'selectT(this.id, "med", "btn-nxt_1", "btnxI_1")')
+          div(id = 'btn-regT_6' class = 'btn-itm reg6' onclick = 'selectT(this.id, "med", "btn-nxt_1", "btnxI_1")')
+          div(id = 'btn-regT_7' class = 'btn-itm reg7' onclick = 'selectT(this.id, "med", "btn-nxt_1", "btnxI_1")')
+          div(id = 'btn-regT_8' class = 'btn-itm reg8' onclick = 'selectT(this.id, "med", "btn-nxt_1", "btnxI_1")')
+          
+        div(class = 'btn-slt')
+          div(id = 'btn-rgsT_1' class = 'btn-itm rgs1' onclick = 'selectT(this.id, "med", "btn-nxt_1", "btnxI_1")')
+          div(id = 'btn-rgsT_2' class = 'btn-itm rgs2' onclick = 'selectT(this.id, "med", "btn-nxt_1", "btnxI_1")')
+          div(id = 'btn-rgsT_3' class = 'btn-itm rgs3' onclick = 'selectT(this.id, "med", "btn-nxt_1", "btnxI_1")')
+          div(id = 'btn-rgsT_4' class = 'btn-itm rgs4' onclick = 'selectT(this.id, "med", "btn-nxt_1", "btnxI_1")')
+          div(id = 'btn-rgsT_5' class = 'btn-itm rgs5' onclick = 'selectT(this.id, "med", "btn-nxt_1", "btnxI_1")')
+          div(id = 'btn-rgsT_6' class = 'btn-itm rgs6' onclick = 'selectT(this.id, "med", "btn-nxt_1", "btnxI_1")')
+          div(id = 'btn-rgsT_7' class = 'btn-itm rgs7' onclick = 'selectT(this.id, "med", "btn-nxt_1", "btnxI_1")')
+          div(id = 'btn-rgsT_8' class = 'btn-itm rgs8' onclick = 'selectT(this.id, "med", "btn-nxt_1", "btnxI_1")')
+
+        //div(class = 'btn-bck')
+          input(type = 'button' value = 'Volver')
+
+        div(id = 'btn-nxt_1' class = 'btn-nxtDis full')
+          input(id = 'btnxI_1' type = 'button' value = 'Siguiente' onclick = 'tNext()' disabled = true)
+          
+       
+
+      //div(class = 'content dos') Escoja un tipo de tuberia
+      div(id = 'tDiv_2' class = 'content none') Escoja un tipo de tuberia
+        div(class = 'btn-slt')
+          div(id = 'btn-ttbT_1' class = 'btn-itm ttb' onclick = 'selectT(this.id, "ttub", "btn-nxt_2", "btnxI_2")') Enterrado
+          div(id = 'btn-ttbT_2' class = 'btn-itm ttb' onclick = 'selectT(this.id, "ttub", "btn-nxt_2", "btnxI_2")') Empotrado
+          div(id = 'btn-ttbT_3' class = 'btn-itm ttb' onclick = 'selectT(this.id, "ttub", "btn-nxt_2", "btnxI_2")') Visto
+          //div(class = 'btn-itm') H
+
+        div(class = 'btn-bck')
+          input(type = 'button' value = 'Volver' onclick = 'tBack()')
+
+        div(id = 'btn-nxt_2' class = 'btn-nxtDis')
+          input(id = 'btnxI_2' type = 'button' value = 'Siguiente' onclick = 'tNext()' disabled = true)
+
+      //div(class = 'content tres') Escoja un diámetro
+      div(id = 'tDiv_3' class = 'content none') Escoja un diámetro
+        div(class = 'btn-slt')
+          div(id = 'btn-diaT_1' class = 'btn-itm dia' onclick = 'selectT(this.id, "dia", "btn-nxt_3", "btnxI_3")') 1/2 ''
+          div(id = 'btn-diaT_2' class = 'btn-itm dia' onclick = 'selectT(this.id, "dia", "btn-nxt_3", "btnxI_3")') 3/4 ''
+          div(id = 'btn-diaT_3' class = 'btn-itm dia' onclick = 'selectT(this.id, "dia", "btn-nxt_3", "btnxI_3")') 1 ''
+          div(id = 'btn-diaT_4' class = 'btn-itm dia' onclick = 'selectT(this.id, "dia", "btn-nxt_3", "btnxI_3")') 1 1/4 ''
+          //div(class = 'btn-itm') H
+
+        div(class = 'btn-bck')
+          input(type = 'button' value = 'Volver' onclick = 'tBack()')
+
+        div(id = 'btn-nxt_3' class = 'btn-nxtDis')
+          input(id = 'btnxI_3' type = 'button' value = 'Siguiente' onclick = 'tNext()' disabled = true)
+
+      //div(class = 'content cuatro') Escoja una distancia
+      div(id = 'tDiv_4' class = 'content none') Escoja una distancia
+        div(class = 'btn-slt')
+          input(id = 'ipt-dis' type = 'text' onchange = 'selectT(this.id, "dis", "btn-nxt_4", "btnxI_4")' value = '0' placeholder= '0.0')
+          //div(class = 'btn-itm') H
+
+        div(class = 'btn-bck')
+          input(type = 'button' value = 'Volver' onclick = 'tBack()')
+
+        div(id = 'btn-nxt_4' class = 'btn-nxtDis')
+          input(id = 'btnxI_4' type = 'button' value = 'Siguiente' onclick = 'tNext()' disabled = true)
+
+      //div(class = 'content cinco') Escoja una dirección
+      div(id = 'tDiv_5' class = 'content none') Escoja una dirección
+        div(class = 'btn-slt dir')
+          div(id = 'btn-medGT' class = 'btn-itm med')
+          div(id = 'btn-angT_1' class = 'btn-itm tg-30' onclick = 'selectT(this.id, "dir", "btn-nxt_5", "btnxI_5")')
+          div(id = 'btn-angT_2' class = 'btn-itm tg-90' onclick = 'selectT(this.id, "dir", "btn-nxt_5", "btnxI_5")')
+          div(id = 'btn-angT_3' class = 'btn-itm tg-150' onclick = 'selectT(this.id, "dir", "btn-nxt_5", "btnxI_5")')
+          div(id = 'btn-angT_4' class = 'btn-itm tg-210' onclick = 'selectT(this.id, "dir", "btn-nxt_5", "btnxI_5")')
+          div(id = 'btn-angT_5' class = 'btn-itm tg-270' onclick = 'selectT(this.id, "dir", "btn-nxt_5", "btnxI_5")')
+          div(id = 'btn-angT_6' class = 'btn-itm tg-330' onclick = 'selectT(this.id, "dir", "btn-nxt_5", "btnxI_5")')
+          //div(class = 'btn-itm') H
+          //div(class = 'btn-itm') H
+
+        div(class = 'btn-bck')
+          input(type = 'button' value = 'Volver' onclick = 'tBack()')
+
+        div(id = 'btn-nxt_5' class = 'btn-nxtDis')
+          input(id = 'btnxI_5' type = 'button' value = 'Siguiente' onclick = 'tNext()' disabled = true)
+
+      div(id = 'tDiv_6' class = 'content none')
+        div(class = 'textoT') ¡Es todo!
+        div(class = 'textoT') Has realizado tu
+        div(class = 'textoT') primer dibujo.
+        div(class = 'textoT') Se lo representará en el plano.
+        div(class = 'textoT') GRACIAS
+        div(class = 'btn-bck')
+          input(type = 'button' value = 'Volver' onclick = 'tBack()')
+
+        div(class = 'btn-nxt')
+          input(type = 'button' value = 'Hecho' onclick = 'tHecho()')
+
+
+  div(id = 'myModal' class = 'modal')
+    div(class = 'modal-content')
+      div(class = 'modal-header')
+        //span(class = 'close') x
+        h2 Confirmación necesaria
+      div(id = 'modal-message' class = 'modal-body')
+        //p Estas a punto de eliminar un lienzo de dibujo de tu proyecto isométrico. Este cambio será irrevertible. ¿Estás seguro?
+      div(class = 'modal-buttons')
+        input(id = 'btn_aceptar' class = 'btn-Aceptar' type = 'button' value = 'Aceptar' onclick = 'setAceptarDeleteModal()')
+        input(id = 'btn_cancelar' class = 'btn-Cancelar' type = 'button' value = 'Cancelar' onclick = 'setCancelarDeleteModal()')
+      //div(class = 'modal-footer')
+        h3 Modal Footer
+
+  div(class = 'contenedor' id = 'lienzos')
+
+
+    div(id = 'tablasAccesoriosCopia' class = 'tablasAccesoriosCopia')
+      div(id = 'outputCopia' class = 'output')
+        table
+          tr
+            th Accesorio
+            th(class = 'center strech') Unidad
+            th(class = 'center') Cantidad
+          //////////////////////////////////////////////////////////////
+          tr(id = 'titValvula12Copia' class = 'none')
+            td Válvula de 1/2''
+            td(class = 'center strech') PZA.
+            td(id = 'valvula12Copia' class = 'center') 0
+          tr(id = 'titValvula34Copia' class = 'none')
+            td Válvula de 3/4''
+            td(class = 'center strech') PZA.
+            td(id = 'valvula34Copia' class = 'center') 0
+          tr(id = 'titValvula01Copia' class = 'none')
+            td Válvula de 1''
+            td(class = 'center strech') PZA.
+            td(id = 'valvula01Copia' class = 'center') 0
+          tr(id = 'titValvula14Copia' class = 'none')
+            td Válvula de 1 1/4''
+            td(class = 'center strech') PZA.
+            td(id = 'valvula14Copia' class = 'center') 0
+          //////////////////////////////////////////////////////////////
+          tr(id = 'titReduccion14a01Copia' class = 'none')
+            td Codo reductor 1 1/4" a 1"
+            td(class = 'center strech') PZA.
+            td(id = 'reduccion14a01Copia' class = 'center') 0
+
+          tr(id = 'titReduccion01a34Copia' class = 'none')
+            td Codo reductor 1" a 3/4"
+            td(class = 'center strech') PZA.
+            td(id = 'reduccion01a34Copia' class = 'center') 0
+
+          tr(id = 'titReduccion34a12Copia' class = 'none')
+            td Codo reductor 3/4" a 1/2"
+            td(class = 'center strech') PZA.
+            td(id = 'reduccion34a12Copia' class = 'center') 0
+          //////////////////////////////////////////////////////////////
+          tr(id = 'tubCodo_14Copia' class = 'none')
+            td Codo de 90º de 1 1/4''
+            td(class = 'center strech') PZA.
+            td(id = 'codo_14Copia' class = 'center') 0
+
+          tr(id = 'tubCodo_1Copia' class = 'none')
+            td Codo de 90º de 1''
+            td(class = 'center strech') PZA.
+            td(id = 'codo_1Copia' class = 'center') 0
+
+          tr(id = 'tubCodo_34Copia' class = 'none')
+            td Codo de 90º de 3/4''
+            td(class = 'center strech') PZA.
+            td(id = 'codo_34Copia' class = 'center') 0
+
+          tr(id = 'tubCodo_12Copia' class = 'none')
+            td Codo de 90º de 1/2''
+            td(class = 'center strech') PZA.
+            td(id = 'codo_12Copia' class = 'center') 0
+          //////////////////////////////////////////////////////////////
+          tr(id = 'titTe_14Copia' class = 'none')
+            td Te de 1 1/4''
+            td(class = 'center strech') PZA.
+            td(id = 'te_14Copia' class = 'center') 0
+          tr(id = 'titTe_01Copia' class = 'none')
+            td Te de 1''
+            td(class = 'center strech') PZA.
+            td(id = 'te_01Copia' class = 'center')
+          tr(id = 'titTe_34Copia' class = 'none')
+            td Te de 3/4''
+            td(class = 'center strech') PZA.
+            td(id = 'te_34Copia' class = 'center') 0
+          tr(id = 'titTe_12Copia' class = 'none')
+            td Te de 1/2''
+            td(class = 'center strech') PZA.
+            td(id = 'te_12Copia' class = 'center') 0
+          //////////////////////////////////////////////////////////////
+          tr(id = 'titCupla14Copia' class = 'none')
+            td Cupla de 1 1/4''
+            td(class = 'center strech') PZA.
+            td(id = 'cupla14Copia' class = 'center') 0
+          tr(id = 'titCupla01Copia' class = 'none')
+            td Cupla de 1''
+            td(class = 'center strech') PZA.
+            td(id = 'cupla01Copia' class = 'center') 0
+          tr(id = 'titCupla34Copia' class = 'none')
+            td Cupla de 3/4''
+            td(class = 'center strech') PZA.
+            td(id = 'cupla34Copia' class = 'center') 0
+          tr(id = 'titCupla12Copia' class = 'none')
+            td Cupla de 1/2''
+            td(class = 'center strech') PZA.
+            td(id = 'cupla12Copia' class = 'center') 0
+          //////////////////////////////////////////////////////////////
+          tr(id = 'titTapon14Copia' class = 'none')
+            td Tapon Macho de 1 1/4''
+            td(class = 'center strech') PZA.
+            td(id = 'tapon14Copia' class = 'center') 0
+          tr(id = 'titTapon01Copia' class = 'none')
+            td Tapon Macho de 1''
+            td(class = 'center strech') PZA.
+            td(id = 'tapon01Copia' class = 'center') 0
+          tr(id = 'titTapon34Copia' class = 'none')
+            td Tapon Macho de 3/4''
+            td(class = 'center strech') PZA.
+            td(id = 'tapon34Copia' class = 'center') 0
+          tr(id = 'titTapon12Copia' class = 'none')
+            td Tapon Macho de 1/2''
+            td(class = 'center strech') PZA.
+            td(id = 'tapon12Copia' class = 'center') 0
+          //////////////////////////////////////////////////////////////
+          tr(id = 'tubSum_14Copia' class = 'none')
+            td Tuberia AG 1 1/4''
+            td(class = 'center strech') MTS.
+            td(id = 'suma_14Copia' class = 'center') 0
+
+          tr(id = 'tubSum_1Copia' class = 'none')
+            td Tuberia AG 1''
+            td(class = 'center strech') MTS.
+            td(id = 'suma_1Copia' class = 'center') 0
+
+          tr(id = 'tubSum_34Copia' class = 'none')
+            td Tuberia AG 3/4''
+            td(class = 'center strech') MTS.
+            td(id = 'suma_34Copia' class = 'center') 0
+
+          tr(id = 'tubSum_12Copia' class = 'none')
+            td Tuberia AG 1/2''
+            td(class = 'center strech') MTS.
+            td(id = 'suma_12Copia' class = 'center') 0
+          //////////////////////////////////////////////////////////////
+
+          tr
+            td(class = 'total') LONGITUD TOTAL DE INSTALACION
+            td(class = 'total center strech') MTS.
+            td(class = 'total' id = 'suma_totalCopia' class = 'center') 0
+
+    div(id = 'tablasAccesorios' class = 'tablasAccesorios')
+      div(id = 'output' class = 'output')
+        table
+          tr
+            th Accesorio
+            th(class = 'center strech') Unidad
+            th(class = 'center') Cantidad
+          //////////////////////////////////////////////////////////////
+          tr(id = 'titValvula12' class = 'none')
+            td Válvula de 1/2''
+            td(class = 'center strech') PZA.
+            td(id = 'valvula12' class = 'center') 0
+          tr(id = 'titValvula34' class = 'none')
+            td Válvula de 3/4''
+            td(class = 'center strech') PZA.
+            td(id = 'valvula34' class = 'center') 0
+          tr(id = 'titValvula01' class = 'none')
+            td Válvula de 1''
+            td(class = 'center strech') PZA.
+            td(id = 'valvula01' class = 'center') 0
+          tr(id = 'titValvula14' class = 'none')
+            td Válvula de 1 1/4''
+            td(class = 'center strech') PZA.
+            td(id = 'valvula14' class = 'center') 0
+          //////////////////////////////////////////////////////////////
+          tr(id = 'titReduccion14a01' class = 'none')
+            td Codo reductor 1 1/4" a 1"
+            td(class = 'center strech') PZA.
+            td(id = 'reduccion14a01' class = 'center') 0
+
+          tr(id = 'titReduccion01a34' class = 'none')
+            td Codo reductor 1" a 3/4"
+            td(class = 'center strech') PZA.
+            td(id = 'reduccion01a34' class = 'center') 0
+
+          tr(id = 'titReduccion34a12' class = 'none')
+            td Codo reductor 3/4" a 1/2"
+            td(class = 'center strech') PZA.
+            td(id = 'reduccion34a12' class = 'center') 0
+          //////////////////////////////////////////////////////////////
+          tr(id = 'tubCodo_14' class = 'none')
+            td Codo de 90º de 1 1/4''
+            td(class = 'center strech') PZA.
+            td(id = 'codo_14' class = 'center') 0
+          tr(id = 'tubCodo_1' class = 'none')
+            td Codo de 90º de 1''
+            td(class = 'center strech') PZA.
+            td(id = 'codo_1' class = 'center') 0
+          tr(id = 'tubCodo_34' class = 'none')
+            td Codo de 90º de 3/4''
+            td(class = 'center strech') PZA.
+            td(id = 'codo_34' class = 'center') 0
+          tr(id = 'tubCodo_12' class = 'none')
+            td Codo de 90º de 1/2''
+            td(class = 'center strech') PZA.
+            td(id = 'codo_12' class = 'center') 0
+          //////////////////////////////////////////////////////////////
+          tr(id = 'titTe_14' class = 'none')
+            td Te de 1 1/4''
+            td(class = 'center strech') PZA.
+            td(id = 'te_14' class = 'center') 0
+          tr(id = 'titTe_01' class = 'none')
+            td Te de 1''
+            td(class = 'center strech') PZA.
+            td(id = 'te_01' class = 'center')
+          tr(id = 'titTe_34' class = 'none')
+            td Te de 3/4''
+            td(class = 'center strech') PZA.
+            td(id = 'te_34' class = 'center') 0
+          tr(id = 'titTe_12' class = 'none')
+            td Te de 1/2''
+            td(class = 'center strech') PZA.
+            td(id = 'te_12' class = 'center') 0
+          //////////////////////////////////////////////////////////////
+          tr(id = 'titCupla14' class = 'none')
+            td Cupla de 1 1/4''
+            td(class = 'center strech') PZA.
+            td(id = 'cupla14' class = 'center') 0
+          tr(id = 'titCupla01' class = 'none')
+            td Cupla de 1''
+            td(class = 'center strech') PZA.
+            td(id = 'cupla01' class = 'center') 0
+          tr(id = 'titCupla34' class = 'none')
+            td Cupla de 3/4''
+            td(class = 'center strech') PZA.
+            td(id = 'cupla34' class = 'center') 0
+          tr(id = 'titCupla12' class = 'none')
+            td Cupla de 1/2''
+            td(class = 'center strech') PZA.
+            td(id = 'cupla12' class = 'center') 0
+          //////////////////////////////////////////////////////////////
+          tr(id = 'titTapon14' class = 'none')
+            td Tapon Macho de 1 1/4''
+            td(class = 'center strech') PZA.
+            td(id = 'tapon14' class = 'center') 0
+          tr(id = 'titTapon01' class = 'none')
+            td Tapon Macho de 1''
+            td(class = 'center strech') PZA.
+            td(id = 'tapon01' class = 'center') 0
+          tr(id = 'titTapon34' class = 'none')
+            td Tapon Macho de 3/4''
+            td(class = 'center strech') PZA.
+            td(id = 'tapon34' class = 'center') 0
+          tr(id = 'titTapon12' class = 'none')
+            td Tapon Macho de 1/2''
+            td(class = 'center strech') PZA.
+            td(id = 'tapon12' class = 'center') 0
+          //////////////////////////////////////////////////////////////
+          tr(id = 'tubSum_14' class = 'none')
+            td Tuberia AG 1 1/4''
+            td(class = 'center strech') MTS.
+            td(id = 'suma_14' class = 'center') 0
+
+          tr(id = 'tubSum_1' class = 'none')
+            td Tuberia AG 1''
+            td(class = 'center strech') MTS.
+            td(id = 'suma_1' class = 'center') 0
+
+          tr(id = 'tubSum_34' class = 'none')
+            td Tuberia AG 3/4''
+            td(class = 'center strech') MTS.
+            td(id = 'suma_34' class = 'center') 0
+
+          tr(id = 'tubSum_12' class = 'none')
+            td Tuberia AG 1/2''
+            td(class = 'center strech') MTS.
+            td(id = 'suma_12' class = 'center') 0
+          //////////////////////////////////////////////////////////////
+          tr
+            td LONGITUD TOTAL DE INSTALACION
+            td(class = 'center strech') MTS.
+            td(id = 'suma_total' class = 'center') 0
+
+    aside(class = 'menu-dinamico')
+
+      //div(class = 'menu-tagsTool')
+        div(class = 'tags-title')
+          h1 Etiquetas
+
+        //br
+        //  <input type="radio" name="gender" value="male"> Male<br>
+        div(class = 'tags-listModifierSelected')
+          div(class = 'label')
+            label Tag Seleccionado
+          div(class = 'text')
+            //input(id = 'tgS_txt' type = 'text' name = '' value = 'L =1.2 1/2\'\' AG' onchange = '')
+            input(id = 'tgS_txt' type = 'text' name = '' value = '' disabled = 'true' placeholder = 'Seleccione una etiqueta')
+          //div(class = 'label')
+            label Orientación
+          div(class = 'textOrientation')
+            div(id = 'tgS_0' class = 'tagAngle tg-0' )
+            div(id = 'tgS_30' class = 'tagAngle tg-30' )
+            div(id = 'tgS_90' class = 'tagAngle tg-90' )
+            div(id = 'tgS_150' class = 'tagAngle tg-150' )
+            div(id = 'tgS_210' class = 'tagAngle tg-210' )
+            div(id = 'tgS_270' class = 'tagAngle tg-270' )
+            div(id = 'tgS_330' class = 'tagAngle tg-330' )
+        div(class = 'tags-listModifier')
+          div(id = 'tags-listModifier')
+            //div(class = 'label')
+              label Lista de Tags
+
+            //div(class = 'text')
+              input(id = 'tgE_txt' type = 'text' name = '' value = '' placeholder = 'Seleccione una etiqueta')
+            //div(class = 'text')
+              input(id = '' type = 'number' name = '' value = '12' min = '5'  step = '1' onchange = '')
+            //div(class = 'textOrientation')
+              div(class = 'tagAngle tg-0' )
+              div(class = 'tagAngle tg-30' )
+              div(class = 'tagAngle tg-90' )
+              div(class = 'tagAngle tg-150' )
+              div(class = 'tagAngle tg-210' )
+              div(class = 'tagAngle tg-270' )
+              div(class = 'tagAngle tg-330' )
+
+            //div(class = 'textControls')
+              div(class = 'textAdd')
+              div(class = 'textDel')
+              div(class = 'textSel')
+              div(class = 'textVer')
+          /////////////////////////////////////////////////////////////////////////
+
+          //div(class = 'text')
+            input(id = '' type = 'text' name = '' value = 'angulo' onchange = '')
+            //input(id = '' type = 'radio' name = 'modo' value = 'dibujo' checked onchange = 'setMode(this.value)')
+
+          //div(class = 'button')
+            input(id = '' type = 'button' name = '' value = 'aplicar' onchange = '')
+          //div(class = 'button')
+            input(id = '' type = 'button' name = '' value = 'añadir' onchange = '')
+          //div(class = 'button')
+            input(id = '' type = 'button' name = '' value = 'eliminar' onchange = '')
+
+
+
+
+
+
+      //div(class = 'menu-instalaciones')
+        div(class = 'instalacion-header') Instalaciones
+        //////////////////////////////////////////////////////////////
+        div(id = 'instalaciones_lista' class = 'instalacion-body')
+          /////////////////////////////////////
+          div(class = 'instalacion') PRINCIPAL
+            div(class = 'installSegmentControls')
+              div(class = 'segmentShow')
+
+            div(class = 'installControls')
+              div(class = 'segmentTotal') 10
+              div(class = 'segmentHere') 5
+              div(class = 'instAdd')
+              div(class = 'instDel')
+              div(class = 'instSel')
+              div(class = 'instVer')
+
+            div(class = 'segmentContainer')
+
+              div(class = 'segmento') segmento
+                div(class = 'segmentControls')
+                  div(class = 'segAdd')
+                  div(class = 'segDel')
+                  div(class = 'segSel')
+                  div(class = 'segVer')
+                  div(class = 'segUnion')
+                  div(class = 'segBroken')
+              div(class = 'segmento') segmento
+                div(class = 'segmentControls')
+                  div(class = 'segAdd')
+                  div(class = 'segDel')
+                  div(class = 'segSel')
+                  div(class = 'segVer')
+                  div(class = 'segUnion')
+                  div(class = 'segBroken')
+              div(class = 'segmento') segmento
+                div(class = 'segmentControls')
+                  div(class = 'segAdd')
+                  div(class = 'segDel')
+                  div(class = 'segSel')
+                  div(class = 'segVer')
+                  div(class = 'segUnion')
+                  div(class = 'segBroken')
+          //////////////////////////////////////////////////
+          div(class = 'instalacion') SECUNDARIA 1
+            div(class = 'installSegmentControls')
+              div(class = 'segmentShow')
+            div(class = 'installControls')
+              div(class = 'instAdd')
+              div(class = 'instDel')
+              div(class = 'instSel')
+              div(class = 'instVer')
+            div(class = 'segmentContainer')
+              div(class = 'segmento') segmento
+                div(class = 'segmentControls')
+                  div(class = 'segAdd')
+                  div(class = 'segDel')
+                  div(class = 'segSel')
+                  div(class = 'segVer')
+                  div(class = 'segUnion')
+                  div(class = 'segBroken')
+              div(class = 'segmento') segmento
+                div(class = 'segmentControls')
+                  div(class = 'segAdd')
+                  div(class = 'segDel')
+                  div(class = 'segSel')
+                  div(class = 'segVer')
+                  div(class = 'segUnion')
+                  div(class = 'segBroken')
+              div(class = 'segmento') segmento
+                div(class = 'segmentControls')
+                  div(class = 'segAdd')
+                  div(class = 'segDel')
+                  div(class = 'segSel')
+                  div(class = 'segVer')
+                  div(class = 'segUnion')
+                  div(class = 'segBroken')
+        //ul
+          li
+            h1 Instalaciones
+            ul(id = 'instalaciones_lista')
+              li PRINCIPAL
+                div(class = 'installControls')
+                  div(class = 'textAdd') A
+                  div(class = 'textDel') B
+                  div(class = 'textSel') C
+                  div(class = 'textVer') D
+                /////////////////////////////////////////////////////////////ul
+                  li Segmento
+                  li Segmento
+              li SECUNDARIA
+
+      div(id = 'cmp_Controls' class = 'menu-componentes')
+        div(class = 'componentes-header') Componentes
+        //////////////////////////////////////////////////////////////
+        div(class = 'componentes-body')
+          //id = 'instalaciones_lista'
+          /////////////////////////////////////////////////////////////
+          //EDITADO
+          /////////////////////////////////////////////////////////////
+          //div(class = 'componente') Medidor
+            div(class = 'componenteContainerMedidor')
+              div(class = 'componenteMedidorIzquierda')
+                div(id = 'medidorIzquierda' class = 'medidorIzquierda' onclick = 'setMedidor(this.id)')
+              div(class = 'componenteMedidorDerecha')
+                div(id = 'medidorDerecha' class = 'medidorDerecha' onclick = 'setMedidor(this.id)')
+          div(class = 'componente') Medidor Izquierda
+            div(class = 'componenteContainerMedidorIzquierda')
+              div(class = 'componenteMedidorIzquierdaArriba')
+                div(id = 'medidorIzquierdaArriba' class = 'medidorIzquierdaArriba' onclick = 'setMedidorNeo(this.id)')
+              div(class = 'componenteMedidorIzquierdaDerecha')
+                div(id = 'medidorIzquierdaDerecha' class = 'medidorIzquierdaDerecha' onclick = 'setMedidorNeo(this.id)')
+              div(class = 'componenteMedidorIzquierdaIzquierda')
+                div(id = 'medidorIzquierdaIzquierda' class = 'medidorIzquierdaIzquierda' onclick = 'setMedidorNeo(this.id)')
+              div(class = 'componenteMedidorIzquierdaAbajo')
+                div(id = 'medidorIzquierdaAbajo' class = 'medidorIzquierdaAbajo' onclick = 'setMedidorNeo(this.id)')
+          div(class = 'componente') Medidor Derecha
+            div(class = 'componenteContainerMedidorDerecha')
+              div(class = 'componenteMedidorDerechaArriba')
+                div(id = 'medidorDerechaArriba' class = 'medidorDerechaArriba' onclick = 'setMedidorNeo(this.id)')
+              div(class = 'componenteMedidorDerechaDerecha')
+                div(id = 'medidorDerechaDerecha' class = 'medidorDerechaDerecha' onclick = 'setMedidorNeo(this.id)')
+              div(class = 'componenteMedidorDerechaIzquierda')
+                div(id = 'medidorDerechaIzquierda' class = 'medidorDerechaIzquierda' onclick = 'setMedidorNeo(this.id)')
+              div(class = 'componenteMedidorDerechaAbajo')
+                div(id = 'medidorDerechaAbajo' class = 'medidorDerechaAbajo' onclick = 'setMedidorNeo(this.id)')
+          /////////////////////////////////////////////////////////////
+          div(class = 'componente') Regulador izquierdo 'R'
+            div(class = 'componenteContainerReguladorIzquierda')
+              div(class = 'componenteReguladorIzquierdaArriba')
+                div(id = 'reguladorIzquierdaArriba' class = 'reguladorIzquierdaArriba' onclick = 'setRegulador(this.id)')
+              div(class = 'componenteReguladorIzquierdaIzquierda')
+                div(id = 'reguladorIzquierdaIzquierda' class = 'reguladorIzquierdaIzquierda' onclick = 'setRegulador(this.id)')
+              div(class = 'componenteReguladorIzquierdaDerecha')
+                div(id = 'reguladorIzquierdaDerecha' class = 'reguladorIzquierdaDerecha' onclick = 'setRegulador(this.id)')
+              div(class = 'componenteReguladorIzquierdaAbajo')
+                div(id = 'reguladorIzquierdaAbajo' class = 'reguladorIzquierdaAbajo' onclick = 'setRegulador(this.id)')
+          /////////////////////////////////////////////////////////////
+          div(class = 'componente') Regulador derecho 'R'
+            div(class = 'componenteContainerReguladorDerecha')
+              div(class = 'componenteReguladorDerechaArriba')
+                div(id = 'reguladorDerechaArriba' class = 'reguladorDerechaArriba' onclick = 'setRegulador(this.id)')
+              div(class = 'componenteReguladorDerechaIzquierda')
+                div(id = 'reguladorDerechaIzquierda' class = 'reguladorDerechaIzquierda' onclick = 'setRegulador(this.id)')
+              div(class = 'componenteReguladorDerechaDerecha')
+                div(id = 'reguladorDerechaDerecha' class = 'reguladorDerechaDerecha' onclick = 'setRegulador(this.id)')
+              div(class = 'componenteReguladorDerechaAbajo')
+                div(id = 'reguladorDerechaAbajo' class = 'reguladorDerechaAbajo' onclick = 'setRegulador(this.id)')
+          /////////////////////////////////////////////////////////////
+          div(class = 'componente') Regulador izquierdo
+            div(class = 'componenteContainerReguladorIzquierdaSIM')
+              div(class = 'componenteReguladorIzquierdaArribaSIM')
+                div(id = 'reguladorIzquierdaArribaSIM' class = 'reguladorIzquierdaArribaSIM' onclick = 'setRegulador(this.id)')
+              div(class = 'componenteReguladorIzquierdaIzquierdaSIM')
+                div(id = 'reguladorIzquierdaIzquierdaSIM' class = 'reguladorIzquierdaIzquierdaSIM' onclick = 'setRegulador(this.id)')
+              div(class = 'componenteReguladorIzquierdaDerechaSIM')
+                div(id = 'reguladorIzquierdaDerechaSIM' class = 'reguladorIzquierdaDerechaSIM' onclick = 'setRegulador(this.id)')
+              div(class = 'componenteReguladorIzquierdaAbajoSIM')
+                div(id = 'reguladorIzquierdaAbajoSIM' class = 'reguladorIzquierdaAbajoSIM' onclick = 'setRegulador(this.id)')
+          /////////////////////////////////////////////////////////////
+          div(class = 'componente') Regulador derecho
+            div(class = 'componenteContainerReguladorDerechaSIM')
+              div(class = 'componenteReguladorDerechaArribaSIM')
+                div(id = 'reguladorDerechaArribaSIM' class = 'reguladorDerechaArribaSIM' onclick = 'setRegulador(this.id)')
+              div(class = 'componenteReguladorDerechaIzquierdaSIM')
+                div(id = 'reguladorDerechaIzquierdaSIM' class = 'reguladorDerechaIzquierdaSIM' onclick = 'setRegulador(this.id)')
+              div(class = 'componenteReguladorDerechaDerechaSIM')
+                div(id = 'reguladorDerechaDerechaSIM' class = 'reguladorDerechaDerechaSIM' onclick = 'setRegulador(this.id)')
+              div(class = 'componenteReguladorDerechaAbajoSIM')
+                div(id = 'reguladorDerechaAbajoSIM' class = 'reguladorDerechaAbajoSIM' onclick = 'setRegulador(this.id)')
+          /////////////////////////////////////////////////////////////
+          div(class = 'componente') Válvula
+            div(class = 'componenteContainerValvula')
+              div(class = 'componenteValvula')
+                div(id = 'valvula' class = 'valvula' onclick = 'setValvula(this.id)')
+              div(class = 'componenteValvulaPunto')
+                div(id = 'valvulaPunto' class = 'valvulaPunto' onclick = 'setValvulaPunto(this.id)')
+          div(class = 'componente') Te
+            div(class = 'componenteContainerTe')
+              div(class = 'componenteTe_30')
+                div(id = 'te_30' class = 'te_30' onclick = 'setTe(this.id)')
+              div(class = 'componenteTe_90')
+                div(id = 'te_90' class = 'te_90' onclick = 'setTe(this.id)')
+              div(class = 'componenteTe_150')
+                div(id = 'te_150' class = 'te_150' onclick = 'setTe(this.id)')
+              div(class = 'componenteTe_210')
+                div(id = 'te_210' class = 'te_210' onclick = 'setTe(this.id)')
+              div(class = 'componenteTe_270')
+                div(id = 'te_270' class = 'te_270' onclick = 'setTe(this.id)')
+              div(class = 'componenteTe_330')
+                div(id = 'te_330' class = 'te_330' onclick = 'setTe(this.id)')
+
+          div(class = 'componente') Tuberia con forro
+            div(class = 'componenteContainerTubForro')
+              div(class = 'componenteTubForro')
+                div(id = 'tubForro' class = 'tubForro' onclick = 'setTubForro()')
+          div(class = 'componente') Instalación
+            div(class = 'componenteContainerInstalacion')
+              div(class = 'componenteTePorInstalacion')
+                div(id = 'componenteTePorInstalacion' class = 'instalacion' onclick = 'setInstalacion()')
+
+    aside(class = 'menu-lateral')
+
+
+      //div(class = 'menu-drawProperties')
+        div(class = 'properties-title')
+          h1 Dibujo
+
+        br
+        div(class = 'draw-second-letters')
+          div(class = 'label')
+            label Dibujar
+          div(class = 'checkbox')
+            input(id = '' type = 'radio' name = 'modo' value = 'dibujo' checked onchange = 'setMode(this.value)')
+
+        div(class = 'draw-second-letters')
+          div(class = 'label')
+            label Editar
+          div(class = 'checkbox')
+            input(id = '' type = 'radio' name = 'modo' value = 'edicion' onchange = 'setMode(this.value)')
+
+        div(class = 'draw-second-letters')
+          div(class = 'label')
+            label Mover
+          div(class = 'checkbox')
+            input(id = '' type = 'radio' name = 'modo' value = 'mover'  onchange = 'setMode(this.value)')
+
+        div(class = 'stroke-width')
+          div(class = 'label')
+            label Ancho de la línea
+          div(class = '')
+            div(class = 'range')
+              input(id = 'controlRange' type = 'range' value = '1' min = '1' max = '10' step = '0.5' oninput = 'setValueRange(this.value)' onchange = 'setValueRange(this.value)')
+            div(class = 'number')
+              input(id = 'valueRange' type = 'number' min = '1' max = '10' step = '0.5' oninput = 'setControlRange(this.value)' onchange = 'setControlRange(this.value)')
+
+        div(class = 'draw-second-letters')
+          div(class = 'label')
+            label Activar margen
+          div(class = 'checkbox')
+            input(id = 'chckbxMargen' type = 'checkbox' name = '' value = '' checked onchange = 'setMarginControl()' oninput = 'setMarginControl()')
+
+        div(class = 'draw-second-letters')
+          div(class = 'label')
+            label Ocultar etiquetas
+          div(class = 'checkbox')
+            input(id = 'chckbxTextoCorto' type = 'checkbox' name = '' value = '' onchange = 'setTextoControl()' oninput = 'setTextoControl()')
+
+        div(class = 'draw-second-letters')
+          div(class = 'label')
+            label Mostrar Codos
+          div(class = 'checkbox')
+            input(id = 'chckbxCodos' type = 'checkbox' name = '' value = '' checked onchange = 'setCodosControl()' oninput = 'setCodosControl()')
+
+
+        div(class = 'draw-scale')
+          div(class = 'label')
+            label Escala
+          div(class = '')
+            div(class = 'range')
+              input(id = 'controlScale' type = 'range' value = '50' min = '25' max = '200' step = '25' oninput = 'setValueScale(this.value)' onchange = 'setValueScale(this.value)')
+            div(class = 'number')
+              |1:
+              input(id = 'valueScale' type = 'number' min = '25' max = '200' step = '25' oninput = 'setControlScale(this.value)' onchange = 'setControlScale(this.value)')
+
+      //div(class = 'menu-angle')
+        div(class = 'cabecera') Dirección
+
+
+      div(class = 'menu-angle')
+        div(class = 'header') Tercer Paso
+        div(id = 'g_medidor' class = 'angle g-medidor' )
+        div(id = 'g_150' class = 'angle g-150' )
+        div(id = 'g_90' class = 'angle g-90' )
+        div(id = 'g_30' class = 'angle g-30' )
+        div(id = 'g_210' class = 'angle g-210' )
+        div(id = 'g_270' class = 'angle g-270' )
+        div(id = 'g_330' class = 'angle g-330' )
+      //div(class = 'menu-angle')
+        div(id = 'g_210' class = 'angle g-210' )
+        div(id = 'g_270' class = 'angle g-270' )
+        div(id = 'g_330' class = 'angle g-330' )
+
+
+      div(class = 'menu-tub-all')
+        div(class = 'header') Segundo Paso
+
+        div(class = 'menu-tub')
+          div(class = 'cabecera') Cañería  Enterrado
+        div(class = 'menu-tub')
+          div(id = 't_et_12' class = 'tub d_1_2')
+          div(id = 't_et_34' class = 'tub d_3_4')
+          div(id = 't_et_1' class = 'tub d_1')
+          div(id = 't_et_14' class = 'tub d_1_4')
+        div(class = 'menu-tub')
+          div(class = 'cabecera') Cañería  Empotrado
+        div(class = 'menu-tub')
+          div(id = 't_ep_12' class = 'tub d_1_2')
+          div(id = 't_ep_34' class = 'tub d_3_4')
+          div(id = 't_ep_1' class = 'tub d_1')
+          div(id = 't_ep_14' class = 'tub d_1_4')
+        div(class = 'menu-tub')
+          div(class = 'cabecera') Cañería  Visto
+        div(class = 'menu-tub')
+          div(id = 't_vt_12' class = 'tub d_1_2')
+          div(id = 't_vt_34' class = 'tub d_3_4')
+          div(id = 't_vt_1' class = 'tub d_1')
+          div(id = 't_vt_14' class = 'tub d_1_4')
+
+
+      //- div(class = 'menu-tub')
+
+      div(class = 'menu-distance')
+        div(class = 'header') Primer Paso
+        input(id = 'distancia' type = 'text' class = 'distance' placeholder= '0.0 mts' value = '0.52')
+
+
+
+      //div(class = 'menu-button')
+        input(id = 'drawer' type = 'button' class = 'button' value = 'Dibujar' onclick = 'dibujar()')
+
+      //div(class = 'menu-button')
+        input(id = 'adder' type = 'button' class = 'button-adder' value = 'Asociar iso' onclick = 'asociar()')
+
+      //div(class = 'menu-button')
+        input(id = 'breaker' type = 'button' class = 'button-breaker' value = 'Nuevo Segmento' onclick = 'quebrarSegmento()')
+
+      //div(class = 'menu-button')
+        input(id = 'extend' type = 'button' class = 'button-extend' value = 'Nueva instalación' onclick = 'quebrar()')
+
+      //div(class = 'menu-button')
+        input(id = 'cleaner' type = 'button' class = 'button-cleaner' value = 'Limpiar' onclick = 'limpiarEnLienzo()')
+
+
+
+      //input(type = 'date')
+
+
+
+    div(class = 'lienzo' id = 'lienzo-container')
+
+
+      div(class = 'lienzo-cabecera' id = '')
+        h1 Dibujador Isométrico
+
+
+      div(class = 'lienzo-propiedadesHoja' id = 'lienzo-propiedadesHoja')
+        div(class = 'texto-titulo')
+          input(id = 'nameChanger' type = 'text' placeholder = 'Nombre del lienzo')
+        div(class = 'boton-cambioNombre')
+          input(type = 'button' value = 'Renombrar' onclick = 'renombrarLienzo()')
+
+      div(class = 'lienzo-modo' id = 'modeCanvas')
+        h1 Modo dibujo
+
+      //div(class = 'lienzo-mod')
+        div(class = 'lienzo-modoDibujo' id = '')
+        div(class = 'lienzo-modoEdicion' id = '')
+        div(class = 'lienzo-modoMover' id = '')
+        div(class = 'lienzo-modoYPFB' id = '')
+
+      div(class = 'lienzo-menu-new-ilusion')
+      div(class = 'lienzo-menu-new')
+
+        div(class = 'lienzo-menu-new-head')
+          div(id = 'lienzo-menu-new-Documento' class = 'lienzo-menu-new-head-tag marked') Documento
+          div(id = 'lienzo-menu-new-Instalaciones' class = 'lienzo-menu-new-head-tag') Instalaciones
+          div(id = 'lienzo-menu-new-Cotas' class = 'lienzo-menu-new-head-tag') Texto
+          //- div(id = 'lienzo-menu-new-Cotas' class = 'lienzo-menu-new-head-tag') Cotas
+          //- div(id = 'lienzo-menu-new-Propiedades' class = 'lienzo-menu-new-head-tag') Propiedades
+          div(id = 'lienzo-menu-new-Propiedades' class = 'lienzo-menu-new-head-tag') Dibujar isométrico
+
+          div(id = 'lienzo-menu-new-Extra' class = 'lienzo-menu-new-head-tag') Zoom Capturas
+          
+          div(id = 'lienzo-menu-new-Componentes' class = 'lienzo-menu-new-head-tag') Componentes
+
+
+        div(class = 'lienzo-menu-new-box')
+          div(id = 'lienzo-menu-new-box-documento' class = 'lienzo-menu-new-box-documento')
+
+            div(class = 'lienzo-tools-crear-documento')
+              div(class = 'boton-crear-documento' id = 'botonCrearLienzo')
+              label Crear nueva hoja
+
+            div(class = 'lienzo-tools-eliminar-documento')
+              div(class = 'boton-eliminar-documento' id = 'botonEliminarLienzo')
+              label Eliminar hoja
+
+            div(class = 'lienzo-tools-adelante-documento')
+              div(class = 'boton-adelante-documento' id = 'botonAdelanteLienzo')
+              label Llevar adelante
+
+            div(class = 'lienzo-tools-atras-documento')
+              div(class = 'boton-atras-documento' id = 'botonAtrasLienzo')
+              label Llevar atrás
+
+          div(id = 'lienzo-menu-new-box-propiedades' class = 'lienzo-menu-new-box-propiedades')
+
+            div(class = 'menu-drawProperties-propiedades')
+
+              div(class = 'draw-checkModes')
+                div(class = 'draw-mode-draw')
+                  div(class = 'label')
+                    label Dibujar
+                  div(class = 'checkbox')
+                    input(id = '' type = 'radio' name = 'modo' value = 'dibujo' checked onchange = 'setMode(this.value)')
+
+                div(class = 'draw-mode-ypfb')
+                  div(class = 'label')
+                    label Cambiar para YPFB
+                  div(class = 'checkbox')
+                    input(id = '' type = 'radio' name = 'modo' value = 'ypfb' onchange = 'setMode(this.value)')
+
+                div(class = 'draw-mode-edition')
+                  div(class = 'label')
+                    label Seleccionar y editar
+                  div(class = 'checkbox')
+                    input(id = '' type = 'radio' name = 'modo' value = 'edicion' onchange = 'setMode(this.value)')
+
+                div(class = 'draw-mode-move')
+                  div(class = 'label')
+                    label Mover
+                  div(class = 'checkbox')
+                    input(id = '' type = 'radio' name = 'modo' value = 'mover'  onchange = 'setMode(this.value)')
+
+                //div(class = 'draw-mode-move')
+                  div(class = 'label')
+                    label Zoom
+                  div(class = 'checkbox')
+                    input(id = '' type = 'radio' name = 'modo' value = 'zoom'  onchange = 'setMode(this.value)')
+
+              div(class = 'stroke-width')
+                div(class = 'label')
+                  label Ancho de la línea
+                div(class = '')
+                  div(class = 'range')
+                    input(id = 'controlRange' type = 'range' value = '1' min = '0.5' max = '3' step = '0.1' oninput = 'setValueRange(this.value)' onchange = 'setValueRange(this.value)')
+                  div(class = 'number')
+                    input(id = 'valueRange' type = 'number' min = '0.5' max = '3' step = '0.1' oninput = 'setControlRange(this.value)' onchange = 'setControlRange(this.value)')
+
+              div(class = 'draw-checkControls')
+                div(class = 'draw-activate-imagen')
+                  div(class = 'label')
+                    label Mostrar imagen
+                  div(class = 'checkbox')
+                    //input(id = 'chckbxImagen' type = 'checkbox' name = '' value = '' checked)
+                    input(id = 'chckbxImagen' type = 'checkbox' name = '' value = '' checked onchange = 'setActivateImagen()' oninput = 'setActivateImagen()')
+
+                div(class = 'draw-activate-margin')
+                  div(class = 'label')
+                    label Activar margen
+                  div(class = 'checkbox')
+                    input(id = 'chckbxMargen' type = 'checkbox' name = '' value = '' checked onchange = 'setMarginControl()' oninput = 'setMarginControl()')
+                //noShow
+                div(class = 'draw-second-letters')
+                  div(class = 'label')
+                    label Ocultar cotas
+                  div(class = 'checkbox')
+                    input(id = 'chckbxTextoCorto' type = 'checkbox' name = '' value = '' checked onchange = 'setTextoControl()' oninput = 'setTextoControl()')
+
+                div(class = 'draw-show-elbow')
+                  div(class = 'label')
+                    label Mostrar Codos
+                  div(class = 'checkbox')
+                    input(id = 'chckbxCodos' type = 'checkbox' name = '' value = '' checked onchange = 'setCodosControl()' oninput = 'setCodosControl()')
+
+
+              div(class = 'draw-scale')
+                div(class = 'label')
+                  label Escala
+                div(class = '')
+                  div(class = 'range')
+                    input(id = 'controlScale' type = 'range' value = '50' min = '25' max = '125' step = '1' oninput = 'setControlScale(this.value)' onchange = 'setControlScale(this.value)')
+                  div(class = 'number')
+                    |1:
+                    input(id = 'valueScale' type = 'number' min = '25' max = '125' step = '1' oninput = 'setValueScale(this.value)' onchange = 'setValueScale(this.value)')
+
+          div(id = 'lienzo-menu-new-box-instalaciones' class = 'lienzo-menu-new-box-instalaciones')
+            div(class = 'menu-new-box-instalaciones')
+
+              //////////////////////////////////////////////////////////////
+              div(id = 'instalaciones_lista' class = 'instalacion-new-box-body')
+                /////////////////////////////////////
+                div(class = 'instalacion') PRINCIPAL
+                  div(class = 'installSegmentControls')
+                    div(class = 'segmentShow')
+
+                  div(class = 'installControls')
+                    div(class = 'segmentTotal') 10
+                    div(class = 'segmentHere') 5
+                    div(class = 'instAdd')
+                    div(class = 'instDel')
+                    div(class = 'instSel')
+                    div(class = 'instVer')
+
+                  div(class = 'segmentContainer')
+
+                    div(class = 'segmento') segmento
+                      div(class = 'segmentControls')
+                        div(class = 'segAdd')
+                        div(class = 'segDel')
+                        div(class = 'segSel')
+                        div(class = 'segVer')
+                        div(class = 'segUnion')
+                        div(class = 'segBroken')
+                    div(class = 'segmento') segmento
+                      div(class = 'segmentControls')
+                        div(class = 'segAdd')
+                        div(class = 'segDel')
+                        div(class = 'segSel')
+                        div(class = 'segVer')
+                        div(class = 'segUnion')
+                        div(class = 'segBroken')
+                    div(class = 'segmento') segmento
+                      div(class = 'segmentControls')
+                        div(class = 'segAdd')
+                        div(class = 'segDel')
+                        div(class = 'segSel')
+                        div(class = 'segVer')
+                        div(class = 'segUnion')
+                        div(class = 'segBroken')
+                //////////////////////////////////////////////////
+                div(class = 'instalacion') SECUNDARIA 1
+                  div(class = 'installSegmentControls')
+                    div(class = 'segmentShow')
+                  div(class = 'installControls')
+                    div(class = 'instAdd')
+                    div(class = 'instDel')
+                    div(class = 'instSel')
+                    div(class = 'instVer')
+                  div(class = 'segmentContainer')
+                    div(class = 'segmento') segmento
+                      div(class = 'segmentControls')
+                        div(class = 'segAdd')
+                        div(class = 'segDel')
+                        div(class = 'segSel')
+                        div(class = 'segVer')
+                        div(class = 'segUnion')
+                        div(class = 'segBroken')
+                    div(class = 'segmento') segmento
+                      div(class = 'segmentControls')
+                        div(class = 'segAdd')
+                        div(class = 'segDel')
+                        div(class = 'segSel')
+                        div(class = 'segVer')
+                        div(class = 'segUnion')
+                        div(class = 'segBroken')
+                    div(class = 'segmento') segmento
+                      div(class = 'segmentControls')
+                        div(class = 'segAdd')
+                        div(class = 'segDel')
+                        div(class = 'segSel')
+                        div(class = 'segVer')
+                        div(class = 'segUnion')
+                        div(class = 'segBroken')
+
+          div(id = 'lienzo-menu-new-box-cotas' class = 'lienzo-menu-new-box-cotas')
+
+            div(class = 'menu-tagsTool')
+            //div(class = 'tags-title')
+              h1 Etiquetas
+
+            //br
+            //  <input type="radio" name="gender" value="male"> Male<br>
+
+            div(class = 'tags-listModifierSelected')
+
+              div(class = 'label')
+                label Ocultar cotas
+              div(class = 'checkbox')
+                input(id = 'chckbxTextoCorto' type = 'checkbox' name = '' value = '' checked onchange = 'setTextoControl()' oninput = 'setTextoControl()')
+
+              div(class = 'label')
+                label Tamaño de fuente
+              div(class = 'Minumber')
+                input(id = 'valueGlobalTags' value = '14' type = 'number' min = '2' step = '1' oninput = 'setGlobalTagsValue(this.value)' onchange = 'setGlobalTagsValue(this.value)')
+              div(class = 'label')
+                label Cota seleccionada:
+              div(class = 'text')
+                //input(id = 'tgS_txt' type = 'text' name = '' value = 'L =1.2 1/2\'\' AG' onchange = '')
+                input(id = 'tgS_txt' type = 'text' name = '' value = '' disabled = 'true' placeholder = 'Seleccione una cota')
+              div(class = 'label')
+                label Cambiar orientación del texto
+              div(class = 'textOrientation')
+                div(id = 'tgS_0' class = 'tagAngle tg-0' )
+                div(id = 'tgS_30' class = 'tagAngle tg-30' )
+                div(id = 'tgS_90' class = 'tagAngle tg-90' )
+                div(id = 'tgS_150' class = 'tagAngle tg-150' )
+                div(id = 'tgS_210' class = 'tagAngle tg-210' )
+                div(id = 'tgS_270' class = 'tagAngle tg-270' )
+                div(id = 'tgS_330' class = 'tagAngle tg-330' )
+
+            div(class = 'tags-listModifier')
+              div(id = 'tags-listModifier')
+
+          div(id = 'lienzo-menu-new-box-extra' class = 'lienzo-menu-new-box-extra')
+
+
+            div(class = 'draw-extra-cmp')
+              div(class = 'tblContent')
+                div(class = 'label')
+                  label Zoom Lupa
+                div(class = 'range')
+                  input(id = 'controlZoomLupa' type = 'range' value = '2' min = '1' max = '4' step = '0.1' oninput = 'setValueZoomLupa(this.value)' onchange = 'setValueZoomLupa(this.value)')
+                div(class = 'number')
+                  input(id = 'valueZoomLupa' type = 'number' min = '1' max = '4' step = '0.1' oninput = 'setControlZoomLupa(this.value)' onchange = 'setControlZoomLupa(this.value)')
+            div(class = 'draw-extra-cmp')
+              div(class = 'tblContent')
+                div(class = 'label')
+                  label Radio Lupa
+                div(class = 'range')
+                  input(id = 'controlZoomRadioLupa' type = 'range' value = '50' min = '25' max = '200' step = '1' oninput = 'setValueZoomRadioLupa(this.value)' onchange = 'setValueZoomRadioLupa(this.value)')
+                div(class = 'number')
+                  input(id = 'valueZoomRadioLupa' type = 'number' min = '25' max = '200' step = '1' oninput = 'setControlZoomRadioLupa(this.value)' onchange = 'setControlZoomRadioLupa(this.value)')
+            div(class = 'draw-extra-cmp-checks')
+              div(class = 'tblContent')
+                div(class = 'label')
+                  label Activar Lupa
+                div(class = 'checkbox')
+                  input(id = 'chckbxZoomActive' type = 'checkbox' name = '' value = '' checked onchange = 'setActiveZoomLupa()' oninput = 'setActiveZoomLupa()')
+                div(class = 'label')
+                  label Activar Captura Zoom
+                div(class = 'checkbox')
+                  input(id = 'chckbxZoomCaptureActive' type = 'checkbox' name = '' value = '' checked onchange = 'setZoomCaptureActive()' oninput = 'setZoomCaptureActive()')
+            div(class = 'draw-extra-cmp-list-circles')
+              div(class = 'tblContent')
+                table(id = 'tblCirclesList')
+                  thead
+                    tr
+                      th(class = 'tblHeader')  Instalacion
+                      th(class = 'tblHeader')  Corte
+                        input(type = 'button' id = '' class = 'btnPlus' name = '' value = '+' onchange = '' oninput = '' onclick = 'addCircleCreatorElement(this)')
+                        //- input(type = 'button' id = '' class = 'btnMinus' name = '' value = '-' onchange = '' oninput = '' onclick = 'removeCircleCreatorElement(0)')
+                  tbody
+                    //- tr
+                    //-   td(class = 'tblCell')
+                    //-     input(type = 'text' class = 'tblInput')
+                    //-   td(class = 'tblCell')
+                    //-     input(type = 'text' class = 'tblInput')
+                    //-     input(type = 'button' id = '' class = 'btnMinus' name = '' value = '-' onchange = '' oninput = '')
+                    //-     input(type = 'button' id = '' class = 'btnPlus' name = '' value = '+' onchange = '' oninput = '')
+
+          div(id = 'lienzo-menu-new-box-componentes' class = 'lienzo-menu-new-box-componentes')
+            div(class = 'tbl-content')
+              table
+                tr
+                  td(onclick = "setTableDrawMode()") Ubicar Punto Para Dibujar
+                  td(onclick = "setTableEditMode('')") Ubicar Punto Para Colocar Válvula
+                tr
+                  td(onclick = "setTableEditMode('')") Ubicar Punto Para Colocar Medidor
+                  td(onclick = "setTableEditMode('')") Ubicar Punto Para Colocar Terminal
+                tr
+                  td(onclick = "setTableEditMode('')") Ubicar Punto Para Colocar Regulador
+                  td(onclick = "setTableEditMode('tForro')") Ubicar Punto Para Colocar Tuberia Con Forro
+                tr
+                  td(onclick = "setTableEditMode('')") Ubicar Punto Para Colocar Te
+                
+
+
+      div(class = 'lienzo-aviso' id = 'adviceErrors')
+        //h3 Aviso de emergencia
+        //p Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+      div(class = 'lienzo-limpiarAviso' onclick = 'limpiarAlertas()')
+
+      div(class = 'lienzo-botonera' id = 'lienzo-botonera')
+        //div(class = 'boton activo' onclick = 'cargarHoja(this.id)' id = 'Hoja1') Hoja 1
+
+      div(class = 'lienzo-tools-crear')
+        div(class = 'boton-crear' id = 'botonCrearLienzo')
+
+      div(class = 'lienzo-tools-eliminar')
+        div(class = 'boton-eliminar' id = 'botonEliminarLienzo')
+
+      div(class = 'lienzo-tools-adelante')
+        div(class = 'boton-adelante' id = 'botonAdelanteLienzo')
+
+      div(class = 'lienzo-tools-atras')
+        div(class = 'boton-atras' id = 'botonAtrasLienzo')
+
+
+
+
+
+
+
+      //div(class = 'lienzo-hoja' id = 'lienzo-hoja')
+        svg(width = '677' height = '718' class = 'lienzo-svg' id = 'miSVGLienzo')
+
+          //svg(width = '681' height = '718' class = 'lienzo-svg' id = 'miSVGLienzo')
+
+          //line(x1 = '40' x2 = '120' y1 = '100' y2 = '100' class = 'path')
+
+          //line( x1 = '120' x2 = '120' y1 = '100' y2 = '200' class = 'path-dash')
+
+          //text(x = '100' y = '100' fill = 'red' transform = 'rotate(90 100, 100)' font-family = 'roboto-light') I love SVG
+
+          //text(x = '100' y = '100' fill = 'blue'  font-family = 'roboto-light') I love SVG
+
+          //line(x1 = '120' x2 = '190' y1 = '200' y2 = '300' class = 'path')
+
+          //line(x1 = '120' x2 = '190' y1 = '200' y2 = '250' class = 'path')
+
+          //path(class = 'path' d = 'M100,50 L150,150 L200,200 L300,250' stroke-linejoin='round' )
+
+          //path(class = 'path-dash' d = 'M300,250 L400,200 L500,250' )
+
+          //g(fill = 'none' stroke = 'black' stroke-width = '4')
+            path( stroke-dasharray = '5,5' d = 'M5 20 l215 0' )
+            path( stroke-dasharray = '10,10' d = 'M5 40 l215 0' )
+            path( stroke-dasharray = '20,10,5,5,5,10' d = 'M5 60 l215 0' )
+          //path(class = 'path' fill = '#FFFFFF' stroke='#000000' stroke-width='1' stroke-miterlimit='10' d = 'M250,250 L400,400')
+          //div Hola2
+        ///////////////////////////////////////////////
+
+      //frame
+      div(class = 'lienzo-hoja' id = 'lienzo-hoja')
+        svg(width = '677' height = '718' class = 'lienzo-svg' id = 'miSVGLienzo')
+        div(id="zoomContainer" style="display: none;" class = "zoomContainerClass")
+
+      div(class = 'lienzoTablaHoja')
+        div(class = 'rightTable')
+          div(class = 'line')
+            div(class = 'cell')
+              div(class = 'draw hFlujo')
+              div(class = 'legend') Tubo principal dirección de flujo
+            div(class = 'cell')
+              div(class = 'draw hSolCap')
+              div(class = 'legend') Unión para soldadura capilar
+          div(class = 'line')
+            div(class = 'cell')
+              div(class = 'draw hUnSol')
+              div(class = 'legend') Unión soldada
+            div(class = 'cell')
+              div(class = 'draw hAcSol')
+              div(class = 'legend') Accesorio soldado
+          div(class = 'line')
+            div(class = 'cell')
+              div(class = 'draw hVaMan')
+              div(class = 'legend') Válvula de mando del aparato
+            div(class = 'cell')
+              div(class = 'draw hRegul')
+              div(class = 'legend') Regulador
+          div(class = 'line')
+            div(class = 'cell')
+              div(class = 'draw hOrCor')
+              div(class = 'legend') Órgano de corte (Válvula de cierre)
+            div(class = 'cell')
+              div(class = 'draw hTubFS')
+              div(class = 'legend') Tubería fuera del suelo
+          div(class = 'line')
+            div(class = 'cell')
+              div(class = 'draw hCanEn')
+              div(class = 'legend') Canalización enterrada
+            div(class = 'cell')
+              div(class = 'draw hTubDe')
+              div(class = 'legend') Conexión de tubería de derivación
+          div(class = 'line')
+            div(class = 'cell')
+              div(class = 'draw hTubFo')
+              div(class = 'legend') Tubería con forro
+            div(class = 'cell')
+              div(class = 'draw hUnRos')
+              div(class = 'legend') Unión roscada
+          div(class = 'line')
+            div(class = 'cell')
+              div(class = 'draw hTapon')
+              div(class = 'legend') Tapón
+            div(class = 'cell')
+              div(class = 'draw hMedid')
+              div(class = 'legend') Medidor
+          div(class = 'line')
+            div(class = 'cell')
+              div(class = 'draw hReduc')
+              div(class = 'legend') Reducción
+            div(class = 'cell')
+              div(class = 'draw hTe')
+              div(class = 'legend') Te
+          div(class = 'line')
+            div(class = 'cell')
+              div(class = 'draw hCodo')
+              div(class = 'legend') Codo
+            div(class = 'cell')
+              div(class = 'draw hCodoR')
+              div(class = 'legend') Codo reductor
+          div(class = 'line')
+            div(class = 'footerSymbol') Simbología utilizada
+
+        div(class = 'centerTable')
+          div(class = 'business')
+            div(class = 'header') Empresa:
+            //div(class = 'name') SGP-3
+
+            div(class = 'name-textoL' id = 'myTextoLogo') #{myBody.myTextoLogo}
+            div(class = 'name-imagenL' id = 'myImagenLogo')
+              img(src = '#{myBody.myImagenLogo}')
+
+            //div(class = 'description') #{}Servicio de Gas Patón-3
+            div(class = 'description') #{myBody.myEmpresa}
+
+          div(class = 'owner')
+            div(class = 'header') Propietario:
+
+            div(class = 'name') #{myJson['APELLIDO PATERNO']} #{myJson['APELLIDO MATERNO']} #{myJson.NOMBRES}
+
+          div(class = 'line')
+            div(class = 'cell')
+              div(class =  'title') Plano
+              div(class = 'content')
+                input(id = 'indexPageCanvas' type = 'text'  onchange = 'setNumberPage(this.value)')
+
+          div(class = 'line')
+            div(class = 'cell')
+              div(class =  'title') Escala
+              div(id = 'escalaPage' class = 'content') 1 : 50
+
+
+          div(class = 'line')
+            div(class = 'cell')
+              div(class =  'title') Fecha
+              div(class = 'content')
+                input(id = 'useDate' type = 'date' value = '2016-04-04' onchange = 'setDatePage(this.value)')
+
+        div(class = 'leftTable')
+          div(class = 'title-iso') Instalación domiciliaria de gas natural
+          div(class = 'title-iso alone') Vista isométrica
+
+          div(class = 'line')
+
+            div(class = 'first') Codigo de Usuario
+            div(class = 'second') Nº de proyecto
+            div(class = 'third') Nº de medidor
+
+          div(class = 'line')
+            div(class = 'first code') #{myJson.Dpto}-#{myJson.Loc}-#{myJson.Nro}-#{myJson.DIST}-#{myJson.MANZ}-#{myJson.PREDIO}-#{myJson['PISO/DPTO']}
+            div(class = 'second') 12031/2014
+            div(class = 'third') 2021769
+          div(class = 'data-project')
+            p Proyecto: #{myBody.myProyectista}
+            p Dibujo: #{myBody.myInstalador}
+            //p Proyecto: Carlos Dionicio Paton Aliaga
+            //p Dibujo: Limber Ivan Callisaya Perez
+            p Reviso:
+            p Aprobo:
+
+
+block footer
+  div(class = 'documentProject')
+    form(action = '/asignacion/editor' method = 'post' name = 'formularioISO')
+      input(class = 'none' type = 'text' name = 'nProyecto' value = '#{myBody.myProyecto}')
+      input(class = 'none' type = 'text' name = 'pAutor' value = '#{myBody.myAutor}')
+      input(class = 'none' type = 'text' name = 'jsonData' value = '#{myBody.myFullJson}')
+      input(class = 'none' type = 'text' id = 'myJsonAdress' name = 'myJsonAdress' value = '#{myBody.myJson}')
+      input(class = 'none' type = 'text' name = 'mode' value = 'saveDocument')
+      input(class = 'none' type = 'text' id = 'myVCaneria' name = 'myVCaneria' value = '#{myVCaneria}')
+      input(class = 'none' type = 'text' id = 'myPointData' name = 'myPointData' value = '#{myJson.ISOMETRICO.myPointData}')
+      input(class = 'none' type = 'text' id = 'myGradosData' name = 'myGradosData' value = '#{myJson.ISOMETRICO.myGradosData}')
+      input(class = 'none' type = 'text' id = 'myDistanciaData' name = 'myDistanciaData' value = '#{myJson.ISOMETRICO.myDistanciaData}')
+      input(class = 'none' type = 'text' id = 'myTubData' name = 'myTubData' value = '#{myJson.ISOMETRICO.myTubData}')
+      input(class = 'none' type = 'text' id = 'myTagData' name = 'myTagData' value = '#{myJson.ISOMETRICO.myTagData}')
+      input(class = 'none' type = 'text' id = 'myComponentesData' name = 'myComponentesData' value = '#{myJson.ISOMETRICO.myComponentesData}')
+      input(class = '' type = 'text' id = 'graphData' name = 'graphData' value = '#{myJson.ISOMETRICO.graphData}')
+      input(class = 'none' type = 'text' id = 'tagsExtra' name = 'tagsExtra' value = '#{myJson.ISOMETRICO.tagsExtra}')
+      input(class = '' type = 'text' id = 'configuraciones' name = 'configuraciones' value = '#{myJson.ISOMETRICO.configuraciones}')
+      input(class = 'none' type = 'text' id = 'numberPageData' name = 'numberPageData' value = '#{myJson.ISOMETRICO.numberPageData}')
+      div(class = 'line-form')
+        p Proyecto: #{myBody.myProyecto}
+      div(class = 'line-form')
+        p Autor: #{myBody.myAutor}
+
+      div(class = 'line-form variables')
+        p Mis variables
+
+      div(class = 'line-form')
+        div(class = 'line-comp')
+          label Número:
+        div(class = 'line-comp')
+          input(type = 'text' name = 'edNro' value = '#{myJson.Nro}' placeholder= 'Número')
+
+      div(class = 'line-form')
+        div(class = 'line-comp')
+          label Departamento:
+        div(class = 'line-comp')
+          input(type = 'text' name = 'edDpto' value = '#{myJson.Dpto}' placeholder= 'Departamento')
+
+      div(class = 'line-form')
+        div(class = 'line-comp')
+          label Localidad:
+        div(class = 'line-comp')
+          input(type = 'text' name = 'edLoc' value = '#{myJson.Loc}' placeholder= 'Localidad')
+
+      div(class = 'line-form')
+        div(class = 'line-comp')
+          label Distrito:
+        div(class = 'line-comp')
+          input(type = 'text' name = 'edDst' value = '#{myJson.DIST}' placeholder= 'Distrito')
+
+      div(class = 'line-form')
+        div(class = 'line-comp')
+          label Zona:
+        div(class = 'line-comp')
+          input(type = 'text' name = 'edZna' value = '#{myJson.ZONA}' placeholder= 'Zona')
+
+      div(class = 'line-form')
+        div(class = 'line-comp')
+          label Manzano:
+        div(class = 'line-comp')
+          input(type = 'text' name = 'edMnz' value = '#{myJson.MANZ}' placeholder= 'Manzano')
+
+      div(class = 'line-form')
+        div(class = 'line-comp')
+          label Predio:
+        div(class = 'line-comp')
+          input(type = 'text' name = 'edPrd' value = '#{myJson.PREDIO}' placeholder= 'Predio')
+
+      div(class = 'line-form')
+        div(class = 'line-comp')
+          label Piso Dpto:
+        div(class = 'line-comp')
+          input(type = 'text' name = 'edPDo' value = '#{myJson["PISO/DPTO"]}' placeholder= 'Piso Dpto')
+
+      div(class = 'line-form')
+        div(class = 'line-comp')
+          label Paterno:
+        div(class = 'line-comp')
+          input(type = 'text' name = 'edPat' value = '#{myJson["APELLIDO PATERNO"]}' placeholder= 'Apellido paterno')
+
+      div(class = 'line-form')
+        div(class = 'line-comp')
+          label Materno:
+        div(class = 'line-comp')
+          input(type = 'text' name = 'edMat' value = '#{myJson["APELLIDO MATERNO"]}' placeholder= 'Apellido materno')
+
+
+      div(class = 'line-form')
+        div(class = 'line-comp')
+          label Nombres:
+        div(class = 'line-comp')
+          input(type = 'text' name = 'edNmb' value = '#{myJson.NOMBRES}' placeholder= 'Nombres')
+
+      div(class = 'line-form')
+        div(class = 'line-comp')
+          label Identificación:
+        div(class = 'line-comp')
+          input(type = 'text' name = 'edCnt' value = '#{myJson.CARNET}' placeholder= 'Identificación')
+
+      div(class = 'line-form')
+        div(class = 'line-comp')
+          label Dirección:
+        div(class = 'line-comp')
+          input(type = 'text' name = 'edAvC' value = '#{myJson["AVDA/ CALLE"]}' placeholder= 'Dirección')
+
+      div(class = 'line-form')
+        div(class = 'line-comp')
+          label Teléfono:
+        div(class = 'line-comp')
+          input(type = 'text' name = 'edTCl' value = '#{myJson["TEL/CEL"]}' placeholder= 'Teléfono')
+
+      div(class = 'line-form')
+        div(class = 'line-comp')
+          label Observaciones:
+        div(class = 'line-comp')
+          input(type = 'text' name = 'edObs' value = '#{myJson.OBSERVACIONES}' placeholder= 'Observaciones')
+
+      div(class = 'line')
+      div(class = 'line-form-save' onclick = 'document.forms["formularioISO"].submit();')
+
+block subScripts
+  script(src = '/js/neoDrawer.js')
+  script(src = '/js/zoomSvgScript.js')

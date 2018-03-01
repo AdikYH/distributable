@@ -1,0 +1,212 @@
+doctype html
+html
+  head
+    link(rel="stylesheet", href="/css/canvas.css")
+    meta(name="viewport", content="width=device-width, user-scalable=0, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0")
+    //link(rel="stylesheet", href="css/sketchpad.css")
+    //link(rel="stylesheet", href="css/bootstrap.css")
+  body(onload = 'init()')
+    nav
+      ul
+        li(class = 'active')
+          a(href="#") Inicio
+        li
+          a(href="#") Empresa
+        li
+          a(href="#") Isométrico
+          ul
+            li
+              a(href="") Nuevo
+            li
+              a(href="#") Editar
+            li
+              a(href="#") Eliminar
+        li
+          a(href="#") Reportes
+          ul
+            li
+              a(href="#") Nuevo
+            li
+              a(href="#") Editar
+            li
+              a(href="#") Eliminar
+        li
+          a(href="#") Permisos
+          ul
+            li
+              a(href="#") Nuevo
+            li
+              a(href="#") Editar
+            li
+              a(href="#") Eliminar
+    aside(class = 'menu') 
+      div(class = 'menu-angle') 
+        div(class = 'cabecera') Angulos
+      div(class = 'menu-angle')
+        div(id = 'g_150' class = 'angle g-150')
+        div(id = 'g_90' class = 'angle g-90')
+        div(id = 'g_30' class = 'angle g-30')
+      div(class = 'menu-angle')
+        div(id = 'g_210' class = 'angle g-210')
+        div(id = 'g_270' class = 'angle g-270')
+        div(id = 'g_330' class = 'angle g-330')
+      
+      div(class = 'menu-tub')
+        div(class = 'cabecera') Enterrado
+      div(class = 'menu-tub')
+        div(id = 't_et_12' class = 'tub d_1_2')
+        div(id = 't_et_34' class = 'tub d_3_4')
+        div(id = 't_et_1' class = 'tub d_1')
+        div(id = 't_et_14' class = 'tub d_1_4')
+      div(class = 'menu-tub')
+        div(class = 'cabecera') Empotrado
+      div(class = 'menu-tub')
+        div(id = 't_ep_12' class = 'tub d_1_2')
+        div(id = 't_ep_34' class = 'tub d_3_4')
+        div(id = 't_ep_1' class = 'tub d_1')
+        div(id = 't_ep_14' class = 'tub d_1_4')
+      div(class = 'menu-tub')
+        div(class = 'cabecera') Visto
+      div(class = 'menu-tub') 
+        div(id = 't_vt_12' class = 'tub d_1_2')
+        div(id = 't_vt_34' class = 'tub d_3_4')
+        div(id = 't_vt_1' class = 'tub d_1')
+        div(id = 't_vt_14' class = 'tub d_1_4')
+        
+      div(id = 'dr_c_header' class = 'menu-component')
+        div(class = 'cabecera') Componentes
+        
+      div(id = 'dr_c_select' class = 'menu-component')
+        select(name="" id="slctAumentar" onchange = 'changeSelect()' onload = 'changeSelect()')
+          option(value="none") Seleccione un componente...
+          //option(value="unionSoldaduraCapilar") Union para soldadura capilar       
+          //option(value="unionsoldada") Union soldada
+          //option(value="accesorioSoldado") Accesorio soldado
+          //option(value="regulador") Regulador
+          //option(value="organodecorte") Organo de corte
+          option(value="tubForro") Tubería con forro
+          option(value="valvulaMando") Válvula de mando del aparato
+          //option(value="unionroscada") Unión roscada
+          //option(value="tapon") Tapon
+          option(value="medidor") Medidor
+          option(value="reduccion") Reduccion
+          option(value="te") Te
+          //option(value="codo") Codo
+          option(value="codoreductor") Codo reductor
+          
+        //ul(class = 'componentes')
+          li(class = 'componente' ) Medidor
+            ul
+              li(class = '') Izquierda
+              li(class = '') Derecha
+          li(class = 'componente' ) Te
+            ul
+              li(class = '') 30
+              li(class = '') 90
+              li(class = '') 150
+              li(class = '') 210
+              li(class = '') 270
+              li(class = '') 330
+          li(id = 'dr_tf' class = 'componente' ) Tuberia con forro
+          li(class = 'componente' ) Reduccion
+          li(class = 'componente' ) Válvula de cierre
+      div(id = 'dr_c_check' class = 'menu-component')
+        br
+        input(type="checkbox" id = 'chkbx_Inicio' value = 'superior' onclick = 'incInicio()' disabled = true)
+        |Superior
+        br
+        input(type="checkbox" id = 'chkbx_Body' value = 'cuerpo' onclick = 'incBody()')
+        |Cuerpo
+        br
+        input(type="checkbox" id = 'chkbx_Fin' value = 'inferior' onclick = 'incFin()' disabled = true)
+        |Inferior
+      //div(id = 'dr_rect' class = 'menu-recta') Recta
+        br
+        input(type = 'radio' name = 'selector' value = 'superior' checked)
+        |Extremo superior
+        br
+        input(type = 'radio' name = 'selector' value = 'cuerpo') 
+        |Cuerpo
+        br
+        input(type = 'radio' name = 'selector' value = 'inferior') 
+        |Extremo inferior
+        
+      div(class = 'menu-distance')
+        input(id = 'distance' type = 'text' class = 'distance' placeholder= '0.0' value = '150')
+        
+
+      div(class = 'menu-button')
+        input(id = 'drawer' type = 'button' class = 'button' value = 'Dibujar' onclick = 'dibujar()')
+    section(class = 'contenedor')
+      canvas(id = 'boceto' class ='canvas' width = 681 height =718) 
+      //684 721
+    aside(class = 'tablas')
+      div(id = 'output' class = 'output')       
+        table
+          tr
+            th Accesorio
+            th(class = 'center strech') Unidad
+            th(class = 'center') Cantidad
+          tr
+            td Válvula de 1/2''
+            td(class = 'center strech') PZA.
+            td(class = 'center') 0
+          tr
+            td Codo Reductor 3/4'' a 1/2''
+            td(class = 'center strech') PZA.
+            td(class = 'center') 0
+          tr
+            td Codo de 90º de 3/4''
+            td(class = 'center strech') PZA.
+            td(class = 'center') 0
+          tr
+            td Te de 3/4''
+            td(class = 'center strech') PZA.
+            td(class = 'center') 0
+          tr
+            td Cupla de 3/4''
+            td(class = 'center strech') PZA.
+            td(class = 'center') 0
+          tr
+            td Tapon Macho de 3/4''
+            td(class = 'center strech') PZA.
+            td(class = 'center') 0
+          tr
+            td Tuberia AG 3/4''
+            td(class = 'center strech') MTS.
+            td(id = 'suma_34' class = 'center') 0
+          tr
+            td Tuberia AG 1/2''
+            td(class = 'center strech') MTS.
+            td(id = 'suma_12' class = 'center') 0
+          tr
+            td Tuberia AG 1''
+            td(class = 'center strech') MTS.
+            td(id = 'suma_1' class = 'center') 0
+          tr
+            td Tuberia AG 1/4''
+            td(class = 'center strech') MTS.
+            td(id = 'suma_14' class = 'center') 0
+          tr
+            td LONGITUD TOTAL DE INSTALACION
+            td(class = 'center strech') MTS.
+            td(id = 'suma_total' class = 'center') 0
+      
+    
+    //a(href = '#' class = 'green button') HOLA HOLA HOLA
+    //div(style='color:blue; float: left; width:500px; height: 500px; background-color:red') Hola
+    
+    //
+      
+      
+      
+    //div(class = 'menu-distance')
+      input(type = 'number' class = 'form-control' step = '0.01')
+    
+    //div(class = 'btn btn-primary draw')
+    
+    //*div(class = 'dibujo')
+    
+    script(src = '/js/jquery.js')
+    //script(src = 'js/bootstrap.js')
+    script(src = '/js/drawer.js')

@@ -1,0 +1,554 @@
+body
+  background rgb(5, 31, 88)//rgb(230, 237, 243)//rgb(43, 43, 43)//rgba(42, 42, 42, 1)//white //rgba(61, 12, 90, 0.1)
+
+.editor-container
+  
+  ::-webkit-scrollbar
+    -webkit-border-radius 10px
+    width 6px
+    height 6px
+    
+  ::-webkit-scrollbar-track
+    -webkit-border-radius 10px
+    
+  ::-webkit-scrollbar-thumb
+    -webkit-border-radius 10px
+    background rgb(94, 94, 94)
+  
+  //width 1000px
+  //width 1000px
+  margin 0 auto
+  font-family 'roboto-thin', 'roboto-regular','Helvetica Neue',Helvetica,Arial,sans-serif
+  color rgb(56, 89, 149)//rgb(46, 46, 46)
+  .editor-title
+    font-family 'roboto-regular','Helvetica Neue',Helvetica,Arial,sans-serif
+    font-size 18px
+    color white
+    width 100%
+    padding 10px
+    box-sizing border-box
+    .box
+      display inline-block
+      width 100%//180px
+      
+      text-align center
+      span
+        font-family 'roboto-regular','Helvetica Neue',Helvetica,Arial,sans-serif
+        font-size 10px//12px
+        padding 5px 20px
+        margin 0px 5px
+        border 0px
+        color white
+        border-radius 15px
+      .ttSp
+        background rgba(144, 197, 63, 1)
+      .mpSp
+        color black
+        background rgba(235, 240, 241, 1)//rgba(61, 12, 90, 1)
+      .mrSp
+        background rgba(0, 161, 134, 1)
+    .mini
+      width 180px
+      padding 5px
+      font-size 10px
+  .editor-header
+    display none
+    font-family 'roboto-thin', 'roboto-regular','Helvetica Neue',Helvetica,Arial,sans-serif
+    color white//rgb(58, 50, 113)//rgb(244, 150, 0)
+    text-align center
+    padding 10px
+    
+    h4
+      font-family 'roboto-regular','Helvetica Neue',Helvetica,Arial,sans-serif
+      font-size 10px//14px
+      span
+        font-family 'roboto-regular','Helvetica Neue',Helvetica,Arial,sans-serif
+        font-size 10px//12px
+        padding 5px 20px
+        margin 0px 5px
+        border 0px
+        color white
+        border-radius 15px
+        //border-radius 10px 10px 10px 10px
+        
+      .ttSp
+        background rgba(144, 197, 63, 1)
+      .mrSp
+        background rgba(0, 161, 134, 1)//rgba(144, 197, 63, 1)//rgba(54, 93, 44, 1)
+      .mpSp
+        background rgba(61, 12, 90, 1)
+  .indicador
+    padding 10px
+  .green
+    h4
+      color rgba(0, 161, 134, 1)//rgba(144, 197, 63, 1)//rgba(54, 93, 44, 1)
+  .greenLow
+    h4
+      color rgba(144, 197, 63, 1)
+      
+  .table-container
+    
+    .table-container-header
+      box-sizing border-box
+      width 100%
+      padding 5px
+      background rgb(5, 29, 83)
+      overflow-x auto
+      white-space nowrap
+      height 55px
+      .title
+        cursor pointer
+        background rgba(50, 78, 198, 0.2)
+        padding 5px
+        //width 70px
+        border-radius 0px 5px 0px 5px
+        color white
+        font-size 13px
+        font-family 'roboto-regular','Helvetica Neue',Helvetica,Arial,sans-serif
+        display inline-block
+        margin 5px
+        transition 0.5s
+        &:hover
+          background rgba(50, 78, 198, 0.6)
+          transition 0.5s
+          
+      .none
+        display none
+      .marked
+        background rgba(50, 78, 198, 1)
+    
+    .table-container-table
+      overflow-x auto
+      //overflow-y hidden
+      color white
+      font-size 12px
+      .visible
+        display table
+      .no-visible
+        display none
+      table
+        display none
+        table-layout fixed
+        width 100%
+        border-collapse collapse
+        tr
+          &:nth-child(even)
+            background rgb(206, 218, 237)
+          &:nth-child(odd)
+            background rgb(179, 205, 249)
+          th
+            background rgb(50, 79, 200)//green
+          .pad
+            padding 5px
+          .rotate
+            //height 140px
+            height 160px
+            width 41px
+            white-space nowrap
+          .rotate > div
+            //transform translate(25px, 51px) rotate(315deg)
+            transform translate(6px, 71px) rotate(270deg)
+            width 30px
+          .rotate > div > span
+            //border 1px solid #ccc
+            padding 5px 10px
+            
+          .no-rotate
+            width 60px
+            min-width 60px
+            //white-space nowrap
+          //.no-rotate > div
+            //transform translate(0px, 60px)
+          ////.no-rotate > span
+            ////width auto
+            ////padding 10px
+            //box-sizing border-box
+          .narrow
+            width 30px
+            min-width 30px
+            //white-space nowrap
+          //.no-rotate > div
+            //transform translate(0px, 60px)
+          ////.no-rotate > span
+            ////width auto
+            ////padding 10px
+            //box-sizing border-box
+          .narrow40
+            width 40px
+            min-width 40px
+          .narrow50
+            width 50px
+            min-width 50px
+          .extensive
+            width 120px
+            min-width 120px
+          .medium
+            width 80px
+            min-width 80px
+          td
+            
+            padding 3px 0px 3px 0px
+            font-family 'roboto-regular','Helvetica Neue',Helvetica,Arial,sans-serif
+            //padding 0px
+            //margin 0px
+            color rgb(20, 39, 52)//black//rgb(61, 12, 90)
+            text-align center
+            //padding 10px 5px
+            //border 1px solid #ccc
+            input[type = text]
+              display none
+            input[type = submit]
+              border 0px
+              padding 7px
+              border-radius 5px
+              background rgba(0, 157, 131, 1)
+              color white
+              cursor pointer
+              box-shadow 2px 2px black
+              font-size 13px
+              &:active
+                outline none
+              &:focus
+                outline none
+              
+          .mostrarInCell
+            //margin 0 auto
+            //background green
+            input[type = text]
+              margin 0 auto
+              font-family 'roboto-regular','Helvetica Neue',Helvetica,Arial,sans-serif
+              width 41px
+              display block
+              color rgb(20, 39, 52)
+              background transparent
+              text-align center
+              border 0px
+              border-bottom 1px solid rgba(20, 39, 52, 0.5)
+              outline none
+              font-size 13px
+            .existe
+              background rgb(235, 240, 241) !important//rgb(177, 184, 188) !important
+              color black !important
+    .table-container-export
+      width 100%
+      padding 10px 20px 5px 20px
+      box-sizing border-box
+      text-align center
+      
+      input[type = 'button']
+        border-radius 2px
+        width 120px
+        border 1px solid rgba(255, 255, 255, 0.5)//white//rgb(0, 128, 187)
+        box-sizing border-box
+        font-size 13px
+        padding 5px 0px
+        background rgba(0, 153, 222, 0.4)
+        color white
+        &:hover
+          background rgba(0, 153, 222, 0.8)
+          cursor pointer
+  
+  .editor-table
+    padding 15px
+    overflow-y hidden//auto
+    overflow-x auto//hidden
+    //height 255px
+    font-family 'roboto-regular', 'roboto-light', 'Helvetica Neue',Helvetica,Arial,sans-serif
+    table
+      width 100%//0px
+      border-collapse collapse
+      tr
+        th
+          font-size 12px
+          padding 10px 5px
+          background rgba(67, 110, 183, 1)//rgba(61, 12, 90, 1)//rgba(58, 50, 113, 1)//rgba(244, 150, 0, 1)//rgba(58, 50, 113, 1)//#0C5537
+          color white
+          &:first-child
+            border-radius 0px 0px 0px 0px
+          &:last-child
+            border-radius 0px 0px 0px 0px
+        td
+          text-align center
+          font-size 12px
+          padding 5px
+          border 0px solid white
+          margin 0
+          color rgb(61, 12, 90)
+          form
+            input[type = text]
+              display none
+            input[type = submit]
+              width 70px
+              text-align center
+              cursor pointer
+              font-family 'roboto-regular', 'roboto-light', 'Helvetica Neue',Helvetica,Arial,sans-serif
+              background rgba(13, 26, 88, 1)//rgba(61, 12, 90, 1)//rgba(58, 50, 113, 0.9)//0.5)//rgba(244, 150, 0, 0.8)//#365D2C
+              border-radius 5px
+              padding 10px 0px//60px
+              margin 2px 0px
+              font-size 12px
+              color white
+              text-decoration none
+              border 0px
+              //border 2px solid white//black
+              &:hover
+                background rgba(13, 26, 88, 0.9)//rgba(61, 12, 90, 0.9)//rgba(58, 50, 113, 1)//rgba(244, 150, 0, 1)//#378228
+                text-decoration none
+              &:focus
+                outline none
+              &:active
+                outline none
+                background blue
+        &:nth-child(even)
+          background rgb(206, 218, 237)//rgba(210, 200, 216, 0.8)//rgba(61, 12, 90, 0.2)//rgba(58, 50, 113, 0.2)//rgba(244, 150, 0, 0.2)//rgba(58, 50, 113, 0.2)//#00A186
+        &:nth-child(odd)
+          background rgb(195, 209, 233)//rgba(230, 226, 233, 0.8)//rgba(61, 12, 90, 0.1)//rgba(58, 50, 113, 0.1)//rgba(244, 150, 0, 0.1)//rgba(58, 50, 113, 0.1)//#00BD9B
+          
+  .none
+    display none
+  .inform-table
+    padding-top 100px
+    padding 15px
+    font-family 'roboto-light', 'roboto-regular','Helvetica Neue',Helvetica,Arial,sans-serif
+    //margin 0 auto
+    table
+      //width 1000px
+      border-collapse collapse
+      text-align center
+      tr
+        th
+          background rgb(0, 161, 134)
+          font-size 12px
+          color white
+          border 0px solid white
+          height 190px
+          //width 10px
+          span
+            //overflow hidden
+            box-sizing border-box
+            transform rotate(-90deg)
+            display block
+          &:first-child
+            border-radius 5px 0px 0px 0px
+          &:last-child
+            border-radius 0px 5px 0px 0px
+        td
+          padding 2px
+          font-size 12px
+          color rgb(61, 12, 90)//rgb(0, 161, 134)//white
+          border 0px solid white
+        &:nth-child(even)
+          background rgba(229, 245, 242, 0.8)//rgba(210, 200, 216, 0.8)
+        &:nth-child(odd)
+          background rgba(202, 234, 229, 0.8)//rgba(230, 226, 233, 0.8)
+      
+  .jsonData
+    display none
+.exist
+  background rgba(0, 161, 134, 1) !important//rgba(144, 197, 63, 0.9) !important//rgba(54, 93, 44, 0.9) !important//rgba(244, 150, 0, 0.8) !important//#365D2C
+  &:hover
+    background rgba(0, 161, 134, 0.7) !important//rgba(144, 197, 63, 1) !important//rgba(54, 93, 44, 1) !important
+.last
+  padding-bottom 92px
+
+.ocultar
+  display none
+  
+footer
+  font-family 'roboto-regular'
+  position static
+  padding 5px
+  background rgba(0, 0, 0, 0.4)
+  box-sizing border-box
+  .varTitle
+    color white//rgba(255, 255, 255, 0.8)
+    text-align left
+    padding 5px
+    //margin 0px 5px
+    font-size 14px
+    width 100px
+    //border 1px solid rgb(221, 25, 23)
+    background rgb(221, 25, 23)
+    border-left 0px
+    border-right 0px
+  .varData
+    .table-data
+      display none
+      table
+        //border 1px rgb(17, 116, 27) !important
+        margin 0 auto
+        //background white
+        color black
+        tr
+          th
+            border 2px rgb(3, 19, 53)!important
+            padding 5px
+            color white
+          td
+            border 2px rgb(3, 19, 53)!important
+            padding 5px
+            position relative
+            input[type ='text']
+              width 70px
+              padding 0px
+              border 0px
+              outline none
+              background transparent
+              text-align center
+              
+            input[type ='button']
+              position absolute
+              color white
+              width 14px
+              height 14px
+              padding 1px
+              font-size 12px
+              border 0px
+              //border-radius 5px 0px 0px 0px !important
+              //border-radius 50% !important
+              outline none
+              background rgba(54, 93, 44, 0.4)
+              text-align center
+              bottom 0px
+              right 0px
+              cursor pointer !important
+              transition 0.2s
+              &:hover
+                background rgba(54, 93, 44, 0.8)
+              
+            .removeBtn
+              top 0px
+              height 16px !important
+              background rgba(147, 32, 21, 0.4) !important
+              padding-top 1px !important
+              &:hover
+                background rgba(147, 32, 21, 0.8) !important
+              
+          
+          &:nth-child(even)
+            //background rgba(229, 245, 242, 0.8)//rgba(210, 200, 216, 0.8)
+            background rgba(255, 240, 158, 1)
+          &:nth-child(odd)
+            //background rgba(202, 234, 229, 0.8)//rgba(230, 226, 233, 0.8)
+            background rgba(255, 240, 158, 0.8)
+          &:nth-child(1)
+            background rgb(224, 54, 38)
+          
+            
+          
+    
+    .data-tabPago
+      width 100%
+      padding 5px 0px
+      
+      label
+        width 150px
+        padding 2px 10px
+        font-size 14px
+        display inline-block
+        text-align center
+      input[type = 'button']
+        background rgb(17, 116, 27)
+        border 0px
+        padding 5px
+        color white
+        border-radius 5px
+        display block
+        width 150px
+        margin 10px auto
+        cursor pointer
+    .data
+      width 100%
+      padding 5px 0px
+      label
+        width 170px
+        padding 2px 10px
+        font-size 14px
+        display inline-block
+        text-align right
+      input[type = 'text']
+        width 150px
+        padding 2px 10px
+        font-size 14px
+        border 0px
+        border-radius 5px
+        background rgba(255, 255, 255, 0.8)
+        outline none
+    .none
+      display none
+    .ima
+      width 100%
+      padding 5px 0px
+      img
+        width 100px
+        margin 0 auto
+    .ima-change
+      width 100%
+      padding 5px 0px
+      
+      input[type = 'button']
+        background rgb(17, 116, 27)
+        border 0px
+        padding 5px
+        color white
+        border-radius 5px
+        display block
+        width 150px
+        margin 10px auto
+        cursor pointer
+        
+      
+      input[type = 'file']
+        display block
+        width 300px
+        margin 0 auto
+        border-radius 5px
+        border 2px
+        outline none
+        display none
+        
+  .submit
+    text-align center
+    width 38px
+    background rgb(12, 85, 55)
+    margin auto
+    border-radius 5px
+    padding 5px
+    cursor pointer
+    &:before
+      font-family 'esentialIcons'
+      content '\e911'
+      font-size 28px
+    
+      
+  
+@media screen and (max-width 920px)
+  .editor-container
+    .editor-title
+      .box
+        padding-bottom 5px
+        width 100%
+        text-align center
+      
+/*@media screen and (max-width 376px)
+  footer
+    .varData
+      .data
+        width 100%
+        label
+          display block
+          text-align left
+        input
+          display block
+          width 100%*/
+        
+@font-face {
+	font-family: 'esentialIcons';
+	src:url('esentialIcons/icomoon.eot?t05rsc');
+	src:url('esentialIcons/icomoon.eot?t05rsc#iefix') format('embedded-opentype'),
+		url('esentialIcons/icomoon.ttf?t05rsc') format('truetype'),
+		url('esentialIcons/icomoon.woff?t05rsc') format('woff'),
+		url('esentialIcons/icomoon.svg?t05rsc#icomoon') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}

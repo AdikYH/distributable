@@ -1,0 +1,108 @@
+extends layout_nav
+
+block title
+  title Mis proyectos
+  
+block css
+  link(rel = 'stylesheet' href = '/css/proyecto.css')
+
+block content
+  input(type = 'text' value = '#{JSON.stringify(proyectos, null, 0)}' id = 'myData' name = '' class = 'no-visible')
+  div(class = 'content')
+    div(class = 'element-title')
+      h1 Mis asignaciones
+  div(class = 'content last')
+    div(class = 'element')
+      div(class = 'element-header direccion-header')
+        h3 Lista de asignaciones
+      div(class = 'element-body' id = 'contenido')
+    //div(class = 'element')
+      div(class = 'element-header direccion-header')
+        h3 Lista de proyectos
+      div(class = 'element-body' id = 'contenido')
+        
+        div(class = 'element-line')
+          
+          div(class = 'form-tag')
+            span(class = 'element-name') Proyecto 
+            span(class = 'element-date') Creado el 12/ 12 /2015
+          
+          div(class = 'form-edit')
+            form(method = 'post' action = '/proyecto/editor')
+              input(type = 'text' value = 'Proyecto' name = 'nProyecto' readonly = 'readonly')
+              input(type = 'text' value = 'editable' name = 'mode' readonly = 'readonly')
+              button(type = 'submit')
+                span
+          div(class = 'form-delete')
+            form(method = 'post' action = '/proyecto/editor')
+              input(type = 'text' value = 'Proyecto' name = 'nProyecto' readonly = 'readonly')
+              input(type = 'text' value = 'delete' name = 'mode' readonly = 'readonly')
+              button(type = 'submit')
+                span
+                
+        div(class = 'element-line')
+          
+          div(class = 'form-tag')
+            span(class = 'element-name') Proyecto 
+            span(class = 'element-date') Creado el 12/ 12 /2015
+          
+          div(class = 'form-edit')
+            form(method = 'post' action = '/proyecto/editor')
+              input(type = 'text' value = 'Proyecto' name = 'nProyecto' readonly = 'readonly')
+              input(type = 'text' value = 'editable' name = 'mode' readonly = 'readonly')
+              button(type = 'submit')
+                span
+          div(class = 'form-delete')
+            form(method = 'post' action = '/proyecto/editor')
+              input(type = 'text' value = 'Proyecto' name = 'nProyecto' readonly = 'readonly')
+              input(type = 'text' value = 'delete' name = 'mode' readonly = 'readonly')
+              button(type = 'submit')
+                span
+      div(class = 'element-body' id = 'contenido')
+        a(href = '#' class = 'list-style direccion-body') Item Número 
+          span Creado el 12/ 12 /2015
+        a(href = '#' class = 'list-style direccion-body') Item Número 
+          span Creado el 12/ 12 /2015
+        a(href = '#' class = 'list-style direccion-body') Item Número 
+          span Creado el 12/ 12 /2015
+        a(href = '#' class = 'list-style direccion-body') Item Número 
+          span Creado el 12/ 12 /2015
+        a(href = '#' class = 'list-style direccion-body') Item Número 
+          span Creado el 12/ 12 /2015
+        a(href = '#' class = 'list-style direccion-body') Item Número 
+          span Creado el 12/ 12 /2015
+        a(href = '#' class = 'list-style direccion-body') Item Número 
+          span Creado el 12/ 12 /2015
+        a(href = '#' class = 'list-style direccion-body') Item Número 
+          span Creado el 12/ 12 /2015
+        a(href = '#' class = 'list-style direccion-body') Item Número 
+          span Creado el 12/ 12 /2015
+        a(href = '#' class = 'list-style direccion-body') Item Número 
+          span Creado el 12/ 12 /2015
+        a(href = '#' class = 'list-style direccion-body') Item Número 
+          span Creado el 12/ 12 /2015
+        a(href = '#' class = 'list-style direccion-body') Item Número 
+          span Creado el 12/ 12 /2015
+        a(href = '#' class = 'list-style direccion-body') Item Número 
+          span Creado el 12/ 12 /2015
+        a(href = '#' class = 'list-style direccion-body') Item Número 
+          span Creado el 12/ 12 /2015
+        a(href = '#' class = 'list-style direccion-body') Item Número 
+          span Creado el 12/ 12 /2015
+        a(href = '#' class = 'list-style direccion-body') Item Número 
+          span Creado el 12/ 12 /2015
+        a(href = '#' class = 'list-style direccion-body') Item Número 
+          span Creado el 12/ 12 /2015
+        a(href = '#' class = 'list-style direccion-body') Item Número 
+          span Creado el 12/ 12 /2015
+        a(href = '#' class = 'list-style direccion-body') Item Número 
+          span Creado el 12/ 12 /2015
+        a(href = '#' class = 'list-style direccion-body') Item Número 
+          span Creado el 12/ 12 /2015
+  div(class = 'neoAdd')
+    a(href= '/asignacion/nuevo') 
+      div(class = 'btn-add') Crear nueva
+      
+          
+block subScripts
+  script(src ='/js/pyLoader.js')

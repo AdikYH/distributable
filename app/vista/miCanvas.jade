@@ -1,0 +1,381 @@
+extends layout_nav
+
+block title
+  title Isometrico
+  
+block css
+  link(rel="stylesheet", href="/css/miCanvas.css")
+      
+block lista
+  li
+    a(href="#") Exportar
+    ul
+      li
+        a(href="#") Dibujo
+      li
+        a(href="#") PDF
+      li
+        a(href="#") Imprimir
+    
+block content
+
+  aside(class = 'menu last')
+    div(class = 'datos-proyecto')
+      //div(class = 'cuerpo')
+        ul
+          li Proyecto
+            ul
+              li Nombre: #{myBody.myProyecto}
+              li Autor: #{myBody.myAutor}
+              li Nro.: #{myJson.Nro}
+              li DIST: #{myJson.DIST}
+              li MANZ: #{myJson.MANZ}
+              li PREDIO: #{myJson.PREDIO}
+              li PISO/DPTO: #{myJson['PISO/DPTO']}
+              li Paterno: #{myJson['APELLIDO PATERNO']}
+              li Materno: #{myJson['APELLIDO MATERNO']}
+              li Nombres: #{myJson.NOMBRES}
+              li Carnet: #{myJson.CARNET}
+              li AVDA/CALLE: #{myJson['AVDA/ CALLE']}
+              li TEL/CEL: #{myJson['TEL/CEL']}
+              li OBSERVACIONES: #{myJson.OBSERVACIONES}
+              
+    div(class = 'menu-angle') 
+      div(class = 'cabecera') Angulos
+    div(class = 'menu-angle')
+      div(id = 'g_150' class = 'angle g-150')
+      div(id = 'g_90' class = 'angle g-90')
+      div(id = 'g_30' class = 'angle g-30')
+    div(class = 'menu-angle')
+      div(id = 'g_210' class = 'angle g-210')
+      div(id = 'g_270' class = 'angle g-270')
+      div(id = 'g_330' class = 'angle g-330')
+    
+    div(class = 'menu-tub')
+      div(class = 'cabecera') Enterrado
+    div(class = 'menu-tub')
+      div(id = 't_et_12' class = 'tub d_1_2')
+      div(id = 't_et_34' class = 'tub d_3_4')
+      div(id = 't_et_1' class = 'tub d_1')
+      div(id = 't_et_14' class = 'tub d_1_4')
+    div(class = 'menu-tub')
+      div(class = 'cabecera') Empotrado
+    div(class = 'menu-tub')
+      div(id = 't_ep_12' class = 'tub d_1_2')
+      div(id = 't_ep_34' class = 'tub d_3_4')
+      div(id = 't_ep_1' class = 'tub d_1')
+      div(id = 't_ep_14' class = 'tub d_1_4')
+    div(class = 'menu-tub')
+      div(class = 'cabecera') Visto
+    div(class = 'menu-tub') 
+      div(id = 't_vt_12' class = 'tub d_1_2')
+      div(id = 't_vt_34' class = 'tub d_3_4')
+      div(id = 't_vt_1' class = 'tub d_1')
+      div(id = 't_vt_14' class = 'tub d_1_4')
+      
+    div(id = 'dr_c_header' class = 'menu-component')
+      div(class = 'cabecera') Componentes
+      
+    div(id = 'dr_c_select' class = 'menu-component')
+      select(name="" id="slctAumentar" onchange = 'changeSelect()' onload = 'changeSelect()')
+        option(value="none") Seleccione un componente...
+        //option(value="unionSoldaduraCapilar") Union para soldadura capilar       
+        //option(value="unionsoldada") Union soldada
+        //option(value="accesorioSoldado") Accesorio soldado
+        //option(value="regulador") Regulador
+        //option(value="organodecorte") Organo de corte
+        option(value="tubForro") Tubería con forro
+        option(value="valvulaMando") Válvula de mando del aparato
+        //option(value="unionroscada") Unión roscada
+        //option(value="tapon") Tapon
+        option(value="medidor") Medidor
+        option(value="reduccion") Reduccion
+        option(value="te") Te
+        //option(value="codo") Codo
+        option(value="codoreductor") Codo reductor
+          
+    div(id = 'dr_c_check' class = 'menu-component')
+      br
+      input(type="checkbox" id = 'chkbx_Inicio' value = 'superior' onclick = 'incInicio()' disabled = true)
+      |Superior
+      br
+      input(type="checkbox" id = 'chkbx_Body' value = 'cuerpo' onclick = 'incBody()')
+      |Cuerpo
+      br
+      input(type="checkbox" id = 'chkbx_Fin' value = 'inferior' onclick = 'incFin()' disabled = true)
+      |Inferior
+      
+    div(class = 'menu-distance')
+      input(id = 'distance' type = 'text' class = 'distance' placeholder= '0.0' value = '150')
+      
+
+    div(class = 'menu-button')
+      input(id = 'drawer' type = 'button' class = 'button' value = 'Dibujar' onclick = 'dibujar()')
+        
+    div(class = 'menu-button')
+      input(id = 'cleaner' type = 'button' class = 'button-cleaner' value = 'Limpiar' onclick = 'limpiar()')
+    
+    div(class = 'menu-button')
+      input(id = 'breaker' type = 'button' class = 'button-breaker' value = 'Romper' onclick = 'quebrar()')
+      
+    div(class = 'menu-button')
+      input(id = 'adder' type = 'button' class = 'button-adder' value = 'Asociar iso' onclick = 'asociar()')  
+      
+        
+    //div(class = '')    
+    div(class = 'menu-button last')
+      form(action = '/proyecto/editor' method = 'post')
+        input(type = 'text' name = 'nProyecto' value = '#{myBody.myProyecto}')
+        input(type = 'text' name = 'pAutor' value = '#{myBody.myAutor}')
+        input(type = 'text' name = 'jsonData' value = '#{myBody.myFullJson}')
+        input(type = 'text' name = 'myJsonAdress' value = '#{myBody.myJson}')
+        input(type = 'text' name = 'mode' value = 'saveIso')
+          
+          
+        input(type = 'text' id = 'myPointData' name = 'myPointData' value = '#{myJson.ISOMETRICO.myPointData}')
+        input(type = 'text' id = 'myGradosData' name = 'myGradosData' value = '#{myJson.ISOMETRICO.myGradosData}')
+        input(type = 'text' id = 'myDistanciaData' name = 'myDistanciaData' value = '#{myJson.ISOMETRICO.myDistanciaData}')
+        input(type = 'text' id = 'myTubData' name = 'myTubData' value = '#{myJson.ISOMETRICO.myTubData}')
+        input(type = 'text' id = 'myTagData' name = 'myTagData' value = '#{myJson.ISOMETRICO.myTagData}')
+        input(type = 'text' id = 'myComponentesData' name = 'myComponentesData' value = '#{myJson.ISOMETRICO.myComponentesData}')
+          
+        input(type = 'submit' value = 'Guardar')
+        
+        
+  section(class = 'contenedor')
+    canvas(id = 'boceto' class ='canvas' width = 681 height =718) 
+  
+  div(class = 'myFooterTable')
+    table(class = 'symbolTable last')
+      tr
+        td Dy
+        td(class = 'tlf') Tubo principal dirección de flujo
+        td Dy
+        td(class = 'tlf') Unión para soldadura capilar
+      tr
+        td Dy
+        td(class = 'tlf') Unión soldada
+        td Dy
+        td(class = 'tlf') Accesorio soldado
+      tr
+        td Dy
+        td(class = 'tlf') Válvula de mando del aparato
+        td Dy
+        td(class = 'tlf') Regulador
+      tr
+        td Dy
+        td(class = 'tlf') Órgano de corte(Válvula de cierre)
+        td Dy
+        td(class = 'tlf') Tubería fuera del suelo
+      tr
+        td Dy
+        td(class = 'tlf') Canalización enterrada
+        td Dy
+        td(class = 'tlf') Conexión de tubería de derivación
+      tr
+        td Dy
+        td(class = 'tlf') Tubería con forro
+        td Dy
+        td(class = 'tlf') Unión roscada
+      tr
+        td Dy
+        td(class = 'tlf') Tapón
+        td Dy
+        td(class = 'tlf') Medidor
+      tr
+        td Dy
+        td(class = 'tlf') Reducción
+        td Dy
+        td(class = 'tlf') Te
+      tr
+        td Dy
+        td(class = 'tlf') Codo
+        td Dy
+        td(class = 'tlf') Codo reductor
+      tr
+        td(colspan = '4' class = 'tp ft') Simbología utilizada
+    
+    table(class = 'middleTable last')
+      tr
+        td(colspan = '2' class = 'tlf') Empresa:
+      tr
+        td(colspan = '2' class = 'ht') SGP-3
+      tr
+        td(colspan = '2') Servicio de Gas Patón-3
+      tr
+        td(colspan = '2' class = 'tp tlf') Propietario:
+      tr
+        td(colspan = '2' class = 'bt') #{myJson['APELLIDO PATERNO']} #{myJson['APELLIDO MATERNO']} #{myJson.NOMBRES}
+      tr
+        td(class = 'rg bt') Plano
+        td(class = 'bt tlf') 1 : 4
+      tr
+        td(class = 'rg bt') Escala
+        td(class = 'bt tlf') 1 : 50
+      tr
+        td(class = 'rg') Fecha
+        td(class = 'tlf') 20/10/2015
+        
+    table(class = 'rightTable last')
+      tr
+        th(colspan = '3' class = 'ft') Instalación domiciliaria de gas natural
+      tr
+        td(colspan = '3' class = 'tp bt ft') Vista isométrica
+      tr
+        td(class = 'bt rg mt') Codigo de Usuario
+        td(class = 'bt rg mt') Nº de proyecto
+        td(class = 'bt mt') Nº de medidor
+      tr
+        td(class = 'bt rg mt') #{myJson.Nro}-#{myJson.DIST}-#{myJson.MANZ}-#{myJson.PREDIO}-#{myJson['PISO/DPTO']}
+        td(class = 'bt rg mt') 12031/2014
+        td(class = 'bt mt') 2021769
+      tr
+        td(colspan = '3' class = 'tlf')
+          p Proyecto: Carlos Dionicio Paton Aliaga
+          p Dibujo: Limber Ivan Callisaya Perez
+          p Reviso:
+          p Aprobo:
+    
+  aside(class = 'tablas')
+    div(id = 'output' class = 'output')       
+      table
+        tr
+          th Accesorio
+          th(class = 'center strech') Unidad
+          th(class = 'center') Cantidad
+        tr
+          td Válvula de 1/2''
+          td(class = 'center strech') PZA.
+          td(class = 'center') 0
+        tr
+          td Codo Reductor 3/4'' a 1/2''
+          td(class = 'center strech') PZA.
+          td(class = 'center') 0
+        tr
+          td Codo de 90º de 3/4''
+          td(class = 'center strech') PZA.
+          td(class = 'center') 0
+        tr
+          td Te de 3/4''
+          td(class = 'center strech') PZA.
+          td(class = 'center') 0
+        tr
+          td Cupla de 3/4''
+          td(class = 'center strech') PZA.
+          td(class = 'center') 0
+        tr
+          td Tapon Macho de 3/4''
+          td(class = 'center strech') PZA.
+          td(class = 'center') 0
+        tr
+          td Tuberia AG 3/4''
+          td(class = 'center strech') MTS.
+          td(id = 'suma_34' class = 'center') 0
+        tr
+          td Tuberia AG 1/2''
+          td(class = 'center strech') MTS.
+          td(id = 'suma_12' class = 'center') 0
+        tr
+          td Tuberia AG 1''
+          td(class = 'center strech') MTS.
+          td(id = 'suma_1' class = 'center') 0
+        tr
+          td Tuberia AG 1/4''
+          td(class = 'center strech') MTS.
+          td(id = 'suma_14' class = 'center') 0
+        tr
+          td LONGITUD TOTAL DE INSTALACION
+          td(class = 'center strech') MTS.
+          td(id = 'suma_total' class = 'center') 0
+            
+block footer
+  
+  //div
+    p Nombre: #{myBody.myProyecto}
+    p Autor: #{myBody.myAutor}
+    p Nro.: #{myJson.Nro}
+    p DIST: #{myJson.DIST}
+    p MANZ: #{myJson.MANZ}
+    p PREDIO: #{myJson.PREDIO}
+    p PISO/DPTO: #{myJson['PISO/DPTO']}
+    p Paterno: #{myJson['APELLIDO PATERNO']}
+    p Materno: #{myJson['APELLIDO MATERNO']}
+    p Nombres: #{myJson.NOMBRES}
+    p Carnet: #{myJson.CARNET}
+    p AVDA/CALLE: #{myJson['AVDA/ CALLE']}
+    p TEL/CEL: #{myJson['TEL/CEL']}
+    p OBSERVACIONES: #{myJson.OBSERVACIONES}
+  div(class = 'documentProject')
+    form(action = '/proyecto/editor' method = 'post')
+      
+      //div(class = 'line-form')
+        input(type = 'text' name = 'edPry' value = '#{myBody.myProyecto}' placeholder= '')
+        input(type = 'text' name = 'edAtr' value = '#{myBody.myAutor}' placeholder= '')
+      div(class = 'line-form') 
+        p Proyecto: #{myBody.myProyecto}
+      div(class = 'line-form') 
+        p Autor: #{myBody.myAutor}
+      
+      
+      div(class = 'line-form')
+        div(class = 'line-part')
+          label Número: 
+          input(type = 'text' name = 'edNro' value = '#{myJson.Nro}' placeholder= 'Número')
+        div(class = 'line-part')
+          label Distrito: 
+          input(type = 'text' name = 'edDst' value = '#{myJson.DIST}' placeholder= 'Distrito')
+        div(class = 'line-part')
+          label Zona: 
+          input(type = 'text' name = 'edZna' value = '#{myJson.ZONA}' placeholder= 'Zona')
+        div(class = 'line-part')
+          label Manzano: 
+          input(type = 'text' name = 'edMnz' value = '#{myJson.MANZ}' placeholder= 'Manzano')
+        div(class = 'line-part')
+          label Predio: 
+          input(type = 'text' name = 'edPrd' value = '#{myJson.PREDIO}' placeholder= 'Predio')
+        div(class = 'line-part')
+          label Piso Dpto: 
+          input(type = 'text' name = 'edPDo' value = '#{myJson["PISO/DPTO"]}' placeholder= 'Piso Dpto')
+        div(class = 'line-part')
+          label Paterno: 
+          input(type = 'text' name = 'edPat' value = '#{myJson["APELLIDO PATERNO"]}' placeholder= 'Apellido paterno')
+      
+      div(class = 'line-form')
+        div(class = 'line-part')
+          label Materno: 
+          input(type = 'text' name = 'edMat' value = '#{myJson["APELLIDO MATERNO"]}' placeholder= 'Apellido materno')
+        div(class = 'line-part')
+          label Nombres: 
+          input(type = 'text' name = 'edNmb' value = '#{myJson.NOMBRES}' placeholder= 'Nombres')
+        div(class = 'line-part')
+          label Identificación: 
+          input(type = 'text' name = 'edCnt' value = '#{myJson.CARNET}' placeholder= 'Identificación')
+        div(class = 'line-part')
+          label Dirección: 
+          input(type = 'text' name = 'edAvC' value = '#{myJson["AVDA/ CALLE"]}' placeholder= 'Dirección')
+        div(class = 'line-part')
+          label Teléfono: 
+          input(type = 'text' name = 'edTCl' value = '#{myJson["TEL/CEL"]}' placeholder= 'Teléfono')
+        div(class = 'line-part')
+          label Observaciones: 
+          input(type = 'text' name = 'edObs' value = '#{myJson.OBSERVACIONES}' placeholder= 'Observaciones')
+      
+      
+      input(class = 'none' type = 'text' name = 'nProyecto' value = '#{myBody.myProyecto}')
+      input(class = 'none' type = 'text' name = 'pAutor' value = '#{myBody.myAutor}')
+      input(class = 'none' type = 'text' name = 'jsonData' value = '#{myBody.myFullJson}')
+      input(class = 'none' type = 'text' name = 'myJsonAdress' value = '#{myBody.myJson}')
+      input(class = 'none' type = 'text' name = 'mode' value = 'saveDocument')
+          
+          
+      input(class = 'none' type = 'text' id = 'myPointData' name = 'myPointData' value = '#{myJson.ISOMETRICO.myPointData}')
+      input(class = 'none' type = 'text' id = 'myGradosData' name = 'myGradosData' value = '#{myJson.ISOMETRICO.myGradosData}')
+      input(class = 'none' type = 'text' id = 'myDistanciaData' name = 'myDistanciaData' value = '#{myJson.ISOMETRICO.myDistanciaData}')
+      input(class = 'none' type = 'text' id = 'myTubData' name = 'myTubData' value = '#{myJson.ISOMETRICO.myTubData}')
+      input(class = 'none' type = 'text' id = 'myTagData' name = 'myTagData' value = '#{myJson.ISOMETRICO.myTagData}')
+      input(class = 'none' type = 'text' id = 'myComponentesData' name = 'myComponentesData' value = '#{myJson.ISOMETRICO.myComponentesData}')
+      div(class = 'line-form')
+        input(type = 'submit' value = 'Modificar Documento')
+    
+block subScripts
+  script(src = '/js/miDrawer.js')

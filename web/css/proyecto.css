@@ -1,0 +1,266 @@
+body {
+  background: #031335;
+}
+.no-visible {
+  display: none;
+}
+.left {
+  float: left;
+}
+.content .element-title {
+  padding: 15px 0px;
+  text-align: center;
+}
+.content .element-title h1 {
+  font-family: 'roboto-thin', 'roboto-regular', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #fff;
+}
+.content .element {
+  padding: 40px;
+}
+.content .element .element-header {
+  border-radius: 5px 5px 0px 0px;
+  padding: 10px;
+  background: #385995;
+  font-family: 'roboto-light', 'roboto-regular', 'roboto-thin', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #fff;
+}
+.content .element .element-body {
+  width: 100%;
+  text-align: left;
+/*  &:hover
+          background rgba(59, 12, 88, 0.1)
+                
+      
+      form
+        width 100%
+        input[type = text]
+          border none
+          background transparent
+          font-family 'roboto-regular', 'roboto-light', 'Helvetica Neue', Helvetica, Arial, sans-serif
+          font-size 16px
+        &:before
+          background transparent
+          font-family 'FullIcons'
+          content ''
+          font-size 25px
+          padding 0px
+          margin 10px
+          border 0px
+
+        button
+          float right
+          font-family 'roboto-regular', 'roboto-light', 'Helvetica Neue', Helvetica, Arial, sans-serif
+          font-size 14px
+          padding 0px
+          margin 0px
+          border 0px
+          border none
+          background transparent
+          &:hover
+            cursor pointer
+            background transparent
+          &:after
+            background transparent
+            font-family 'FullIcons'
+            content '\e900' 
+            font-size 30px
+            padding 0px
+            margin 0px 10px
+            border 0px
+            */
+}
+.content .element .element-body .element-line {
+  display: block;
+  font-family: 'roboto-regular', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  height: 48px;
+  position: relative;
+}
+.content .element .element-body .element-line .form-tag {
+  position: absolute;
+  left: 20px;
+  top: 10px;
+  font-size: 16px;
+}
+.content .element .element-body .element-line .form-tag .element-name {
+  color: #385995;
+  width: 200px;
+  float: left;
+}
+.content .element .element-body .element-line .form-tag .element-date {
+  color: #385995;
+  float: left;
+}
+.content .element .element-body .element-line .form-edit {
+  float: right;
+  position: absolute;
+  top: 5px;
+  right: 150px;
+}
+.content .element .element-body .element-line .form-edit form input {
+  display: none;
+}
+.content .element .element-body .element-line .form-edit form button {
+  color: #fff;
+  font-family: 'roboto-regular', 'roboto-light', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  padding: 0px;
+  margin: 0px;
+  border: 0px;
+  border: none;
+  background: rgba(33,53,89,0.8);
+  padding: 10px;
+  border-radius: 5px;
+  width: 95px;
+}
+.content .element .element-body .element-line .form-edit form button:hover {
+  cursor: pointer;
+  background: #213559;
+  transition: 0.5s;
+}
+.content .element .element-body .element-line .form-edit form button:focus {
+  outline: 0;
+}
+.content .element .element-body .element-line .form-edit form button:after {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  font-family: 'FullIcons';
+  color: #fff;
+  content: '\e900';
+  font-size: 14px;
+  padding: 8px;
+  margin: 0px 10px;
+  border: 0px;
+}
+.content .element .element-body .element-line .form-delete {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+}
+.content .element .element-body .element-line .form-delete form input {
+  display: none;
+}
+.content .element .element-body .element-line .form-delete form button {
+  font-family: 'roboto-regular', 'roboto-light', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  margin: 0px;
+  border: 0px;
+  border: none;
+  background: rgba(0,0,0,0.8);
+  border-radius: 5px;
+  color: #fff;
+  padding: 10px;
+  width: 110px;
+}
+.content .element .element-body .element-line .form-delete form button:hover {
+  cursor: pointer;
+  background: #000;
+  transition: 0.5s;
+}
+.content .element .element-body .element-line .form-delete form button:focus {
+  outline: 0;
+}
+.content .element .element-body .element-line .form-delete form button:after {
+  width: 32px;
+  height: 32px;
+  font-family: 'FullIcons';
+  color: #fff;
+  content: '\e90b';
+  font-size: 14px;
+  padding: 8px;
+  margin: 0px 10px;
+  border: 0px;
+}
+.content .element .element-body .element-line:nth-child(2n+1) {
+  background: rgba(255,255,255,0.8);
+}
+.content .element .element-body .element-line:nth-child(2n) {
+  background: rgba(255,255,255,0.7);
+}
+.content .element .element-body a {
+  text-decoration: none;
+  color: #000;
+}
+.content .element .element-body .list-style {
+  font-family: 'roboto-light', 'roboto-regular', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  padding: 10px 5px;
+  border-width: 0px;
+  border-style: solid;
+  border-color: rgba(59,12,88,0.6);
+/*span
+          font-family 'roboto-light', 'roboto-regular', 'Helvetica Neue', Helvetica, Arial, sans-serif
+          width 300px
+          float right*/
+}
+.content .element .element-body .list-style:nth-child(2n+1) {
+  background: rgba(59,12,88,0.3);
+}
+.content .element .element-body .list-style:nth-child(2n) {
+  background: rgba(59,12,88,0.2);
+}
+.content .element .element-body .list-style:hover {
+  background: rgba(59,12,88,0.1);
+}
+.last {
+  padding-bottom: 20px;
+}
+.none {
+  display: none;
+}
+.neoAdd {
+  margin-bottom: 10px !important;
+  padding-bottom: 40px;
+}
+.neoAdd a {
+  text-decoration: none;
+}
+.neoAdd a .btn-add {
+  font-family: 'roboto-regular', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  margin: 0 auto;
+  color: #90c53f;
+  width: 150px;
+  height: 21px;
+  font-size: 16px;
+}
+.neoAdd a .btn-add:hover {
+  cursor: pointer;
+}
+.neoAdd a .btn-add:before {
+  font-size: 14px;
+  margin-right: 7px;
+  width: 21px;
+  height: 21px;
+  padding: 0px 5px 0px 5px;
+  content: '+';
+  background: #90c53f;
+  color: #fff;
+  border-radius: 50%;
+  box-sizing: border-box;
+}
+footer {
+  display: none;
+}
+@media screen and (max-width: 850px) {
+  .content .element {
+    width: 100%;
+    padding: 10px 0px 10px 0px;
+    width: 100%;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  .content .element .element-header {
+    box-sizing: border-box;
+    width: 850px;
+  }
+  .content .element .element-body {
+    box-sizing: border-box;
+  }
+  .content .element .element-body .element-line {
+    box-sizing: border-box;
+    width: 850px;
+  }
+}

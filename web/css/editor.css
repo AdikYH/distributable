@@ -1,0 +1,569 @@
+body {
+  background: #051f58;
+}
+.editor-container {
+  margin: 0 auto;
+  font-family: 'roboto-thin', 'roboto-regular', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #385995;
+}
+.editor-container ::-webkit-scrollbar {
+  -webkit-border-radius: 10px;
+  width: 6px;
+  height: 6px;
+}
+.editor-container ::-webkit-scrollbar-track {
+  -webkit-border-radius: 10px;
+}
+.editor-container ::-webkit-scrollbar-thumb {
+  -webkit-border-radius: 10px;
+  background: #5e5e5e;
+}
+.editor-container .editor-title {
+  font-family: 'roboto-regular', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 18px;
+  color: #fff;
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+.editor-container .editor-title .box {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+}
+.editor-container .editor-title .box span {
+  font-family: 'roboto-regular', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 10px;
+  padding: 5px 20px;
+  margin: 0px 5px;
+  border: 0px;
+  color: #fff;
+  border-radius: 15px;
+}
+.editor-container .editor-title .box .ttSp {
+  background: #90c53f;
+}
+.editor-container .editor-title .box .mpSp {
+  color: #000;
+  background: #ebf0f1;
+}
+.editor-container .editor-title .box .mrSp {
+  background: #00a186;
+}
+.editor-container .editor-title .mini {
+  width: 180px;
+  padding: 5px;
+  font-size: 10px;
+}
+.editor-container .editor-header {
+  display: none;
+  font-family: 'roboto-thin', 'roboto-regular', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+}
+.editor-container .editor-header h4 {
+  font-family: 'roboto-regular', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 10px;
+}
+.editor-container .editor-header h4 span {
+  font-family: 'roboto-regular', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 10px;
+  padding: 5px 20px;
+  margin: 0px 5px;
+  border: 0px;
+  color: #fff;
+  border-radius: 15px;
+}
+.editor-container .editor-header h4 .ttSp {
+  background: #90c53f;
+}
+.editor-container .editor-header h4 .mrSp {
+  background: #00a186;
+}
+.editor-container .editor-header h4 .mpSp {
+  background: #3d0c5a;
+}
+.editor-container .indicador {
+  padding: 10px;
+}
+.editor-container .green h4 {
+  color: #00a186;
+}
+.editor-container .greenLow h4 {
+  color: #90c53f;
+}
+.editor-container .table-container .table-container-header {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 5px;
+  background: #051d53;
+  overflow-x: auto;
+  white-space: nowrap;
+  height: 55px;
+}
+.editor-container .table-container .table-container-header .title {
+  cursor: pointer;
+  background: rgba(50,78,198,0.2);
+  padding: 5px;
+  border-radius: 0px 5px 0px 5px;
+  color: #fff;
+  font-size: 13px;
+  font-family: 'roboto-regular', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  display: inline-block;
+  margin: 5px;
+  transition: 0.5s;
+}
+.editor-container .table-container .table-container-header .title:hover {
+  background: rgba(50,78,198,0.6);
+  transition: 0.5s;
+}
+.editor-container .table-container .table-container-header .none {
+  display: none;
+}
+.editor-container .table-container .table-container-header .marked {
+  background: #324ec6;
+}
+.editor-container .table-container .table-container-table {
+  overflow-x: auto;
+  color: #fff;
+  font-size: 12px;
+}
+.editor-container .table-container .table-container-table .visible {
+  display: table;
+}
+.editor-container .table-container .table-container-table .no-visible {
+  display: none;
+}
+.editor-container .table-container .table-container-table table {
+  display: none;
+  table-layout: fixed;
+  width: 100%;
+  border-collapse: collapse;
+}
+.editor-container .table-container .table-container-table table tr:nth-child(even) {
+  background: #cedaed;
+}
+.editor-container .table-container .table-container-table table tr:nth-child(odd) {
+  background: #b3cdf9;
+}
+.editor-container .table-container .table-container-table table tr th {
+  background: #324fc8;
+}
+.editor-container .table-container .table-container-table table tr .pad {
+  padding: 5px;
+}
+.editor-container .table-container .table-container-table table tr .rotate {
+  height: 160px;
+  width: 41px;
+  white-space: nowrap;
+}
+.editor-container .table-container .table-container-table table tr .rotate > div {
+  transform: translate(6px, 71px) rotate(270deg);
+  width: 30px;
+}
+.editor-container .table-container .table-container-table table tr .rotate > div > span {
+  padding: 5px 10px;
+}
+.editor-container .table-container .table-container-table table tr .no-rotate {
+  width: 60px;
+  min-width: 60px;
+}
+.editor-container .table-container .table-container-table table .narrow {
+  width: 30px;
+  min-width: 30px;
+}
+.editor-container .table-container .table-container-table .narrow40 {
+  width: 40px;
+  min-width: 40px;
+}
+.editor-container .table-container .table-container-table .narrow50 {
+  width: 50px;
+  min-width: 50px;
+}
+.editor-container .table-container .table-container-table .extensive {
+  width: 120px;
+  min-width: 120px;
+}
+.editor-container .table-container .table-container-table .medium {
+  width: 80px;
+  min-width: 80px;
+}
+.editor-container .table-container .table-container-table td {
+  padding: 3px 0px 3px 0px;
+  font-family: 'roboto-regular', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #142734;
+  text-align: center;
+}
+.editor-container .table-container .table-container-table td input[type = text] {
+  display: none;
+}
+.editor-container .table-container .table-container-table td input[type = submit] {
+  border: 0px;
+  padding: 7px;
+  border-radius: 5px;
+  background: #009d83;
+  color: #fff;
+  cursor: pointer;
+  box-shadow: 2px 2px #000;
+  font-size: 13px;
+}
+.editor-container .table-container .table-container-table td input[type = submit]:active {
+  outline: none;
+}
+.editor-container .table-container .table-container-table td input[type = submit]:focus {
+  outline: none;
+}
+.editor-container .table-container .table-container-table .mostrarInCell input[type = text] {
+  margin: 0 auto;
+  font-family: 'roboto-regular', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  width: 41px;
+  display: block;
+  color: #142734;
+  background: transparent;
+  text-align: center;
+  border: 0px;
+  border-bottom: 1px solid rgba(20,39,52,0.5);
+  outline: none;
+  font-size: 13px;
+}
+.editor-container .table-container .table-container-table .mostrarInCell .existe {
+  background: #ebf0f1 !important;
+  color: #000 !important;
+}
+.table-container-export {
+  width: 100%;
+  padding: 10px 20px 5px 20px;
+  box-sizing: border-box;
+  text-align: center;
+}
+.table-container-export input[type = 'button'] {
+  border-radius: 2px;
+  width: 120px;
+  border: 1px solid rgba(255,255,255,0.5);
+  box-sizing: border-box;
+  font-size: 13px;
+  padding: 5px 0px;
+  background: rgba(0,153,222,0.4);
+  color: #fff;
+}
+.table-container-export input[type = 'button']:hover {
+  background: rgba(0,153,222,0.8);
+  cursor: pointer;
+}
+.editor-table {
+  padding: 15px;
+  overflow-y: hidden;
+  overflow-x: auto;
+  font-family: 'roboto-regular', 'roboto-light', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+.editor-table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.editor-table table tr th {
+  font-size: 12px;
+  padding: 10px 5px;
+  background: #436eb7;
+  color: #fff;
+}
+.editor-table table tr th:first-child {
+  border-radius: 0px 0px 0px 0px;
+}
+.editor-table table tr th:last-child {
+  border-radius: 0px 0px 0px 0px;
+}
+.editor-table table tr td {
+  text-align: center;
+  font-size: 12px;
+  padding: 5px;
+  border: 0px solid #fff;
+  margin: 0;
+  color: #3d0c5a;
+}
+.editor-table table tr td form input[type = text] {
+  display: none;
+}
+.editor-table table tr td form input[type = submit] {
+  width: 70px;
+  text-align: center;
+  cursor: pointer;
+  font-family: 'roboto-regular', 'roboto-light', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background: #0d1a58;
+  border-radius: 5px;
+  padding: 10px 0px;
+  margin: 2px 0px;
+  font-size: 12px;
+  color: #fff;
+  text-decoration: none;
+  border: 0px;
+}
+.editor-table table tr td form input[type = submit]:hover {
+  background: rgba(13,26,88,0.9);
+  text-decoration: none;
+}
+.editor-table table tr td form input[type = submit]:focus {
+  outline: none;
+}
+.editor-table table tr td form input[type = submit]:active {
+  outline: none;
+  background: #00f;
+}
+.editor-table table tr:nth-child(even) {
+  background: #cedaed;
+}
+.editor-table table tr:nth-child(odd) {
+  background: #c3d1e9;
+}
+.none {
+  display: none;
+}
+.inform-table {
+  padding-top: 100px;
+  padding: 15px;
+  font-family: 'roboto-light', 'roboto-regular', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+.inform-table table {
+  border-collapse: collapse;
+  text-align: center;
+}
+.inform-table table tr th {
+  background: #00a186;
+  font-size: 12px;
+  color: #fff;
+  border: 0px solid #fff;
+  height: 190px;
+}
+.inform-table table tr th span {
+  box-sizing: border-box;
+  transform: rotate(-90deg);
+  display: block;
+}
+.inform-table table tr th:first-child {
+  border-radius: 5px 0px 0px 0px;
+}
+.inform-table table tr th:last-child {
+  border-radius: 0px 5px 0px 0px;
+}
+.inform-table table tr td {
+  padding: 2px;
+  font-size: 12px;
+  color: #3d0c5a;
+  border: 0px solid #fff;
+}
+.inform-table table tr:nth-child(even) {
+  background: rgba(229,245,242,0.8);
+}
+.inform-table table tr:nth-child(odd) {
+  background: rgba(202,234,229,0.8);
+}
+.jsonData {
+  display: none;
+}
+.exist {
+  background: #00a186 !important;
+}
+.exist:hover {
+  background: rgba(0,161,134,0.7) !important;
+}
+.last {
+  padding-bottom: 92px;
+}
+.ocultar {
+  display: none;
+}
+footer {
+  font-family: 'roboto-regular';
+  position: static;
+  padding: 5px;
+  background: rgba(0,0,0,0.4);
+  box-sizing: border-box;
+}
+footer .varTitle {
+  color: #fff;
+  text-align: left;
+  padding: 5px;
+  font-size: 14px;
+  width: 100px;
+  background: #dd1917;
+  border-left: 0px;
+  border-right: 0px;
+}
+footer .varData .table-data {
+  display: none;
+}
+footer .varData .table-data table {
+  margin: 0 auto;
+  color: #000;
+}
+footer .varData .table-data table tr th {
+  border: 2px #031335 !important;
+  padding: 5px;
+  color: #fff;
+}
+footer .varData .table-data table tr td {
+  border: 2px #031335 !important;
+  padding: 5px;
+  position: relative;
+}
+footer .varData .table-data table tr td input[type ='text'] {
+  width: 70px;
+  padding: 0px;
+  border: 0px;
+  outline: none;
+  background: transparent;
+  text-align: center;
+}
+footer .varData .table-data table tr td input[type ='button'] {
+  position: absolute;
+  color: #fff;
+  width: 14px;
+  height: 14px;
+  padding: 1px;
+  font-size: 12px;
+  border: 0px;
+  outline: none;
+  background: rgba(54,93,44,0.4);
+  text-align: center;
+  bottom: 0px;
+  right: 0px;
+  cursor: pointer !important;
+  transition: 0.2s;
+}
+footer .varData .table-data table tr td input[type ='button']:hover {
+  background: rgba(54,93,44,0.8);
+}
+footer .varData .table-data table tr td .removeBtn {
+  top: 0px;
+  height: 16px !important;
+  background: rgba(147,32,21,0.4) !important;
+  padding-top: 1px !important;
+}
+footer .varData .table-data table tr td .removeBtn:hover {
+  background: rgba(147,32,21,0.8) !important;
+}
+footer .varData .table-data table tr:nth-child(even) {
+  background: #fff09e;
+}
+footer .varData .table-data table tr:nth-child(odd) {
+  background: rgba(255,240,158,0.8);
+}
+footer .varData .table-data table tr:nth-child(1) {
+  background: #e03626;
+}
+footer .varData .data-tabPago {
+  width: 100%;
+  padding: 5px 0px;
+}
+footer .varData .data-tabPago label {
+  width: 150px;
+  padding: 2px 10px;
+  font-size: 14px;
+  display: inline-block;
+  text-align: center;
+}
+footer .varData .data-tabPago input[type = 'button'] {
+  background: #11741b;
+  border: 0px;
+  padding: 5px;
+  color: #fff;
+  border-radius: 5px;
+  display: block;
+  width: 150px;
+  margin: 10px auto;
+  cursor: pointer;
+}
+footer .varData .data {
+  width: 100%;
+  padding: 5px 0px;
+}
+footer .varData .data label {
+  width: 170px;
+  padding: 2px 10px;
+  font-size: 14px;
+  display: inline-block;
+  text-align: right;
+}
+footer .varData .data input[type = 'text'] {
+  width: 150px;
+  padding: 2px 10px;
+  font-size: 14px;
+  border: 0px;
+  border-radius: 5px;
+  background: rgba(255,255,255,0.8);
+  outline: none;
+}
+footer .varData .none {
+  display: none;
+}
+footer .varData .ima {
+  width: 100%;
+  padding: 5px 0px;
+}
+footer .varData .ima img {
+  width: 100px;
+  margin: 0 auto;
+}
+footer .varData .ima-change {
+  width: 100%;
+  padding: 5px 0px;
+}
+footer .varData .ima-change input[type = 'button'] {
+  background: #11741b;
+  border: 0px;
+  padding: 5px;
+  color: #fff;
+  border-radius: 5px;
+  display: block;
+  width: 150px;
+  margin: 10px auto;
+  cursor: pointer;
+}
+footer .varData .ima-change input[type = 'file'] {
+  display: block;
+  width: 300px;
+  margin: 0 auto;
+  border-radius: 5px;
+  border: 2px;
+  outline: none;
+  display: none;
+}
+footer .submit {
+  text-align: center;
+  width: 38px;
+  background: #0c5537;
+  margin: auto;
+  border-radius: 5px;
+  padding: 5px;
+  cursor: pointer;
+}
+footer .submit:before {
+  font-family: 'esentialIcons';
+  content: '\e911';
+  font-size: 28px;
+}
+@media screen and (max-width: 920px) {
+  .editor-container .editor-title .box {
+    padding-bottom: 5px;
+    width: 100%;
+    text-align: center;
+  }
+}
+/*@media screen and (max-width 376px)
+  footer
+    .varData
+      .data
+        width 100%
+        label
+          display block
+          text-align left
+        input
+          display block
+          width 100%*/
+@font-face {
+  font-family: 'esentialIcons';
+  src: url("esentialIcons/icomoon.eot?t05rsc");
+  src: url("esentialIcons/icomoon.eot?t05rsc#iefix") format('embedded-opentype'), url("esentialIcons/icomoon.ttf?t05rsc") format('truetype'), url("esentialIcons/icomoon.woff?t05rsc") format('woff'), url("esentialIcons/icomoon.svg?t05rsc#icomoon") format('svg');
+  font-weight: normal;
+  font-style: normal;
+}

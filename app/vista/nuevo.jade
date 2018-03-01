@@ -1,0 +1,217 @@
+extends layout_nav
+
+block title
+  title Nuevo proyecto
+
+block css
+  link(rel = 'stylesheet' href = '/css/nuevo.css')
+
+block content
+
+  div(class = 'form-container last')
+    form(action = '/asignacion/editor' enctype = 'multipart/form-data' method = 'post'  name = 'myCreateForm' onsubmit = 'return confirmar();' )
+      
+      div(class = 'form-header header-title')
+        h1 Nueva Asignación
+
+      div(class = 'form-control')
+        label Nombre:
+      div(class = 'form-control')
+        input(type = 'text' name = 'nProyecto' placeholder = '' id = '' onchange = 'ValidarP()' onblur = 'ValidarP()')
+      div(class = 'form-alert') #{xlsMessage}
+      div(class = 'form-alert' id = 'myAlertName')
+
+      div(class = 'form-control')
+        label Autor:
+      div(class = 'form-control')
+        input(type = 'text' name = 'pAutor' placeholder = '' id = '' onchange = 'ValidarA()' onblur = 'ValidarA()')
+      div(class = 'form-alert' id = 'myAlertAutor')
+
+      div(class = 'form-control ocultar')
+        input(type = 'text' name = 'mode' placeholder = '' id = '' value = 'create')
+
+
+      div(class = 'form-header-mini')
+        h2 Datos empresa
+      /////////////////////////////////////////////////////////////////////////
+      div(class = 'form-control-row')
+        div(class = 'element')
+          label Razón social :
+        div(class = 'element')
+          input(type = 'text' name = 'eRazonSocial' placeholder = '' id = '' onchange = 'Validar(this.name)' onblur = 'Validar(this.name)')
+          div(class = 'form-alert' id = 'alerteRazonSocial')
+
+      div(class = 'form-control-row')
+        div(class = 'element')
+          label Nº de Resolución SIID :
+        div(class = 'element')
+          input(type = 'text' name = 'eResolucion' placeholder = '' id = '' onchange = 'Validar(this.name)' onblur = 'Validar(this.name)')
+          div(class = 'form-alert' id = 'alerteResolucion')
+
+      div(class = 'form-control-row')
+        div(class = 'element')
+          label Dirección :
+        div(class = 'element')
+          input(type = 'text' name = 'eDireccion' placeholder = '' id = '' onchange = 'Validar(this.name)' onblur = 'Validar(this.name)')
+          div(class = 'form-alert' id = 'alerteDireccion')
+
+
+      div(class = 'form-control-row more')
+        div(class = 'element')
+          label Teléfonos :
+        div(class = 'element')
+          input(type = 'text' name = 'eTelefono' placeholder = '' id = '')
+
+      div(class = 'form-control-row')
+        div(class = 'element')
+          label Proyectista :
+        div(class = 'element')
+          input(type = 'text' name = 'eProyectista' placeholder = '' id = '' onchange = 'Validar(this.name)' onblur = 'Validar(this.name)')
+          div(class = 'form-alert' id = 'alerteProyectista')
+
+      div(class = 'form-control-row')
+        div(class = 'element')
+          label Nº Registro Infocal :
+        div(class = 'element')
+          input(type = 'text' name = 'eRegistroP' placeholder = '' id = '' onchange = 'Validar(this.name)' onblur = 'Validar(this.name)')
+          div(class = 'form-alert' id = 'alerteRegistroP')
+
+      div(class = 'form-control-row')
+        div(class = 'element')
+          label Instalador :
+        div(class = 'element')
+          input(type = 'text' name = 'eInstalador' placeholder = '' id = '' onchange = 'Validar(this.name)' onblur = 'Validar(this.name)')
+          div(class = 'form-alert' id = 'alerteInstalador')
+
+      div(class = 'form-control-row')
+        div(class = 'element')
+          label Nº Registro Infocal :
+        div(class = 'element')
+          input(type = 'text' name = 'eRegistroI' placeholder = '' id = '' onchange = 'Validar(this.name)' onblur = 'Validar(this.name)')
+          div(class = 'form-alert' id = 'alerteRegistroI')
+
+      div(class = 'form-header-mini')
+        h2 Datos asignacion
+
+      div(class = 'form-control-row')
+        div(class = 'element')
+          label Nº de asignación :
+        div(class = 'element')
+          input(type = 'text' name = 'pNumero' placeholder = '' id = '' onchange = 'Validar(this.name)' onblur = 'Validar(this.name)')
+          div(class = 'form-alert' id = 'alertpNumero')
+
+
+      div(class = 'form-control-row')
+        div(class = 'element')
+          label Nombre de la zona :
+        div(class = 'element')
+          input(type = 'text' name = 'pNombreZona' placeholder = '' id = '' onchange = 'Validar(this.name)' onblur = 'Validar(this.name)')
+          div(class = 'form-alert' id = 'alertpNombreZona')
+
+      div(class = 'form-control-row')
+        div(class = 'element')
+          label Localidad :
+        div(class = 'element')
+          input(type = 'text' name = 'pLocalidad' placeholder = '' id = '' onchange = 'Validar(this.name)' onblur = 'Validar(this.name)')
+          div(class = 'form-alert' id = 'alertpLocalidad')
+
+      div(class = 'form-control-row')
+        div(class = 'element')
+          label Departamento :
+        div(class = 'element')
+          input(type = 'text' name = 'pDepartamento' placeholder = '' id = '' onchange = 'Validar(this.name)' onblur = 'Validar(this.name)')
+          div(class = 'form-alert' id = 'alertpDepartamento')
+
+      div(class = 'form-control-row')
+        div(class = 'element')
+          label Código de localidad :
+        div(class = 'element')
+          input(type = 'text' name = 'pLocalidadC' placeholder = '' id = '' onchange = 'Validar(this.name)' onblur = 'Validar(this.name)')
+          div(class = 'form-alert' id = 'alertpLocalidadC')
+
+      div(class = 'form-control-row')
+        div(class = 'element')
+          label Código de departamento :
+        div(class = 'element')
+          input(type = 'text' name = 'pDepartamentoC' placeholder = '' id = '' onchange = 'Validar(this.name)' onblur = 'Validar(this.name)')
+          div(class = 'form-alert' id = 'alertpDepartamentoC')
+
+
+      div(class = 'form-alert-campo' id = 'alertCampo') (*) Campo requerido
+
+
+      div(class = 'form-jsonData')
+        input(type = 'text' name = 'jsonData' placeholder = '' id = 'myJsonData')
+
+
+      div(class = 'form-control-row')
+
+        div(class = 'element-full')
+          label Imagen logo :
+        div(class = 'element-full')
+          input(type = 'file' name = 'eImagenLogo' placeholder = '' id = '' onchange = 'ValidarImagen(this.name)' onblur = 'ValidarImagen(this.name)')
+          //input(type = 'file' name = 'eImagenLogo' multiple)
+          div(class = 'form-alert' id = 'alerteImagenLogo')
+
+      div(class = 'form-control-row')
+
+        div(class = 'element-full')
+          label Texto logo :
+        div(class = 'element-full')
+          input(type = 'text' name = 'eTextoLogo' placeholder = '' id = '' onchange = 'Validar(this.name)' onblur = 'Validar(this.name)')
+          div(class = 'form-alert' id = 'alerteTextoLogo')
+
+      div(class = 'form-header')
+        h2 Importar asignación desde excel
+
+      div
+        div(class = 'form-instrucciones')
+          p Para que los datos del archivo en excel sean añadidos correctamente las celdas de la cabecera deben tener el siguiente contenido:
+          table
+            tr
+              td Nro
+              td DIST
+              td ZONA
+              td MANZ
+              td PREDIO
+              td PISO/DPTO
+              td APELLIDO PATERNO
+              td APELLIDO MATERNO
+              td NOMBRES
+              td CARNET
+              td AVDA/ CALLE
+              td TEL/CEL
+              td OBSERVACIONES
+          p Puedes copiar las celda a tu archivo excel y luego se importara el archivo correctamente
+
+
+        div(class = 'form-control-file')
+
+        input(type = 'file' id = 'xlf' name = 'myXlf' class = 'file')
+
+
+      div(class = 'form-table')
+        table(id = 'miTablaXLS')
+          tr
+            th Nro
+            th DIST
+            th ZONA
+            th MANZ
+            th PREDIO
+            th PISO/DPTO
+            th APELLIDO PATERNO
+            th APELLIDO MATERNO
+            th NOMBRES
+            th CARNET
+            th AVDA/ CALLE
+            th TEL/CEL
+            th OBSERVACIONES
+      div(class = 'form-submit' id = 'form-submit')
+        button(type = 'submit' id = 'saveCont' class = 'activeButton') Guardar y Continuar 
+        // button(type = 'submit' id = 'saveCont' disabled = true) Guardar y Continuar
+
+block subScripts
+  script(src = '/js/jszip.js')
+  script(src = '/js/xlsx.js')
+  script(src = '/js/nuevo.js')
+  script(src = '/js/loadNuevo.js')

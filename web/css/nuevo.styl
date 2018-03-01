@@ -1,0 +1,502 @@
+body
+  background rgb(3, 19, 53)//background rgb(230, 237, 243)//rgba(43, 43, 43, 1)//rgba(61, 12, 90, 0.1)
+.form-container
+  width 100%//1000px
+  margin 0 auto
+  font-family 'roboto-thin', 'roboto-regular','Helvetica Neue',Helvetica,Arial,sans-serif
+  color white//rgb(46, 46, 46)
+  text-align center
+  overflow-x auto
+  white-space nowrap
+  .form-header
+    padding 20px
+    color white//rgb(56, 89, 149)//white
+  .form-control
+    label
+      font-family 'roboto-ligth', 'roboto-regular','Helvetica Neue',Helvetica,Arial,sans-serif
+      display inline-block
+      text-align left
+      padding 7px
+      color white//rgb(56, 89, 149)//white
+    input
+      font-size 18px
+      border-radius 5px
+      border 1px solid #7D7D7D
+      display inline-block
+      padding 7px
+      width 150px
+      color rgb(56, 89, 149)//#3B0C58
+      &:focus
+        outline none
+      &:active
+        outline none
+  .form-header-mini
+    padding 20px
+    color white//rgb(56, 89, 149)//white
+    h2
+      font-size 18px
+  .form-control-row
+    padding 5px
+    .element-image
+      text-align center
+      img
+        max-width 150px
+        width 150px
+    .element-full
+      display block
+      height 50px
+      label
+        font-family 'roboto-ligth', 'roboto-regular','Helvetica Neue',Helvetica,Arial,sans-serif
+        display inline-block
+        text-align left
+        padding 7px
+        color white//rgb(56, 89, 149)//white
+        font-size 12px
+      input
+        font-size 12px
+        border-radius 5px
+        border 1px solid #7D7D7D
+        display inline-block
+        padding 5px
+        width 150px
+        color rgb(56, 89, 149)//#3B0C58
+        //background #E0FFF4
+        &:focus
+          outline none
+        &:active
+          outline none
+      input[type = 'file']
+        width 300px
+        font-size 14px
+        border 0px
+        background white
+        padding 0px
+      .form-alert
+        padding 2px
+        padding-left 5px
+        //float right
+        font-family 'roboto-regular','Helvetica Neue',Helvetica,Arial,sans-serif
+        text-align center
+        color #FF4B3A//#E03626
+        font-size 20px//10px
+    .element
+      display inline-block
+      width 25%
+      height 30px
+      label
+        float right
+        font-family 'roboto-ligth', 'roboto-regular','Helvetica Neue',Helvetica,Arial,sans-serif
+        display inline-block
+        text-align left
+        padding 7px
+        color white//rgb(56, 89, 149)//white
+        font-size 12px
+      input
+        float left
+        font-size 12px
+        border-radius 5px
+        border 1px solid #7D7D7D
+        display inline-block
+        padding 5px
+        width 150px
+        color rgb(56, 89, 149)//#3B0C58
+        //background #E0FFF4
+        &:focus
+          outline none
+        &:active
+          outline none
+      input[type = 'file']
+        //width 100%
+        //background white
+        font-size 13px
+        //padding 0px
+        border 0px
+        //font-size 12px
+      .form-alert
+        padding 2px
+        padding-left 5px
+        float left
+        font-family 'roboto-regular','Helvetica Neue',Helvetica,Arial,sans-serif
+        text-align center
+        color #FF4B3A//#E03626
+        font-size 20px//10px
+  .form-instrucciones
+    border 3px solid rgb(33, 53, 89)
+    padding 2px
+    font-family 'roboto-regular','Helvetica Neue',Helvetica,Arial,sans-serif
+    font-size 12px
+    background rgba(56, 89, 149, 0.8)//rgba(255, 255, 255, 0.5)//#C0D3CD//#FFF894
+    color white//black
+    border-radius 5px
+    
+    margin 0 auto
+    max-width 850px
+    overflow-x auto
+    white-space nowrap
+    p
+      padding 2px
+    table
+      color black
+      background white
+      border 1px solid black
+      margin 0 auto
+      border-collapse collapse
+      tr
+        td
+          padding 2px
+          border 1px solid black
+      
+  .form-alert
+    font-family 'roboto-regular','Helvetica Neue',Helvetica,Arial,sans-serif
+    text-align center
+    padding 0px
+    color red//#FF4B3A//#E03626
+    font-size 15px//10px
+  .form-alert-campo
+    width 100%
+    
+    display none
+    font-family 'roboto-regular','Helvetica Neue',Helvetica,Arial,sans-serif
+    text-align center
+    padding 0px
+    color red//#FF4B3A//#E03626
+    font-size 15px//10px
+  .form-control-file
+    width 300px
+    margin 0 auto
+    padding 10px
+    input
+      font-size 14px
+      background-color white//#483D8B
+      color rgb(56, 89, 149)//white
+      width 300px
+  .form-table
+    padding 10px 0px
+    font-size 14px
+    text-align center
+    font-family 'roboto-regular','Helvetica Neue',Helvetica,Arial,sans-serif
+    margin 0 auto
+    table
+      //text-align center
+      //width 100%//1000px
+      margin 0 auto
+      overflow-x auto
+      white-space nowrap
+      
+      display none
+      width 100%
+      border-collapse collapse
+      max-width 1000px
+      tr
+        th
+          padding 10px 5px
+          background rgba(56, 89, 149, 1)//rgba(58, 50, 113, 1)//#0C5537//rgba(61, 12, 90, 1)//
+          color white
+          font-size 12px
+          &:first-child
+            border-radius 5px 0px 0px 0px
+          &:last-child
+            border-radius 0px 5px 0px 0px
+        td
+          font-size 12px
+          padding 5px
+          border 0px solid white
+          margin 0
+        &:nth-child(even)
+          background rgba(56, 89, 149, 0.2)//rgba(215, 214, 226, 1)//rgba(58, 50, 113, 0.2)//#00A186//rgba(210, 200, 216, 0.8)//
+        &:nth-child(odd)
+          background rgba(56, 89, 149, 0.1)//rgba(235, 235, 241, 1)//rgba(58, 50, 113, 0.1)//#00BD9B//rgba(230, 226, 233, 0.8)//
+  .form-jsonData
+    input
+      display none
+  .form-submit
+    padding 10px
+    width 250px
+    margin 0 auto
+    button
+      width 100%
+      border 0
+      color #929292//#353535//white
+      background rgb(99, 99, 99)//rgba(58, 50, 113, 0.9)
+      padding 10px
+      font-size 20px
+      border-radius 5px
+      &:hover
+        background rgb(99, 99, 99)//rgba(58, 50, 113, 1)
+  .header-title
+    color white//rgb(56, 89, 149)//white//rgb(58, 50, 113)
+.activeButton
+  color white !important
+  background rgba(56, 89, 149, 0.9) !important//rgba(58, 50, 113, 0.9) !important//rgba(61, 12, 90, 0.8) !important
+  cursor pointer
+  &:hover
+    background rgba(56, 89, 149, 1) !important//rgba(58, 50, 113, 1) !important//rgba(61, 12, 90, 1) !important
+
+.last
+  padding-bottom 92px
+
+.ocultar
+  display none
+  //&:hover
+    //cursor pointer
+footer
+  display none
+  
+@media screen and (max-width 360px)
+  .form-container
+    //width 1000px
+    width 100%
+    overflow-x auto
+    white-space nowrap
+    .form-header
+      text-align center
+      //height auto
+      //width 100%
+      padding 20px 0px 20px 0px
+      //color white//rgb(56, 89, 149)//white
+      //box-sizing border-box
+      //overflow-x auto
+      //white-space nowrap
+      //h2
+        //width 100%
+    /*.form-control
+      label
+        font-family 'roboto-ligth', 'roboto-regular','Helvetica Neue',Helvetica,Arial,sans-serif
+        display inline-block
+        text-align left
+        padding 7px
+        color white//rgb(56, 89, 149)//white
+      input
+        font-size 18px
+        border-radius 5px
+        border 1px solid #7D7D7D
+        display inline-block
+        padding 7px
+        width 150px
+        color rgb(56, 89, 149)//#3B0C58
+        &:focus
+          outline none
+        &:active
+          outline none*/
+    .form-header-mini
+      box-sizing border-box
+      //display block
+      //padding 10px
+      display block
+      //width 100% !important
+      //text-align center
+      //padding 20px
+      //color white//rgb(56, 89, 149)//white
+      //h2
+        //font-size 18px
+    .more
+      margin-bottom 30px
+    .form-control-row
+      //box-sizing border-box
+      display block
+      padding 10px
+      .element-image
+        text-align center
+        img
+          max-width 150px
+          width 150px
+      .element-full
+        display block
+        height 50px
+        label
+          font-family 'roboto-ligth', 'roboto-regular','Helvetica Neue',Helvetica,Arial,sans-serif
+          display inline-block
+          text-align left
+          padding 7px
+          color white//rgb(56, 89, 149)//white
+          font-size 12px
+        input
+          font-size 12px
+          border-radius 5px
+          border 1px solid #7D7D7D
+          display inline-block
+          padding 5px
+          width 150px
+          color rgb(56, 89, 149)//#3B0C58
+          //background #E0FFF4
+          &:focus
+            outline none
+          &:active
+            outline none
+        input[type = 'file']
+          width 300px
+          font-size 14px
+          border 0px
+          background white
+          padding 0px
+        .form-alert
+          padding 2px
+          padding-left 5px
+          //float right
+          font-family 'roboto-regular','Helvetica Neue',Helvetica,Arial,sans-serif
+          text-align center
+          color #FF4B3A//#E03626
+          font-size 20px//10px
+      .element
+        display block//inline-block
+        //width 25%
+        width 100%
+        height 30px
+        label
+          float left//right
+          font-family 'roboto-ligth', 'roboto-regular','Helvetica Neue',Helvetica,Arial,sans-serif
+          display inline-block
+          text-align left
+          padding 7px
+          color white//rgb(56, 89, 149)//white
+          font-size 12px
+        input
+          box-sizing border-box
+          float left
+          font-size 12px
+          border-radius 5px
+          border 1px solid #7D7D7D
+          display inline-block
+          padding 5px
+          width 100%//150px
+          color rgb(56, 89, 149)//#3B0C58
+          //background #E0FFF4
+          &:focus
+            outline none
+          &:active
+            outline none
+        input[type = 'file']
+          //width 100%
+          //background white
+          font-size 13px
+          //padding 0px
+          border 0px
+          //font-size 12px
+        .form-alert
+          height 30px
+          padding 2px
+          padding-left 5px
+          //float left
+          width 100%
+          font-family 'roboto-regular','Helvetica Neue',Helvetica,Arial,sans-serif
+          text-align center
+          color #FF4B3A//#E03626
+          font-size 20px//10px
+
+    .form-instrucciones
+      
+      //width 300px
+      //overflow-x auto
+      //white-space nowrap
+      
+      
+      border 3px solid rgb(33, 53, 89)
+      padding 2px
+      font-family 'roboto-regular','Helvetica Neue',Helvetica,Arial,sans-serif
+      font-size 12px
+      background rgba(56, 89, 149, 0.8)//rgba(255, 255, 255, 0.5)//#C0D3CD//#FFF894
+      color white//black
+      border-radius 5px
+      p
+        //box-sizing border-box
+        padding 2px
+      table
+        width 100% !important
+        overflow-x auto
+        white-space nowrap
+        
+        
+        color black
+        background white
+        border 1px solid black
+        margin 0 auto
+        border-collapse collapse
+        tr
+          td
+            padding 2px
+            border 1px solid black
+
+    /*.form-alert
+      //font-family 'roboto-regular','Helvetica Neue',Helvetica,Arial,sans-serif
+      //text-align center
+      padding 10px//0px
+      //color red//#FF4B3A//#E03626
+      //font-size 15px//10px
+    .form-alert-campo
+      display none
+      font-family 'roboto-regular','Helvetica Neue',Helvetica,Arial,sans-serif
+      text-align center
+      padding 0px
+      color red//#FF4B3A//#E03626
+      font-size 15px//10px
+    .form-control-file
+      width 300px
+      margin 0 auto
+      padding 10px
+      input
+        font-size 14px
+        background-color white//#483D8B
+        color rgb(56, 89, 149)//white
+        width 300px
+    .form-table
+      padding 10px 0px
+      font-size 14px
+      text-align center
+      font-family 'roboto-regular','Helvetica Neue',Helvetica,Arial,sans-serif
+      table
+        display none
+        width 100%
+        border-collapse collapse
+        tr
+          th
+            padding 10px 5px
+            background rgba(56, 89, 149, 1)//rgba(58, 50, 113, 1)//#0C5537//rgba(61, 12, 90, 1)//
+            color white
+            font-size 12px
+            &:first-child
+              border-radius 5px 0px 0px 0px
+            &:last-child
+              border-radius 0px 5px 0px 0px
+          td
+            font-size 12px
+            padding 5px
+            border 0px solid white
+            margin 0
+          &:nth-child(even)
+            background rgba(56, 89, 149, 0.2)//rgba(215, 214, 226, 1)//rgba(58, 50, 113, 0.2)//#00A186//rgba(210, 200, 216, 0.8)//
+          &:nth-child(odd)
+            background rgba(56, 89, 149, 0.1)//rgba(235, 235, 241, 1)//rgba(58, 50, 113, 0.1)//#00BD9B//rgba(230, 226, 233, 0.8)//
+    .form-jsonData
+      input
+        display none
+    .form-submit
+      padding 10px
+      width 250px
+      margin 0 auto
+      button
+        width 100%
+        border 0
+        color #929292//#353535//white
+        background rgb(99, 99, 99)//rgba(58, 50, 113, 0.9)
+        padding 10px
+        font-size 20px
+        border-radius 5px
+        &:hover
+          background rgb(99, 99, 99)//rgba(58, 50, 113, 1)
+    .header-title
+      color white//rgb(56, 89, 149)//white//rgb(58, 50, 113)
+  .activeButton
+    color white !important
+    background rgba(56, 89, 149, 0.9) !important//rgba(58, 50, 113, 0.9) !important//rgba(61, 12, 90, 0.8) !important
+    cursor pointer
+    &:hover
+      background rgba(56, 89, 149, 1) !important//rgba(58, 50, 113, 1) !important//rgba(61, 12, 90, 1) !important
+
+  .last
+    padding-bottom 92px
+
+  
+  .ocultar
+    display none
+  footer
+    display none*/

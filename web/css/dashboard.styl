@@ -1,0 +1,258 @@
+body
+  background rgb(43, 69, 115)//rgba(20, 20, 20, 1)//rgb(230, 237, 243)//rgb(43, 43, 43)//#FAFAFA//#EBF0F1//#DBDBDB//black#EBF0F1//
+  
+  
+.dash-title
+  padding 25px 0px 25px 0px
+  margin 0 auto
+  .element-title
+    text-align center
+    font-family 'roboto-light', 'roboto-regular', 'Helvetica Neue', Helvetica, Arial, sans-serif, 'roboto-condensed'
+    color white//rgb(7, 102, 146)//rgb(3, 19, 53)//white//#2E2E2E//black//#0080BB//#60BC03
+    font-size 24px
+.dash-datetime
+  //margin 20px auto
+  font-family 'roboto-light', 'roboto-regular', 'Helvetica Neue', Helvetica, Arial, sans-serif, 'roboto-condensed'
+  color white
+  max-width 300px
+  margin 20px auto
+  background rgba(17, 116, 76, 1)
+  //box-sizing border-box
+  border-radius 20px
+  transition 1s
+  &:hover
+    background rgba(17, 116, 76, 0.8)
+  .dash-icontime
+    display inline-block
+    width 50%
+    box-sizing border-box
+    padding 40px 28px 30px 28px
+    font-size 100px
+    //font-size 120px
+    &:after
+      font-family 'dashIcons'
+      content '\e94e'
+  .dash-rdata
+    border 1px solid white
+    border-right 0px
+    border-top 0px
+    border-bottom 0px
+    box-sizing border-box
+    padding 20px 10px
+    display inline-block
+    width 50%
+    .dash-data
+      font-size 14px
+    .dash-time
+      font-size 48px
+      position relative
+      span
+        position absolute
+        top 15px
+        //padding-left 2px
+        //margin-bottom 100px
+        font-size 10px
+      
+.asignaciones
+  background rgba(244, 160, 0, 1)//rgb(235, 242, 33)//rgb(255, 251, 61)//rgb(244, 150, 0)//rgb(250, 187, 61)
+  //color black
+  &:hover
+    background rgba(244, 160, 0, 0.8)
+  .asignacionesIcon
+    &:after
+      font-family 'dashIcons'
+      content '\e9b8'
+  .dash-rdata
+    .dash-time
+      font-size 70px
+      
+.isometricos
+  background rgba(0, 153, 222, 1)//rgb(219, 47, 31)//rgb(0, 128, 187)
+  &:hover
+    background rgba(0, 153, 222, 0.8)
+  .isometricosIcon
+    &:after
+      font-family 'dashIcons'
+      content '\e923'
+  .dash-rdata
+    .dash-time
+      font-size 70px
+      
+.content
+  text-align center
+  font-family 'roboto-thin', 'roboto-light', 'roboto-regular', 'Helvetica Neue', Helvetica, Arial, sans-serif, 'roboto-condensed'
+  color #483D8B//#FF4B3A//#F15300//#353535
+  /*h1
+    text-transform uppercase*/
+  .element-title
+    padding 25px 0px
+    h1
+      color rgb(3, 19, 53)//white//#2E2E2E//black//#0080BB//#60BC03
+      font-size 25px
+  .element-content
+    display block//float left
+    max-width 400px//100%//50%
+    margin 0 auto
+    //box-sizing border-box
+    padding-top 20px
+    padding-bottom 10px
+    .element
+      overflow-x auto
+      white-space nowrap
+      //border-radius 2px
+      //border 1px solid #616161
+      margin 5px
+      .element-header
+        color white
+        background #0080BB
+        width 100%
+        padding 15px 0px
+        //border-radius 5px 5px 0px 0px 
+      .proyect-header
+        background rgb(0, 161, 134)//#3D0C5A//#3A3271//#483D8B//#1F0330//
+      .isometrico-header
+        background #1D4712//#0E2009//
+      .direccion-header
+        background #932015
+      .works-header
+        background #C74500//#F15300
+        
+      .proyect-body
+        color #3D0C5A//#3A3271//#483D8B//#1F0330//
+      .isometrico-body
+        color #1D4712//#0E2009//
+      .direccion-body
+        color #932015
+      .works-body
+        color #C74500//#F15300
+        
+      .proyect-element
+        &:nth-child(even)
+          background rgba(196, 243, 235, 0.8)//rgba(0, 161, 134, 0.6)//rgba(230, 226, 233, 0.8)
+        &:nth-child(odd)
+          background rgba(196, 243, 235, 0.9)//rgba(0, 161, 134, 0.7)//rgba(210, 200, 216, 0.8)
+        
+        /*background rgba(61, 12, 90, 0.2)
+        &:hover
+          background rgba(61, 12, 90, 0.1)*/
+          
+      .isometrico-element
+        &:nth-child(even)
+          background rgba(232, 237, 231, 0.8)//rgba(29, 71, 18, 0.2)//rgba(29, 71, 18, 0.2)//rgba(230, 226, 233, 0.8)
+        &:nth-child(odd)
+          background rgba(209, 218, 207, 0.8)//rgba(29, 71, 18, 0.1)//rgba(210, 200, 216, 0.8)
+        /*background rgba(29, 71, 18, 0.2)
+        &:hover
+          background rgba(29, 71, 18, 0.1)*/
+      .direccion-element
+        &:nth-child(even)
+          background rgba(244, 233, 232, 0.8)//rgba(147, 32, 21, 0.2)//rgba(230, 226, 233, 1)
+        &:nth-child(odd)
+          background rgba(233, 210, 208, 0.8)//rgba(147, 32, 21, 0.1)//rgba(210, 200, 216, 1)
+        /*background rgba(147, 32, 21, 1)
+        &:hover
+          background rgba(147, 32, 21, 1)*/
+      .works-element
+        &:nth-child(even)
+          background rgba(243, 231, 224, 0.8)//rgba(199, 69, 0, 0.2)
+        &:nth-child(odd)
+          background rgba(241, 215, 202, 0.8)//rgba(199, 69, 0, 0.1)
+        /*background rgba(199, 69, 0, 0.2)
+        &:hover
+          background rgba(199, 69, 0, 0.1)*/
+        
+      .element-body
+        //border 1px solid #616161
+        width 100%
+        text-align left
+        position relative
+        form
+          width 100%
+          input[type = text]
+            color rgb(0, 87, 72)//rgba(255, 255, 255, 0.8)
+            border none
+            background transparent
+            font-family 'roboto-regular', 'roboto-light', 'Helvetica Neue', Helvetica, Arial, sans-serif
+            font-size 16px
+          &:before
+              background transparent
+              font-family 'FullIcons'
+              content ''
+              font-size 25px
+              padding 0px
+              margin 10px
+              border 0px
+
+          button
+            text-align right
+            position absolute
+            left 0px
+            right 0px
+            width 100%
+            box-sizing border-box
+            color rgb(0, 87, 72)
+            //float right
+            font-family 'roboto-regular', 'roboto-light', 'Helvetica Neue', Helvetica, Arial, sans-serif
+            font-size 14px
+            padding 0px
+            margin 0px
+            border 0px
+            border none
+            background transparent
+            &:hover
+              cursor pointer
+              background transparent
+            &:after
+              background transparent
+              font-family 'FullIcons'
+              content '\e900' 
+              font-size 30px
+              padding 0px
+              margin 0px 10px
+              border 0px
+        a
+          color rgb(0, 87, 72)
+          text-decoration none
+          &:before
+            background transparent
+            font-family 'FullIcons'
+            content ''
+            font-size 25px
+            padding 0px
+            margin 10px
+            border 0px
+          
+        .list-style
+          font-family 'roboto-regular', 'roboto-light', 'Helvetica Neue', Helvetica, Arial, sans-serif
+          box-sizing border-box
+          display block
+          //color black//blue
+          width 100%
+          padding 10px 5px
+          //border-width 0px 1px 1px 1px
+          border-width 0px
+          border-style solid
+          //border-color #A1A1A1//#616161//black
+  .last
+    padding-bottom 92px/*
+    margin-bottom 82px
+    margin-bottom 82px*/
+/*footer
+  font-family 'roboto-light', 'roboto-regular', 'Helvetica Neue', Helvetica, Arial, sans-serif
+  float left
+  width 100%
+  background #341427//black//#616161//#60BC03//
+  text-align center
+  padding 20px 0px
+  color white
+  margin-top 15px
+  
+  position fixed
+  margin-bottom 0px
+  bottom 0px
+  border 0px*/
+.none
+  display none
+  
+footer
+  display none

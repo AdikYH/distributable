@@ -1,0 +1,90 @@
+doctype html
+html
+  head
+    script(src = 'js/jszip.js')
+    script(src = 'js/xlsx.js')
+  body
+    input(type = 'file' id = 'xlf' name = 'xlfile')
+    pre(id='out')
+    
+    script.
+      function get_radio_value( radioName ) {
+        var radios = document.getElementsByName( radioName );
+        for( var i = 0; i < radios.length; i++ ) {
+          if( radios[i].checked ) {
+            return radios[i].value;
+          }
+        }
+      }
+
+      function to_json(workbook) {
+        var result = {};
+        workbook.SheetNames.forEach(function(sheetName) {
+          var rObjArr = XLSX.utils.sheet_to_row_object_array(workbook.Sheets[sheetName]);
+          if(rObjArr.length > 0){
+            result[sheetName] = rObjArr;
+          }
+        });
+        return result;
+      }
+
+
+      function to_csv(workbook) {
+        var result = [];
+        workbook.SheetNames.forEach(function(sheetName) {
+          var rObjArr = XLSX.utils.sheet_to_csv(workbook.Sheets[sheetName]);
+          if(rObjArr.length > 0){
+            result.push("SHEET: " + sheetName);
+            result.push("");
+            result.push(rObjArr);
+          }
+        });
+        return result.join("\n");
+      }
+
+
+      function process_xlsx(xlsx) {
+        var output = "";
+        if(get_radio_value("format") === "json"){
+          output = JSON.stringify(to_json(xlsx), 2, 2);
+        } else {
+          output = to_csv(xlsx);
+        }
+        if(out.innerText === undefined) out.textContent = output;
+        else out.innerText = output;
+      }
+      var xlf = document.getElementById('xlf');
+      var out = document.getElementById('out');
+
+      function handleFile(e) {
+        //console.log('hola');
+        var files = e.target.files;
+        var i,f;
+        for (i = 0, f = files[i]; i != files.length; ++i) {
+          var reader = new FileReader();
+          var name = f.name;
+          reader.onload = function(e) {
+            var data = e.target.result;
+
+            var workbook = XLSX.read(data, {type: 'binary'});
+            //console.log(workbook);
+            /* DO SOMETHING WITH workbook HERE */
+
+            if(out.innerText === undefined) out.textContent = JSON.stringify(to_json(workbook), 2, 2);
+            else out.innerText = JSON.stringify(to_json(workbook), 2, 2);
+          };
+          reader.readAsBinaryString(f);
+        }
+
+      }
+
+      if(xlf.addEventListener) xlf.addEventListener('change', handleFile, false);
+
+//html
+  head
+    script(src = 'dist/xlsx.core.min.js')
+  body
+    h1 xls import
+    input(type = 'file' id='files' name='files[]' multiple)
+    
+    script(src = 'dist/xlsx.core.min.js')

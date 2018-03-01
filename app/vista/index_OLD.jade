@@ -1,0 +1,68 @@
+doctype html
+html(lang='es')
+  head
+    meta(charset="UTF-8")
+    title= Bienvenido
+    link(rel = 'stylesheet' href = 'css/welcome.css')
+    meta(name="viewport", content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0")
+  body
+    header
+      ul
+        li Bienvenido #{us}
+          ul
+            li
+              a(href = '/close') Cerrar sesión
+    nav
+      ul
+        li(class = 'active')
+          a(href='/' class = 'first') Inicio
+        li
+          a(href='/proyecto') Proyectos
+          ul
+            li
+              a(href="/proyecto/nuevo" class = 'second') Nuevo
+            li
+              a(href="#") Editar
+            li
+              a(href="#") Eliminar
+        //li
+          a(href="#")
+        //li
+          a(href="#") Isométrico
+          ul
+            li
+              a(href="/canvas" class = 'second') Nuevo
+            li
+              a(href="#") Editar
+            li
+              a(href="#") Eliminar
+
+        //li
+          a(href="#") Reportes
+          ul
+            li
+              a(href="#" class = 'second') Nuevo
+            li
+              a(href="#") Editar
+            li
+              a(href="#") Eliminar
+        //li
+          a(href="#") Permisos
+          ul
+            li
+              a(href="#" class = 'second') Nuevo
+            li
+              a(href="#") Editar
+            li
+              a(href="#") Eliminar
+
+      div(class = 'ima-container')
+        img(src = 'images/logo.svg' class = 'ima')
+      div(class = 'tit-container')
+        h1
+          span(class = 'iso') Iso
+          span(class = 'metrics') M
+          |etrics
+        h4 Dibujo de
+        h3 vistas isométricas
+        h2 fácil

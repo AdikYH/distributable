@@ -1,0 +1,109 @@
+extends layout_nav
+
+block title
+  title Bienvenido
+  
+block css
+  link(rel = 'stylesheet' href = '/css/dashboard.css')
+  style
+    | .miNone {
+    |   display : none ! important;
+    | }
+      
+block content
+  div(class = 'dash-title')
+    div(class = 'element-title')
+      //h1 Bienvenido #{us}
+      //h1 Mi Dashboard
+      h1 MI DASHBOARD
+  ////////////////////////////////////////////////
+  a(href = '/neoCanvas' class = 'miNone') Develop
+  ////////////////////////////////////////////////
+  
+  div(class = 'dash-datetime')
+  
+    //div(class = 'dash-icontime') TIEMPO
+    div(class = 'dash-icontime')
+    div(class = 'dash-rdata')
+      div(id = 'dDay' class = 'dash-data') Viernes
+      div(id = 'dDat' class = 'dash-data') 1 de diciembre de 2016
+      div(id = 'dTim' class = 'dash-time') 24:44
+        span(id = 'dSeg' class = 'dash-seg') :59
+      
+  div(class = 'dash-datetime asignaciones')
+    div(class = 'dash-icontime asignacionesIcon')
+    div(class = 'dash-rdata')
+      div(class = 'dash-data') Asignaciones
+      div(class = 'dash-data') Realizadas
+      div(class = 'dash-time') #{nAs}
+      
+  div(class = 'dash-datetime isometricos')
+    div(class = 'dash-icontime isometricosIcon')
+    div(class = 'dash-rdata')
+      div(class = 'dash-data') Proyectos
+      //Isométricos
+      div(class = 'dash-data') En total
+      //Realizados
+      div(class = 'dash-time') #{nIs}
+  
+  div(class = 'content none')
+    input(type = 'text', value = '#{JSON.stringify(proyectos, null, 0)}' id = 'myJsonProyects')
+  div(class = 'content')
+    div(class = 'element-content')
+      div(class = 'element')
+        div(class = 'element-header proyect-header')
+          h3 Ultimas asignaciones
+        div(class = 'element-body' id = 'myProjects')
+        //div(class = 'element-body' id = 'myProjects')
+          a(href = '#' class = 'list-style proyect-body proyect-element') Item Número
+          a(href = '#' class = 'list-style proyect-body proyect-element') Item Número
+          a(href = '#' class = 'list-style proyect-body proyect-element') Item Número
+          a(href = '#' class = 'list-style proyect-body proyect-element') Item Número
+          a(href = '/proyecto/nuevo' class = 'list-style proyect-body proyect-element') Crear
+          a(href = '/proyecto' class = 'list-style proyect-body proyect-element') Ver más...
+    
+    //div(class = 'element-content')
+      div(class = 'element')
+        div(class = 'element-header direccion-header')
+          h3 Mis direcciones
+        div(class = 'element-body')
+          a(href = '#' class = 'list-style direccion-body direccion-element') Item Número
+          a(href = '#' class = 'list-style direccion-body direccion-element') Item Número
+          a(href = '#' class = 'list-style direccion-body direccion-element') Item Número
+          a(href = '#' class = 'list-style direccion-body direccion-element') Item Número
+          a(href = '/asignacion/nuevo' class = 'list-style direccion-body direccion-element') Crear
+          a(href = '#' class = 'list-style direccion-body direccion-element') Ver más...
+          
+    
+      
+  div(class = 'content none')
+    div(class = 'element-content last')
+      div(class = 'element')
+        div(class = 'element-header isometrico-header')
+          h3 Mis isométricos
+        div(class = 'element-body')
+          a(href = '#' class = 'list-style isometrico-body isometrico-element') Item Número
+          a(href = '#' class = 'list-style isometrico-body isometrico-element') Item Número
+          a(href = '#' class = 'list-style isometrico-body isometrico-element') Item Número
+          a(href = '#' class = 'list-style isometrico-body isometrico-element') Item Número
+          a(href = '/asignacion/nuevo' class = 'list-style isometrico-body isometrico-element') Crear
+          a(href = '#' class = 'list-style isometrico-body isometrico-element') Ver más...
+          
+    //div(class = 'element-content last')
+      div(class = 'element')
+        div(class = 'element-header works-header')
+          h3 Mis trabajos
+        div(class = 'element-body')
+          a(href = '#' class = 'list-style works-body works-element') Item Número
+          a(href = '#' class = 'list-style works-body works-element') Item Número
+          a(href = '#' class = 'list-style works-body works-element') Item Número
+          a(href = '#' class = 'list-style works-body works-element') Item Número
+          a(href = '/asignacion/nuevo' class = 'list-style works-body works-element') Crear
+          a(href = '#' class = 'list-style works-body works-element') Ver más...
+          
+  //footer
+    p Aplicación desarrollada por IYI.
+    p Copyright © 2015
+
+block subScripts
+  script(src ='/js/indexLoader.js')

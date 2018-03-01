@@ -1,0 +1,1396 @@
+extends layout_nav
+
+block title
+  title neoIsometrico
+  
+block css
+  link(rel = 'stylesheet', href = '/css/memoria.css')
+    
+block lista
+  li
+    a(href="#") Exportar
+    ul
+      li
+        a(href="#") Dibujo
+      li
+        a(href="#") PDF
+      li
+        a(href="#" onclick= 'window.print()') Imprimir
+    
+block content
+  div(id = 'loading' class = 'loading')
+  
+  div(id = 'myModal' class = 'modal')
+    div(class = 'modal-content')
+      div(class = 'modal-header')
+        //span(class = 'close') x
+        h2 Confirmación necesaria
+      div(id = 'modal-message' class = 'modal-body')
+        //p Estas a punto de eliminar un lienzo de dibujo de tu proyecto isométrico. Este cambio será irrevertible. ¿Estás seguro?
+      div(class = 'modal-buttons')
+        input(id = 'btn_aceptar' class = 'btn-Aceptar' type = 'button' value = 'Aceptar' onclick = 'setAceptarDeleteModal()')
+        input(id = 'btn_cancelar' class = 'btn-Cancelar' type = 'button' value = 'Cancelar' onclick = 'setCancelarDeleteModal()')
+      //div(class = 'modal-footer')
+        h3 Modal Footer
+
+  div(class = 'contenedor' id = 'lienzos')
+  
+    
+    div(id = 'tablasAccesoriosCopia' class = 'tablasAccesoriosCopia')
+      div(id = 'outputCopia' class = 'output')       
+        table
+          tr
+            th Accesorio
+            th(class = 'center strech') Unidad
+            th(class = 'center') Cantidad
+          //////////////////////////////////////////////////////////////
+          tr(class = 'none')
+            td Válvula de 1/2''
+            td(class = 'center strech') PZA.
+            td(class = 'center') 0
+          tr(class = 'none')
+            td Válvula de 3/4''
+            td(class = 'center strech') PZA.
+            td(class = 'center') 0
+          tr(class = 'none')
+            td Válvula de 1''
+            td(class = 'center strech') PZA.
+            td(class = 'center') 0
+          tr(class = 'none')
+            td Válvula de 1 1/4''
+            td(class = 'center strech') PZA.
+            td(class = 'center') 0
+          //////////////////////////////////////////////////////////////
+          tr(class = 'none')
+            td Codo Reductor 1 1/4'' a 1''
+            td(class = 'center strech') PZA.
+            td(class = 'center') 0
+          tr(class = 'none')
+            td Codo Reductor 1'' a 3/4''
+            td(class = 'center strech') PZA.
+            td(class = 'center') 0
+          tr(class = 'none')
+            td Codo Reductor 3/4'' a 1/2''
+            td(class = 'center strech') PZA.
+            td(class = 'center') 0
+          //////////////////////////////////////////////////////////////
+          tr(class = 'none')
+            td Codo de 90º de 1 1/4''
+            td(class = 'center strech') PZA.
+            td(class = 'center') 0
+          tr(class = 'none')
+            td Codo de 90º de 1''
+            td(class = 'center strech') PZA.
+            td(class = 'center') 0
+          tr(class = 'none')
+            td Codo de 90º de 3/4''
+            td(class = 'center strech') PZA.
+            td(class = 'center') 0
+          tr(class = 'none')
+            td Codo de 90º de 1/2''
+            td(class = 'center strech') PZA.
+            td(class = 'center') 0
+          //////////////////////////////////////////////////////////////
+          tr(class = 'none')
+            td Te de 1 1/4''
+            td(class = 'center strech') PZA.
+            td(class = 'center') 0
+          tr(class = 'none')
+            td Te de 1''
+            td(class = 'center strech') PZA.
+            td(class = 'center')
+          tr(class = 'none')
+            td Te de 3/4''
+            td(class = 'center strech') PZA.
+            td(class = 'center') 0
+          tr(class = 'none')
+            td Te de 1/2''
+            td(class = 'center strech') PZA.
+            td(class = 'center') 0
+          //////////////////////////////////////////////////////////////
+          tr(class = 'none')
+            td Cupla de 1 1/4''
+            td(class = 'center strech') PZA.
+            td(class = 'center') 0
+          tr(class = 'none')
+            td Cupla de 1''
+            td(class = 'center strech') PZA.
+            td(class = 'center') 0
+          tr(class = 'none')
+            td Cupla de 3/4''
+            td(class = 'center strech') PZA.
+            td(class = 'center') 0
+          tr(class = 'none')
+            td Cupla de 1/2''
+            td(class = 'center strech') PZA.
+            td(class = 'center') 0
+          //////////////////////////////////////////////////////////////
+          tr(class = 'none')
+            td Tapon Macho de 1 1/4''
+            td(class = 'center strech') PZA.
+            td(class = 'center') 0
+          tr(class = 'none')
+            td Tapon Macho de 1''
+            td(class = 'center strech') PZA.
+            td(class = 'center') 0
+          tr(class = 'none')
+            td Tapon Macho de 3/4''
+            td(class = 'center strech') PZA.
+            td(class = 'center') 0
+          tr(class = 'none')
+            td Tapon Macho de 1/2''
+            td(class = 'center strech') PZA.
+            td(class = 'center') 0
+          //////////////////////////////////////////////////////////////
+          tr(id = 'tubSum_14Copia' class = 'none')
+            td Tuberia AG 1 1/4''
+            td(class = 'center strech') MTS.
+            td(id = 'suma_14Copia' class = 'center') 0
+            
+          tr(id = 'tubSum_1Copia' class = 'none')
+            td Tuberia AG 1''
+            td(class = 'center strech') MTS.
+            td(id = 'suma_1Copia' class = 'center') 0
+            
+          tr(id = 'tubSum_34Copia' class = 'none')
+            td Tuberia AG 3/4''
+            td(class = 'center strech') MTS.
+            td(id = 'suma_34Copia' class = 'center') 0
+            
+          tr(id = 'tubSum_12Copia' class = 'none')
+            td Tuberia AG 1/2''
+            td(class = 'center strech') MTS.
+            td(id = 'suma_12Copia' class = 'center') 0
+          //////////////////////////////////////////////////////////////
+          tr
+            td(class = 'total') LONGITUD TOTAL DE INSTALACION
+            td(class = 'total center strech') MTS.
+            td(class = 'total' id = 'suma_totalCopia' class = 'center') 0
+  
+    div(id = 'tablasAccesorios' class = 'tablasAccesorios')
+      div(id = 'output' class = 'output')       
+        table
+          tr
+            th Accesorio
+            th(class = 'center strech') Unidad
+            th(class = 'center') Cantidad
+          //////////////////////////////////////////////////////////////
+          tr(class = 'none')
+            td Válvula de 1/2''
+            td(class = 'center strech') PZA.
+            td(class = 'center') 0
+          tr(class = 'none')
+            td Válvula de 3/4''
+            td(class = 'center strech') PZA.
+            td(class = 'center') 0
+          tr(class = 'none')
+            td Válvula de 1''
+            td(class = 'center strech') PZA.
+            td(class = 'center') 0
+          tr(class = 'none')
+            td Válvula de 1 1/4''
+            td(class = 'center strech') PZA.
+            td(class = 'center') 0
+          //////////////////////////////////////////////////////////////
+          tr(class = 'none')
+            td Codo Reductor 1 1/4'' a 1''
+            td(class = 'center strech') PZA.
+            td(class = 'center') 0
+          tr(class = 'none')
+            td Codo Reductor 1'' a 3/4''
+            td(class = 'center strech') PZA.
+            td(class = 'center') 0
+          tr(class = 'none')
+            td Codo Reductor 3/4'' a 1/2''
+            td(class = 'center strech') PZA.
+            td(class = 'center') 0
+          //////////////////////////////////////////////////////////////
+          tr(class = 'none')
+            td Codo de 90º de 1 1/4''
+            td(class = 'center strech') PZA.
+            td(class = 'center') 0
+          tr(class = 'none')
+            td Codo de 90º de 1''
+            td(class = 'center strech') PZA.
+            td(class = 'center') 0
+          tr(class = 'none')
+            td Codo de 90º de 3/4''
+            td(class = 'center strech') PZA.
+            td(class = 'center') 0
+          tr(class = 'none')
+            td Codo de 90º de 1/2''
+            td(class = 'center strech') PZA.
+            td(class = 'center') 0
+          //////////////////////////////////////////////////////////////
+          tr(class = 'none')
+            td Te de 1 1/4''
+            td(class = 'center strech') PZA.
+            td(class = 'center') 0
+          tr(class = 'none')
+            td Te de 1''
+            td(class = 'center strech') PZA.
+            td(class = 'center')
+          tr(class = 'none')
+            td Te de 3/4''
+            td(class = 'center strech') PZA.
+            td(class = 'center') 0
+          tr(class = 'none')
+            td Te de 1/2''
+            td(class = 'center strech') PZA.
+            td(class = 'center') 0
+          //////////////////////////////////////////////////////////////
+          tr(class = 'none')
+            td Cupla de 1 1/4''
+            td(class = 'center strech') PZA.
+            td(class = 'center') 0
+          tr(class = 'none')
+            td Cupla de 1''
+            td(class = 'center strech') PZA.
+            td(class = 'center') 0
+          tr(class = 'none')
+            td Cupla de 3/4''
+            td(class = 'center strech') PZA.
+            td(class = 'center') 0
+          tr(class = 'none')
+            td Cupla de 1/2''
+            td(class = 'center strech') PZA.
+            td(class = 'center') 0
+          //////////////////////////////////////////////////////////////
+          tr(class = 'none')
+            td Tapon Macho de 1 1/4''
+            td(class = 'center strech') PZA.
+            td(class = 'center') 0
+          tr(class = 'none')
+            td Tapon Macho de 1''
+            td(class = 'center strech') PZA.
+            td(class = 'center') 0
+          tr(class = 'none')
+            td Tapon Macho de 3/4''
+            td(class = 'center strech') PZA.
+            td(class = 'center') 0
+          tr(class = 'none')
+            td Tapon Macho de 1/2''
+            td(class = 'center strech') PZA.
+            td(class = 'center') 0
+          //////////////////////////////////////////////////////////////
+          tr(id = 'tubSum_14' class = 'none')
+            td Tuberia AG 1 1/4''
+            td(class = 'center strech') MTS.
+            td(id = 'suma_14' class = 'center') 0
+            
+          tr(id = 'tubSum_1' class = 'none')
+            td Tuberia AG 1''
+            td(class = 'center strech') MTS.
+            td(id = 'suma_1' class = 'center') 0
+            
+          tr(id = 'tubSum_34' class = 'none')
+            td Tuberia AG 3/4''
+            td(class = 'center strech') MTS.
+            td(id = 'suma_34' class = 'center') 0
+            
+          tr(id = 'tubSum_12' class = 'none')
+            td Tuberia AG 1/2''
+            td(class = 'center strech') MTS.
+            td(id = 'suma_12' class = 'center') 0
+          //////////////////////////////////////////////////////////////
+          tr
+            td LONGITUD TOTAL DE INSTALACION
+            td(class = 'center strech') MTS.
+            td(id = 'suma_total' class = 'center') 0
+  
+    aside(class = 'menu-dinamico')
+      
+      div(class = 'menu-tagsTool')
+        div(class = 'tags-title')
+          h1 Etiquetas
+          
+        //br  
+        //  <input type="radio" name="gender" value="male"> Male<br>
+        div(class = 'tags-listModifierSelected')
+          div(class = 'label')
+            label Tag Seleccionado
+          div(class = 'text')
+            //input(id = 'tgS_txt' type = 'text' name = '' value = 'L =1.2 1/2\'\' AG' onchange = '')
+            input(id = 'tgS_txt' type = 'text' name = '' value = '' disabled = 'true' placeholder = 'Seleccione una etiqueta')
+          //div(class = 'label')
+            label Orientación
+          div(class = 'textOrientation')
+            div(id = 'tgS_0' class = 'tagAngle tg-0' )
+            div(id = 'tgS_30' class = 'tagAngle tg-30' )
+            div(id = 'tgS_90' class = 'tagAngle tg-90' )
+            div(id = 'tgS_150' class = 'tagAngle tg-150' )
+            div(id = 'tgS_210' class = 'tagAngle tg-210' )
+            div(id = 'tgS_270' class = 'tagAngle tg-270' )
+            div(id = 'tgS_330' class = 'tagAngle tg-330' )
+        div(class = 'tags-listModifier')
+          div(id = 'tags-listModifier')
+            //div(class = 'label')
+              label Lista de Tags
+            
+            //div(class = 'text')
+              input(id = 'tgE_txt' type = 'text' name = '' value = '' placeholder = 'Seleccione una etiqueta')
+            //div(class = 'text')
+              input(id = '' type = 'number' name = '' value = '12' min = '5'  step = '1' onchange = '')
+            //div(class = 'textOrientation')
+              div(class = 'tagAngle tg-0' )
+              div(class = 'tagAngle tg-30' )
+              div(class = 'tagAngle tg-90' )
+              div(class = 'tagAngle tg-150' )
+              div(class = 'tagAngle tg-210' )
+              div(class = 'tagAngle tg-270' )
+              div(class = 'tagAngle tg-330' )
+              
+            //div(class = 'textControls')
+              div(class = 'textAdd')
+              div(class = 'textDel')
+              div(class = 'textSel')
+              div(class = 'textVer')
+          /////////////////////////////////////////////////////////////////////////
+            
+          //div(class = 'text')
+            input(id = '' type = 'text' name = '' value = 'angulo' onchange = '')
+            //input(id = '' type = 'radio' name = 'modo' value = 'dibujo' checked onchange = 'setMode(this.value)')
+          
+          //div(class = 'button')
+            input(id = '' type = 'button' name = '' value = 'aplicar' onchange = '')
+          //div(class = 'button')
+            input(id = '' type = 'button' name = '' value = 'añadir' onchange = '')
+          //div(class = 'button')
+            input(id = '' type = 'button' name = '' value = 'eliminar' onchange = '')
+      div(class = 'menu-instalaciones')
+        div(class = 'instalacion-header') Instalaciones
+        //////////////////////////////////////////////////////////////
+        div(id = 'instalaciones_lista' class = 'instalacion-body')
+          div(class = 'instalacion') PRINCIPAL
+            div(class = 'installSegmentControls')
+              div(class = 'segmentShow')
+              
+            div(class = 'installControls')
+              div(class = 'segmentTotal') 10
+              div(class = 'segmentHere') 5
+              div(class = 'instAdd')
+              div(class = 'instDel')
+              div(class = 'instSel')
+              div(class = 'instVer')
+              
+            div(class = 'segmentContainer')
+            
+              div(class = 'segmento') segmento
+                div(class = 'segmentControls')
+                  div(class = 'segAdd')
+                  div(class = 'segDel')
+                  div(class = 'segSel')
+                  div(class = 'segVer')
+                  div(class = 'segUnion')
+                  div(class = 'segBroken')
+              div(class = 'segmento') segmento
+                div(class = 'segmentControls')
+                  div(class = 'segAdd')
+                  div(class = 'segDel')
+                  div(class = 'segSel')
+                  div(class = 'segVer')
+                  div(class = 'segUnion')
+                  div(class = 'segBroken')
+              div(class = 'segmento') segmento
+                div(class = 'segmentControls')
+                  div(class = 'segAdd')
+                  div(class = 'segDel')
+                  div(class = 'segSel')
+                  div(class = 'segVer')
+                  div(class = 'segUnion')
+                  div(class = 'segBroken')
+          div(class = 'instalacion') SECUNDARIA 1
+            div(class = 'installSegmentControls')
+              div(class = 'segmentShow')
+            div(class = 'installControls')
+              div(class = 'instAdd')
+              div(class = 'instDel')
+              div(class = 'instSel')
+              div(class = 'instVer')
+            div(class = 'segmentContainer')
+              div(class = 'segmento') segmento
+                div(class = 'segmentControls')
+                  div(class = 'segAdd')
+                  div(class = 'segDel')
+                  div(class = 'segSel')
+                  div(class = 'segVer')
+                  div(class = 'segUnion')
+                  div(class = 'segBroken')
+              div(class = 'segmento') segmento
+                div(class = 'segmentControls')
+                  div(class = 'segAdd')
+                  div(class = 'segDel')
+                  div(class = 'segSel')
+                  div(class = 'segVer')
+                  div(class = 'segUnion')
+                  div(class = 'segBroken')
+              div(class = 'segmento') segmento
+                div(class = 'segmentControls')
+                  div(class = 'segAdd')
+                  div(class = 'segDel')
+                  div(class = 'segSel')
+                  div(class = 'segVer')
+                  div(class = 'segUnion')
+                  div(class = 'segBroken')
+        //ul
+          li 
+            h1 Instalaciones
+            ul(id = 'instalaciones_lista')
+              li PRINCIPAL
+                div(class = 'installControls')
+                  div(class = 'textAdd') A
+                  div(class = 'textDel') B
+                  div(class = 'textSel') C
+                  div(class = 'textVer') D
+                /////////////////////////////////////////////////////////////ul
+                  li Segmento
+                  li Segmento
+              li SECUNDARIA    
+      
+      div(id = 'cmp_Controls' class = 'menu-componentes')
+        div(class = 'componentes-header') Componentes
+        //////////////////////////////////////////////////////////////
+        div(class = 'componentes-body')
+          //id = 'instalaciones_lista'
+          div(class = 'componente') Medidor
+            div(class = 'componenteContainerMedidor')
+              div(class = 'componenteMedidorIzquierda')
+                div(id = 'medidorIzquierda' class = 'medidorIzquierda' onclick = 'setMedidor(this.id)')
+              div(class = 'componenteMedidorDerecha')
+                div(id = 'medidorDerecha' class = 'medidorDerecha' onclick = 'setMedidor(this.id)')
+                //div(class = 'medidorDerecha')
+          div(class = 'componente') Te
+            div(class = 'componenteContainerTe')
+              div(class = 'componenteTe_30')
+                div(id = 'te_30' class = 'te_30' onclick = 'setTe(this.id)')
+              div(class = 'componenteTe_90')
+                div(id = 'te_90' class = 'te_90' onclick = 'setTe(this.id)')
+              div(class = 'componenteTe_150')
+                div(id = 'te_150' class = 'te_150' onclick = 'setTe(this.id)')
+              div(class = 'componenteTe_210')
+                div(id = 'te_210' class = 'te_210' onclick = 'setTe(this.id)')
+              div(class = 'componenteTe_270')
+                div(id = 'te_270' class = 'te_270' onclick = 'setTe(this.id)')
+              div(class = 'componenteTe_330')
+                div(id = 'te_330' class = 'te_330' onclick = 'setTe(this.id)')
+              
+          div(class = 'componente') Tuberia con forro
+            div(class = 'componenteContainerTubForro')
+              div(class = 'componenteTubForro')
+                div(id = 'tubForro' class = 'tubForro' onclick = 'setTubForro()')
+          div(class = 'componente') Instalación
+            div(class = 'componenteContainerInstalacion')
+              div(class = 'componenteTePorInstalacion')
+                div(id = 'componenteTePorInstalacion' class = 'instalacion' onclick = 'setInstalacion()')
+              
+    aside(class = 'menu-lateral')
+    
+      
+      div(class = 'menu-drawProperties')
+      
+        div(class = 'properties-title')
+          h1 Dibujo
+          
+        br  
+        //  <input type="radio" name="gender" value="male"> Male<br>
+        div(class = 'draw-second-letters')
+          div(class = 'label')
+            label Dibujar
+          div(class = 'checkbox')
+            input(id = '' type = 'radio' name = 'modo' value = 'dibujo' checked onchange = 'setMode(this.value)')
+            
+        div(class = 'draw-second-letters')
+          div(class = 'label')
+            label Editar
+          div(class = 'checkbox')
+            input(id = '' type = 'radio' name = 'modo' value = 'edicion' onchange = 'setMode(this.value)')
+            
+        div(class = 'draw-second-letters')
+          div(class = 'label')
+            label Mover
+          div(class = 'checkbox')
+            input(id = '' type = 'radio' name = 'modo' value = 'mover'  onchange = 'setMode(this.value)')
+          
+        div(class = 'stroke-width')
+          div(class = 'label')
+            label Ancho de la línea
+          div(class = '')
+            div(class = 'range')
+              input(id = 'controlRange' type = 'range' value = '1' min = '1' max = '10' step = '0.5' oninput = 'setValueRange(this.value)' onchange = 'setValueRange(this.value)')
+            div(class = 'number')
+              input(id = 'valueRange' type = 'number' min = '1' max = '10' step = '0.5' oninput = 'setControlRange(this.value)' onchange = 'setControlRange(this.value)')
+          
+        div(class = 'draw-second-letters')
+          div(class = 'label')
+            label Activar margen
+          div(class = 'checkbox')
+            input(id = 'chckbxMargen' type = 'checkbox' name = '' value = '' checked onchange = 'setMarginControl()' oninput = 'setMarginControl()')
+            
+        div(class = 'draw-second-letters')
+          div(class = 'label')
+            label Ocultar etiquetas
+          div(class = 'checkbox')
+            input(id = 'chckbxTextoCorto' type = 'checkbox' name = '' value = '' onchange = 'setTextoControl()' oninput = 'setTextoControl()')
+            
+        div(class = 'draw-second-letters')
+          div(class = 'label')
+            label Mostrar Codos
+          div(class = 'checkbox')
+            input(id = 'chckbxCodos' type = 'checkbox' name = '' value = '' checked onchange = 'setCodosControl()' oninput = 'setCodosControl()')
+          
+          
+        div(class = 'draw-scale')
+          div(class = 'label')
+            label Escala
+          div(class = '')
+            div(class = 'range')
+              input(id = 'controlScale' type = 'range' value = '50' min = '25' max = '200' step = '25' oninput = 'setValueScale(this.value)' onchange = 'setValueScale(this.value)')
+            div(class = 'number')
+              |1: 
+              input(id = 'valueScale' type = 'number' min = '25' max = '200' step = '25' oninput = 'setControlScale(this.value)' onchange = 'setControlScale(this.value)')
+      
+      
+
+      div(class = 'menu-tub')
+        div(class = 'cabecera') Enterrado
+      div(class = 'menu-tub')
+        div(id = 't_et_12' class = 'tub d_1_2')
+        div(id = 't_et_34' class = 'tub d_3_4')
+        div(id = 't_et_1' class = 'tub d_1')
+        div(id = 't_et_14' class = 'tub d_1_4')
+      div(class = 'menu-tub')
+        div(class = 'cabecera') Empotrado
+      div(class = 'menu-tub')
+        div(id = 't_ep_12' class = 'tub d_1_2')
+        div(id = 't_ep_34' class = 'tub d_3_4')
+        div(id = 't_ep_1' class = 'tub d_1')
+        div(id = 't_ep_14' class = 'tub d_1_4')
+      div(class = 'menu-tub')
+        div(class = 'cabecera') Visto
+      div(class = 'menu-tub') 
+        div(id = 't_vt_12' class = 'tub d_1_2')
+        div(id = 't_vt_34' class = 'tub d_3_4')
+        div(id = 't_vt_1' class = 'tub d_1')
+        div(id = 't_vt_14' class = 'tub d_1_4')
+      
+      
+      div(class = 'menu-angle') 
+        div(class = 'cabecera') Dirección
+      div(class = 'menu-angle')
+        div(id = 'g_150' class = 'angle g-150' )
+        div(id = 'g_90' class = 'angle g-90' )
+        div(id = 'g_30' class = 'angle g-30' )
+      div(class = 'menu-angle')
+        div(id = 'g_210' class = 'angle g-210' )
+        div(id = 'g_270' class = 'angle g-270' )
+        div(id = 'g_330' class = 'angle g-330' )
+      
+      div(class = 'menu-distance')
+        input(id = 'distancia' type = 'text' class = 'distance' placeholder= '0.0 mts' value = '0.52')
+  
+    div(class = 'lienzo' id = 'lienzo-container')
+      div(class = 'lienzo-cabecera' id = '')
+        h1 MEMORIA
+      
+      div(class = 'lienzo-propiedadesHoja' id = 'lienzo-propiedadesHoja')
+        div(class = 'texto-titulo')
+          input(id = 'nameChanger' type = 'text' placeholder = 'Nombre del lienzo')
+        div(class = 'boton-cambioNombre')
+          input(type = 'button' value = 'Renombrar' onclick = 'renombrarLienzo()')
+          
+      div(class = 'lienzo-modo' id = 'modeCanvas')
+        h1 Modo dibujo
+        
+      div(class = 'lienzo-aviso' id = 'adviceErrors')
+        //h3 Aviso de emergencia
+        //p Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+      div(class = 'lienzo-limpiarAviso' onclick = 'limpiarAlertas()')
+        
+      div(class = 'lienzo-botonera' id = 'lienzo-botonera')
+        //div(class = 'boton activo' onclick = 'cargarHoja(this.id)' id = 'Hoja1') Hoja 1 
+      
+      div(class = 'lienzo-tools-crear')
+        div(class = 'boton-crear' id = 'botonCrearLienzo')
+        
+      div(class = 'lienzo-tools-eliminar')
+        div(class = 'boton-eliminar' id = 'botonEliminarLienzo')
+        
+      div(class = 'lienzo-tools-adelante')
+        div(class = 'boton-adelante' id = 'botonAdelanteLienzo')
+        
+      div(class = 'lienzo-tools-atras')
+        div(class = 'boton-atras' id = 'botonAtrasLienzo') 
+        
+        
+      div(class = 'lienzo-memoria' id = 'lienzo-memoria')
+        div(class = 'memoria-esquema')
+          div(class = 'header-1') Instalación del gas despues del medidor
+          div(class = 'header-2') Esquema
+          div(class = 'body')
+            svg(width = '453' height = '620' class = 'memoria-svg')
+        div(class = 'memoria-data')
+          table
+            tr
+              td(colspan = '2' class = 'col1') Designación del inmueble
+              td(rowspan = '5' class = 'col2') Tipo de inmueble
+              td(rowspan = '5' class = 'col3') Emplazamiento del medidor
+              td(rowspan = '5' class = 'col4' colspan  = '2') Perdida de carga admitida en la instalación después del medidor
+            tr
+              td(class = 'left' colspan = '2') Usuario
+            tr
+              td(class = 'top' colspan = '2') Usuario
+            tr
+              td(class = 'left' colspan = '2') Dirección
+            tr
+              td(class = 'top' colspan = '2') Dirección
+            tr
+              td(class = 'left' colspan = '2') Telefono
+              td(rowspan = '2') Inmueble de vivienda
+              td En lim. de prop.
+              td(class = 'ch3') X
+              td(class = 'ch4') 1 Mbar
+            tr
+              td(class = 'top' colspan = '2') Telefono
+              td En Vivienda
+              td X
+              td 0.5Mbar
+            tr
+              td(rowspan = '3' class = 'ch1') Naturaleza del gas
+              td(rowspan = '3' class = 'ch2') Gas natural
+              td(rowspan = '3') Inmueble Colectivo
+              td En Vaina
+              td X
+              td 0.5 Mbar
+            tr
+              td En Loc. Tecnico
+              td X
+              td 0.5 Mbar
+            tr
+              td En Crura
+              td X
+              td 0.5 Mbar
+          div Marca la casilla correspondiente
+          table
+            tr
+              td(class = 'm20' colspan = '3') Longitud de tubería a tomar en consideración Punto de origen en el medidor
+              td(class = 'm20' colspan = '2') Tramo del cual se determinará el diámetro
+              td(class = 'm40' colspan = '4') Caudal en tramo en (Kw.)
+              td(class = 'm20' colspan = '2') Tuberia elegida
+            tr
+              td(class = 'm4' rowspan = '2') º
+              td(class = 'm8 vtext' rowspan = '2') Trazado
+              td(class = 'm8 vtext' rowspan = '2') Longitud real en (m)
+              td(class = 'vtext' rowspan = '2') Trazado
+              td(rowspan = '2') Aparato a aumentar
+              td(colspan = '2') Aparatos de mayor potencia
+              td(rowspan = '2') Semi suma de los demás
+              td(rowspan = '2') Total (Kw)
+              td(rowspan = '2') Diam. Ext.
+              td(class = 'vtext' rowspan = '2') Naturaleza
+            tr
+              td 1º
+              td 2º
+            tr
+              td(class = 'vtext' rowspan = '8') Tuberia principal
+              td(rowspan = '8') O-C
+              td(rowspan = '8') 12.34
+              td O-A
+              td X
+              td 20
+              td 10
+              td 0
+              td 30
+              td 3/4"
+              td AG
+            tr
+              td O-A
+              td X
+              td 20
+              td 10
+              td 0
+              td 30
+              td 3/4"
+              td AG
+            tr
+              td O-A
+              td X
+              td 20
+              td 10
+              td 0
+              td 30
+              td 3/4"
+              td AG
+            tr
+              td O-A
+              td X
+              td 20
+              td 10
+              td 0
+              td 30
+              td 3/4"
+              td AG
+            tr
+              td O-A
+              td X
+              td 20
+              td 10
+              td 0
+              td 30
+              td 3/4"
+              td AG
+            tr
+              td O-A
+              td X
+              td 20
+              td 10
+              td 0
+              td 30
+              td 3/4"
+              td AG
+            tr
+              td O-A
+              td X
+              td 20
+              td 10
+              td 0
+              td 30
+              td 3/4"
+              td AG
+            tr
+              td O-A
+              td X
+              td 20
+              td 10
+              td 0
+              td 30
+              td 3/4"
+              td AG
+            tr
+              td(class = 'vtext' rowspan = '8') Tuberia principal
+              td O-C
+              td 12.34
+              td O-A
+              td X
+              td 20
+              td 10
+              td 0
+              td 30
+              td 3/4"
+              td AG
+            tr
+              td O-C
+              td 12.34
+              td O-A
+              td X
+              td 20
+              td 10
+              td 0
+              td 30
+              td 3/4"
+              td AG
+            tr
+              td O-C
+              td 12.34
+              td O-A
+              td X
+              td 20
+              td 10
+              td 0
+              td 30
+              td 3/4"
+              td AG
+            tr
+              td O-C
+              td 12.34
+              td O-A
+              td X
+              td 20
+              td 10
+              td 0
+              td 30
+              td 3/4"
+              td AG
+            tr
+              td O-C
+              td 12.34
+              td O-A
+              td X
+              td 20
+              td 10
+              td 0
+              td 30
+              td 3/4"
+              td AG
+            tr
+              td O-C
+              td 12.34
+              td O-A
+              td X
+              td 20
+              td 10
+              td 0
+              td 30
+              td 3/4"
+              td AG
+            tr
+              td O-C
+              td 12.34
+              td O-A
+              td X
+              td 20
+              td 10
+              td 0
+              td 30
+              td 3/4"
+              td AG
+            tr
+              td O-C
+              td 12.34
+              td O-A
+              td X
+              td 20
+              td 10
+              td 0
+              td 30
+              td 3/4"
+              td AG
+            tr
+              td(colspan = '11') (*) Calibre mínimo a la salida del medidor
+              
+              
+                
+        div(class = 'memoria-header') Memoria de calculo
+        
+      div(class = 'lienzo-form01' id = 'lienzo-form01')
+        /////////////////////////////////////////////////////////
+        div(class = 'form01Header')
+          div(class = 'CenterContent')
+            input(type = 'text' value = 'DISTRITO DE REDES DE GAS LA PAZ')
+          div(class = 'logoHeaderLeft')
+            img(src = '/images/Hoja_Medidor.svg' alt = 'logo YPFB' height = '42' width = '42')
+          div(class = 'logoHeaderRight')
+            img(src = '/images/Hoja_Medidor.svg' alt = 'logo YPFB' height = '42' width = '42')
+        /////////////////////////////////////////////////////////
+        div(class = 'form01-Title')
+          div(class = 'header') Informacion general de la instalacion interna domestica
+          div(class = 'left')
+            div(class = 'form-line')
+              label Fecha :
+              input(type = 'date')
+            div(class = 'form-line')
+              label Nº De proyecto :
+              input(type = 'text') 
+          div(class = 'right')
+            div(class = 'form-type')
+              div(class = 'type') FORM 01
+            div(class = 'form-line')
+              label Código : 
+              input(type = 'text') 
+        /////////////////////////////////////////////////////////
+        div(class = 'form01-Empresa')
+          div(class = 'header') Datos generales de la empresa instaladora
+          div(class = 'form-line')
+            label Razon social : 
+            input(type = 'text')
+            label Nº de resolucion SIID : 
+            input(type = 'text')
+          div(class = 'form-line')
+            label Dirección : 
+            input(type = 'text')
+            label Teléfonos : 
+            input(type = 'text')
+          div(class = 'form-line')
+            label Proyectista : 
+            input(type = 'text')
+            label Nº Registro Infocal : 
+            input(type = 'text')
+          div(class = 'form-line')
+            label Instalador : 
+            input(type = 'text')
+            label Nº Registro Infocal : 
+            input(type = 'text')
+        /////////////////////////////////////////////////////////
+        div(class = 'form01-Usuario')
+          div(class = 'header') Datos generales del usuario
+          div(class = 'form-line-name')
+            label Nombre completo : 
+            input(type = 'text')
+            input(type = 'text')
+            input(type = 'text')
+            
+          div(class = 'form-line-nameSub')
+            input(type = 'text' disabled = 'true')
+            input(type = 'text' value = 'Apellido paterno' disabled = 'true')
+            input(type = 'text' value = 'Apellido materno' disabled = 'true')
+            input(type = 'text' value = 'Nombres' disabled = 'true')
+            
+          div(class = 'form-line-data')
+            label Ci : 
+            input(type = 'text')
+            label Teléfono : 
+            input(type = 'text')
+            label e-mail : 
+            input(type = 'text')
+          div(class = 'form-line-in')
+            label Direccion del inmueble : 
+            input(type = 'text')
+          div(class = 'form-line-dp')
+            label Zona : 
+            input(type = 'text')
+            label Localidad : 
+            input(type = 'text')
+            label Dpto. : 
+            input(type = 'text')
+        /////////////////////////////////////////////////////////
+        div(class = 'form01-DatosInstalacion')
+          div(class = 'form01-DatosInstalacionTablas')
+            div(class = 'header') Datos de la instalación
+            div(class = 'form-line')
+              label Medidor a instalar : 
+              input(type = 'text')
+              input(type = 'text')
+            div(class = 'form-line')
+              label Regulador a instalar : 
+              input(type = 'text')
+              input(type = 'text')
+            div(class = 'form-line')
+              label Caudal a instalar : 
+              input(type = 'text')
+              input(type = 'text')
+            div(class = 'form-line')
+              label Puntos solicitados : 
+              input(type = 'text')
+              input(type = 'text')
+            div(class = 'form-line')
+              label Potencia : 
+              input(type = 'text')
+              input(type = 'text')
+            
+            div(class = 'form-tuberia')
+              p Longitud de la tuberia (metros)
+              table
+                tr
+                  td Diámetro
+                  td Aérea
+                  td Ent.
+                  td Emp.
+                  td Total
+                tr
+                  td 1/2"
+                  td 0
+                  td 0
+                  td 0
+                  td 0
+                tr
+                  td 3/4"
+                  td 0
+                  td 0
+                  td 0
+                  td 0
+                tr
+                  td 1"
+                  td 0
+                  td 0
+                  td 0
+                  td 0
+                tr
+                  td 1 1/4"
+                  td 0
+                  td 0
+                  td 0
+                  td 0
+                tr
+                  td TOTAL
+                  td 0
+                  td 0
+                  td 0
+                  td 0
+                tr(class = 'nota')
+                  td(colspan= '5') (*) Ent.: Enterrada - Emp.:Empotrada
+                tr(class = 'nota')
+                  td(colspan= '5') Nota: El diámetro mínimo de salida de la cruceta 3/4"
+          /////////////////////////////////////////////////////////
+          div(class = 'form01-Plano')
+            div(class = 'header') Plano de ubicación
+            div(class = 'form-place')
+        /////////////////////////////////////////////////////////
+        div(class = 'form01-Aparatos')
+          table
+            tr
+              td(rowspan = '2') Aparato
+              td(rowspan = '2') Tipo
+              td(rowspan = '2') Marca
+              td(rowspan = '2') Cantidad
+              td(colspan = '2') Uso original
+              td(colspan = '2') Potencia Kw
+            tr
+              td GLP
+              td GN
+              td Parcial
+              td Total
+            tr
+              td 0
+              td 0
+              td 0
+              td 0
+              td 0
+              td 0
+              td 0
+              td 0
+            tr
+              td 0
+              td 0
+              td 0
+              td 0
+              td 0
+              td 0
+              td 0
+              td 0
+            tr
+              td 0
+              td 0
+              td 0
+              td 0
+              td 0
+              td 0
+              td 0
+              td 0
+            tr
+              td 0
+              td 0
+              td 0
+              td 0
+              td 0
+              td 0
+              td 0
+              td 0
+            tr
+              td 0
+              td 0
+              td 0
+              td 0
+              td 0
+              td 0
+              td 0
+              td 0
+            tr
+              td 0
+              td 0
+              td 0
+              td 0
+              td 0
+              td 0
+              td 0
+              td 0
+            tr
+              td 0
+              td 0
+              td 0
+              td 0
+              td 0
+              td 0
+              td 0
+              td 0
+            tr
+              td 0
+              td 0
+              td 0
+              td 0
+              td 0
+              td 0
+              td 0
+              td 0
+            tr
+              td 0
+              td 0
+              td 0
+              td 0
+              td 0
+              td 0
+              td 0
+              td 0
+            tr
+              td 0
+              td 0
+              td 0
+              td 0
+              td 0
+              td 0
+              td 0
+              td 0
+        /////////////////////////////////////////////////////////
+        div(class = 'aviso primero')
+          p Tuberías según NORMA ASTM A53 - ASTM A120-84, NAG 150, NAG 151.
+          P Cumplimiento del reglamento de diseño, construcción, operación de redes de gas natural e instalaciones internas.
+        div(class = 'aviso sup')
+          p Y.P.F.B. En ninguna circunstancia asume la responsabilidad por la calidad de material, problemas futuros por la clase de trabajo y posibles accidentes que pudieran ocasionarse.
+        div(class = 'aviso sup')
+          p La empresa instaladora garantiza las instalaciones efectuadas por el lapso de 2 años a partir de la fecha de conclusión de la instalación
+        div(class = 'aviso')
+          p Declaro bajo juramento conocer y cumplir las disposiciones y normas vigentes para la ejecución de instalaciones domiciliarias de gas natural.
+        
+        
+        
+      div(class = 'lienzo-hoja' id = 'lienzo-hoja')
+            
+        
+        svg(width = '677' height = '718' class = 'lienzo-svg' id = 'miSVGLienzo')
+          
+          //svg(width = '681' height = '718' class = 'lienzo-svg' id = 'miSVGLienzo')
+          
+          //line(x1 = '40' x2 = '120' y1 = '100' y2 = '100' class = 'path')
+          
+          //line( x1 = '120' x2 = '120' y1 = '100' y2 = '200' class = 'path-dash')
+          
+          //text(x = '100' y = '100' fill = 'red' transform = 'rotate(90 100, 100)' font-family = 'roboto-light') I love SVG
+          
+          //text(x = '100' y = '100' fill = 'blue'  font-family = 'roboto-light') I love SVG
+          
+          //line(x1 = '120' x2 = '190' y1 = '200' y2 = '300' class = 'path')
+          
+          //line(x1 = '120' x2 = '190' y1 = '200' y2 = '250' class = 'path')
+          
+          //path(class = 'path' d = 'M100,50 L150,150 L200,200 L300,250' stroke-linejoin='round' )
+          
+          //path(class = 'path-dash' d = 'M300,250 L400,200 L500,250' )
+          
+          //g(fill = 'none' stroke = 'black' stroke-width = '4')
+            path( stroke-dasharray = '5,5' d = 'M5 20 l215 0' )
+            path( stroke-dasharray = '10,10' d = 'M5 40 l215 0' )
+            path( stroke-dasharray = '20,10,5,5,5,10' d = 'M5 60 l215 0' )
+          //path(class = 'path' fill = '#FFFFFF' stroke='#000000' stroke-width='1' stroke-miterlimit='10' d = 'M250,250 L400,400')
+          //div Hola2
+        ///////////////////////////////////////////////
+      div(class = 'lienzoTablaHoja')
+        div(class = 'rightTable')
+          div(class = 'line')
+            div(class = 'cell')
+              div(class = 'draw hFlujo')
+              div(class = 'legend') Tubo principal dirección de flujo
+            div(class = 'cell')
+              div(class = 'draw hSolCap')
+              div(class = 'legend') Unión para soldadura capilar
+          div(class = 'line')
+            div(class = 'cell')
+              div(class = 'draw hUnSol')
+              div(class = 'legend') Unión soldada
+            div(class = 'cell')
+              div(class = 'draw hAcSol')
+              div(class = 'legend') Accesorio soldado
+          div(class = 'line')
+            div(class = 'cell')
+              div(class = 'draw hVaMan')
+              div(class = 'legend') Válvula de mando del aparato
+            div(class = 'cell')
+              div(class = 'draw hRegul')
+              div(class = 'legend') Regulador
+          div(class = 'line')
+            div(class = 'cell')
+              div(class = 'draw hOrCor')
+              div(class = 'legend') Órgano de corte (Válvula de cierre)
+            div(class = 'cell')
+              div(class = 'draw hTubFS')
+              div(class = 'legend') Tubería fuera del suelo
+          div(class = 'line')
+            div(class = 'cell')
+              div(class = 'draw hCanEn')
+              div(class = 'legend') Canalización enterrada
+            div(class = 'cell')
+              div(class = 'draw hTubDe')
+              div(class = 'legend') Conexión de tubería de derivación
+          div(class = 'line')
+            div(class = 'cell')
+              div(class = 'draw hTubFo')
+              div(class = 'legend') Tubería con forro
+            div(class = 'cell')
+              div(class = 'draw hUnRos')
+              div(class = 'legend') Unión roscada
+          div(class = 'line')
+            div(class = 'cell')
+              div(class = 'draw hTapon')
+              div(class = 'legend') Tapón
+            div(class = 'cell')
+              div(class = 'draw hMedid')
+              div(class = 'legend') Medidor
+          div(class = 'line')
+            div(class = 'cell')
+              div(class = 'draw hReduc')
+              div(class = 'legend') Reducción
+            div(class = 'cell')
+              div(class = 'draw hTe')
+              div(class = 'legend') Te
+          div(class = 'line')
+            div(class = 'cell')
+              div(class = 'draw hCodo')
+              div(class = 'legend') Codo
+            div(class = 'cell')
+              div(class = 'draw hCodoR')
+              div(class = 'legend') Codo reductor
+          div(class = 'line')
+            div(class = 'footerSymbol') Simbología utilizada
+            
+        div(class = 'centerTable')
+          div(class = 'business')
+            div(class = 'header') Empresa:
+            div(class = 'name') SGP-3
+            div(class = 'description') Servicio de Gas Patón-3
+          
+          div(class = 'owner')
+            div(class = 'header') Propietario:
+          
+            div(class = 'name') #{myJson['APELLIDO PATERNO']} #{myJson['APELLIDO MATERNO']} #{myJson.NOMBRES}
+          
+          div(class = 'line')
+            div(class = 'cell')
+              div(class =  'title') Plano
+              div(class = 'content') 
+                input(id = 'indexPageCanvas' type = 'text'  onchange = 'setNumberPage(this.value)')
+          
+          div(class = 'line')
+            div(class = 'cell')
+              div(class =  'title') Escala
+              div(id = 'escalaPage' class = 'content') 1 : 50
+                
+          
+          div(class = 'line')
+            div(class = 'cell')
+              div(class =  'title') Fecha
+              div(class = 'content') 
+                input(id = 'useDate' type = 'date' value = '2016-04-04' onchange = 'setDatePage(this.value)')
+            
+        div(class = 'leftTable')
+          div(class = 'title-iso') Instalación domiciliaria de gas natural
+          div(class = 'title-iso alone') Vista isométrica
+          
+          div(class = 'line') 
+          
+            div(class = 'first') Codigo de Usuario
+            div(class = 'second') Nº de proyecto
+            div(class = 'third') Nº de medidor
+          
+          div(class = 'line')
+            div(class = 'first code') #{myJson.Dpto}-#{myJson.Loc}-#{myJson.Nro}-#{myJson.DIST}-#{myJson.MANZ}-#{myJson.PREDIO}-#{myJson['PISO/DPTO']}
+            div(class = 'second') 12031/2014
+            div(class = 'third') 2021769
+          div(class = 'data-project')
+            p Proyecto: Carlos Dionicio Paton Aliaga
+            p Dibujo: Limber Ivan Callisaya Perez
+            p Reviso:
+            p Aprobo:
+            
+            
+block footer
+  div(class = 'documentProject')
+    form(action = '/proyecto/editor' method = 'post')
+      
+      //div(class = 'line-form')
+        //input(type = 'text' name = 'edPry' value = '' placeholder= '')
+        //input(type = 'text' name = 'edAtr' value = '' placeholder= '')
+        input(type = 'text' name = 'edPry' value = '#{myBody.myProyecto}' placeholder= '')
+        input(type = 'text' name = 'edAtr' value = '#{myBody.myAutor}' placeholder= '')
+      div(class = 'line-form') 
+        p Proyecto: #{myBody.myProyecto}
+      div(class = 'line-form') 
+        p Autor: #{myBody.myAutor}
+      
+      
+      div(class = 'line-form')
+        div(class = 'line-part')
+          label Número: 
+          input(type = 'text' name = 'edNro' value = '#{myJson.Nro}' placeholder= 'Número')
+          //input(type = 'text' name = 'edNro' value = '#{myJson.Nro}' placeholder= 'Número')
+        //////////////////////////////////////////////////////////////
+        div(class = 'line-part')
+          label Departamento: 
+          input(type = 'text' name = 'edDpto' value = '#{myJson.Dpto}' placeholder= 'Departamento')
+          //input(type = 'text' name = 'edNro' value = '#{myJson.Nro}' placeholder= 'Número')
+        div(class = 'line-part')
+          label Localidad: 
+          input(type = 'text' name = 'edLoc' value = '#{myJson.Loc}' placeholder= 'Localidad')
+          //input(type = 'text' name = 'edNro' value = '#{myJson.Nro}' placeholder= 'Número')
+        //////////////////////////////////////////////////////////////
+        div(class = 'line-part')
+          label Distrito: 
+          input(type = 'text' name = 'edDst' value = '#{myJson.DIST}' placeholder= 'Distrito')
+          //input(type = 'text' name = 'edDst' value = '#{myJson.DIST}' placeholder= 'Distrito')
+        div(class = 'line-part')
+          label Zona: 
+          input(type = 'text' name = 'edZna' value = '#{myJson.ZONA}' placeholder= 'Zona')
+          //input(type = 'text' name = 'edZna' value = '#{myJson.ZONA}' placeholder= 'Zona')
+      div(class = 'line-form')
+        div(class = 'line-part')
+          label Manzano: 
+          input(type = 'text' name = 'edMnz' value = '#{myJson.MANZ}' placeholder= 'Manzano')
+          //input(type = 'text' name = 'edMnz' value = '#{myJson.MANZ}' placeholder= 'Manzano')
+        div(class = 'line-part')
+          label Predio: 
+          input(type = 'text' name = 'edPrd' value = '#{myJson.PREDIO}' placeholder= 'Predio')
+          //input(type = 'text' name = 'edPrd' value = '#{myJson.PREDIO}' placeholder= 'Predio')
+        div(class = 'line-part')
+          label Piso Dpto: 
+          input(type = 'text' name = 'edPDo' value = '#{myJson["PISO/DPTO"]}' placeholder= 'Piso Dpto')
+          //input(type = 'text' name = 'edPDo' value = '#{myJson["PISO/DPTO"]}' placeholder= 'Piso Dpto')
+        div(class = 'line-part')
+          label Paterno: 
+          input(type = 'text' name = 'edPat' value = '#{myJson["APELLIDO PATERNO"]}' placeholder= 'Apellido paterno')
+          //input(type = 'text' name = 'edPat' value = '#{myJson["APELLIDO PATERNO"]}' placeholder= 'Apellido paterno')
+      
+        div(class = 'line-part')
+          label Materno: 
+          input(type = 'text' name = 'edMat' value = '#{myJson["APELLIDO MATERNO"]}' placeholder= 'Apellido materno')
+          //input(type = 'text' name = 'edMat' value = '#{myJson["APELLIDO MATERNO"]}' placeholder= 'Apellido materno')
+      div(class = 'line-form')
+        div(class = 'line-part')
+          label Nombres: 
+          input(type = 'text' name = 'edNmb' value = '#{myJson.NOMBRES}' placeholder= 'Nombres')
+          //input(type = 'text' name = 'edNmb' value = '#{myJson.NOMBRES}' placeholder= 'Nombres')
+        div(class = 'line-part')
+          label Identificación: 
+          input(type = 'text' name = 'edCnt' value = '#{myJson.CARNET}' placeholder= 'Identificación')
+          //input(type = 'text' name = 'edCnt' value = '#{myJson.CARNET}' placeholder= 'Identificación')
+        div(class = 'line-part')
+          label Dirección: 
+          input(type = 'text' name = 'edAvC' value = '#{myJson["AVDA/ CALLE"]}' placeholder= 'Dirección')
+          //input(type = 'text' name = 'edAvC' value = '#{myJson["AVDA/ CALLE"]}' placeholder= 'Dirección')
+        div(class = 'line-part')
+          label Teléfono: 
+          input(type = 'text' name = 'edTCl' value = '#{myJson["TEL/CEL"]}' placeholder= 'Teléfono')
+          //input(type = 'text' name = 'edTCl' value = '#{myJson["TEL/CEL"]}' placeholder= 'Teléfono')
+        div(class = 'line-part')
+          label Observaciones: 
+          input(type = 'text' name = 'edObs' value = '#{myJson.OBSERVACIONES}' placeholder= 'Observaciones')
+          //input(type = 'text' name = 'edObs' value = '#{myJson.OBSERVACIONES}' placeholder= 'Observaciones')
+      
+      
+      //input(class = 'none' type = 'text' name = 'nProyecto' value = '')
+      //input(class = 'none' type = 'text' name = 'pAutor' value = '')
+      //input(class = 'none' type = 'text' name = 'jsonData' value = '')
+      //input(class = 'none' type = 'text' name = 'myJsonAdress' value = '')
+      input(class = 'none' type = 'text' name = 'nProyecto' value = '#{myBody.myProyecto}')
+      input(class = 'none' type = 'text' name = 'pAutor' value = '#{myBody.myAutor}')
+      input(class = 'none' type = 'text' name = 'jsonData' value = '#{myBody.myFullJson}')
+      input(class = 'none' type = 'text' name = 'myJsonAdress' value = '#{myBody.myJson}')
+      input(class = 'none' type = 'text' name = 'mode' value = 'saveDocument')
+          
+          
+      //input(class = 'none' type = 'text' id = 'myPointData' name = 'myPointData' value = '')
+      //input(class = 'none' type = 'text' id = 'myGradosData' name = 'myGradosData' value = '')
+      //input(class = 'none' type = 'text' id = 'myDistanciaData' name = 'myDistanciaData' value = '')
+      //input(class = 'none' type = 'text' id = 'myTubData' name = 'myTubData' value = '')
+      //input(class = 'none' type = 'text' id = 'myTagData' name = 'myTagData' value = '')
+      //input(class = 'none' type = 'text' id = 'myComponentesData' name = 'myComponentesData' value = '')
+      input(class = 'none' type = 'text' id = 'myPointData' name = 'myPointData' value = '#{myJson.ISOMETRICO.myPointData}')
+      input(class = 'none' type = 'text' id = 'myGradosData' name = 'myGradosData' value = '#{myJson.ISOMETRICO.myGradosData}')
+      input(class = 'none' type = 'text' id = 'myDistanciaData' name = 'myDistanciaData' value = '#{myJson.ISOMETRICO.myDistanciaData}')
+      input(class = 'none' type = 'text' id = 'myTubData' name = 'myTubData' value = '#{myJson.ISOMETRICO.myTubData}')
+      input(class = 'none' type = 'text' id = 'myTagData' name = 'myTagData' value = '#{myJson.ISOMETRICO.myTagData}')
+      input(class = 'none' type = 'text' id = 'myComponentesData' name = 'myComponentesData' value = '#{myJson.ISOMETRICO.myComponentesData}')
+      input(class = 'none' type = 'text' id = 'graphData' name = 'graphData' value = '#{myJson.ISOMETRICO.graphData}')
+      input(class = 'none' type = 'text' id = 'tagsExtra' name = 'tagsExtra' value = '#{myJson.ISOMETRICO.tagsExtra}')
+      input(class = 'none' type = 'text' id = 'configuraciones' name = 'configuraciones' value = '#{myJson.ISOMETRICO.configuraciones}')
+      input(class = 'none' type = 'text' id = 'numberPageData' name = 'numberPageData' value = '#{myJson.ISOMETRICO.numberPageData}')
+      div(class = 'line-form')
+        input(type = 'submit' value = 'Guardar Cambios')
+    
+block subScripts
+  script(src = '/js/neoDrawer.js')

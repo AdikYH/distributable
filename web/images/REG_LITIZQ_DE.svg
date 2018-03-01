@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="48px"
+   height="48px"
+   id="svg2985"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="REG_LITIZQ_DE.svg">
+  <defs
+     id="defs2987">
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="0 : 24 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="48 : 24 : 1"
+       inkscape:persp3d-origin="24 : 16 : 1"
+       id="perspective3884" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="7.4952187"
+     inkscape:cx="8.9239846"
+     inkscape:cy="24.193349"
+     inkscape:current-layer="layer1"
+     showgrid="true"
+     inkscape:grid-bbox="true"
+     inkscape:document-units="px"
+     inkscape:snap-center="false"
+     inkscape:window-width="1307"
+     inkscape:window-height="744"
+     inkscape:window-x="59"
+     inkscape:window-y="24"
+     inkscape:window-maximized="1"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     inkscape:snap-bbox="false"
+     inkscape:snap-grids="false"
+     inkscape:snap-to-guides="false"
+     inkscape:snap-object-midpoints="true"
+     inkscape:snap-midpoints="false"
+     inkscape:snap-global="true">
+    <inkscape:grid
+       type="xygrid"
+       id="grid2995"
+       empspacing="5"
+       visible="true"
+       enabled="true"
+       snapvisiblegridlinesonly="true" />
+    <sodipodi:guide
+       orientation="1,0"
+       position="45,29"
+       id="guide4007" />
+    <sodipodi:guide
+       orientation="0,1"
+       position="-1,30"
+       id="guide4009" />
+    <sodipodi:guide
+       orientation="1,0"
+       position="3,49"
+       id="guide4011" />
+    <sodipodi:guide
+       orientation="0,1"
+       position="51,3"
+       id="guide4741" />
+    <sodipodi:guide
+       orientation="0,1"
+       position="-2,45"
+       id="guide4948" />
+    <sodipodi:guide
+       orientation="0,1"
+       position="52,18"
+       id="guide4957" />
+    <sodipodi:guide
+       orientation="0,1"
+       position="52,7"
+       id="guide4959" />
+    <sodipodi:guide
+       orientation="1,0"
+       position="-2,21"
+       id="guide4046" />
+    <sodipodi:guide
+       orientation="0,1"
+       position="-20,20"
+       id="guide4048" />
+    <inkscape:grid
+       type="axonomgrid"
+       id="grid3101"
+       units="mm"
+       empspacing="5"
+       visible="true"
+       enabled="true"
+       snapvisiblegridlinesonly="true" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata2990">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     id="layer1"
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer">
+    <path
+       style="font-size:medium;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-indent:0;text-align:start;text-decoration:none;line-height:normal;letter-spacing:normal;word-spacing:normal;text-transform:none;direction:ltr;block-progression:tb;writing-mode:lr-tb;text-anchor:start;baseline-shift:baseline;color:#000000;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1;marker:none;visibility:visible;display:inline;overflow:visible;enable-background:accumulate;font-family:Sans;-inkscape-font-specification:Sans"
+       d="M 19.375 1.28125 L 19.125 1.40625 L 11.9375 5.59375 L 11.25 6.03125 L 10.1875 6.59375 L 9.6875 6.875 L 9.6875 6.90625 L 9.6875 7.5 L 9.6875 7.6875 L 9.6875 8.5 L 9.6875 35.5 L 9.6875 35.8125 L 9.9375 35.9375 L 27.8125 46.25 L 28.125 46.4375 L 28.5625 46.6875 L 29 46.4375 L 29.125 46.4375 L 29.25 46.3125 L 38.0625 41.375 L 38.3125 41.1875 L 38.3125 40.9375 L 38.3125 31.804688 L 40.392578 33.005859 L 40.892578 32.138672 L 38.3125 30.650391 L 38.3125 15.4375 L 38.3125 14.625 L 38.3125 12.75 L 38.3125 12.25 L 37.75 11.9375 L 35.25 10.5 L 34.0625 9.78125 L 33.6875 9.5625 L 19.625 1.4375 L 19.375 1.28125 z M 19.375 2.46875 L 36.8125 12.5 L 28.5625 17.25 L 14.125 8.90625 L 11.1875 7.1875 L 19.375 2.46875 z M 10.6875 8.0625 L 12.875 9.34375 L 28.125 18.1875 L 28.125 45.25 L 10.6875 35.25 L 10.6875 8.0625 z M 37.3125 13.375 L 37.3125 30.072266 L 33.789062 28.039062 L 33.289062 28.904297 L 37.3125 31.226562 L 37.3125 40.625 L 29.125 45.25 L 29.125 18.0625 L 37.3125 13.375 z M 14 16.78125 L 14 30.3125 L 16.25 31.625 L 16.25 26 L 19.28125 27.75 C 19.975467 28.15081 20.509543 28.674371 20.90625 29.3125 C 21.302941 29.95063 21.499991 30.618275 21.5 31.3125 L 21.5 32.375 C 21.499991 32.79649 21.55681 33.270544 21.625 33.75 C 21.699372 34.233027 21.845804 34.652301 22.09375 35 L 24.40625 36.34375 L 24.40625 36.125 C 24.170698 35.790656 24.00541 35.404105 23.90625 34.96875 C 23.807067 34.533384 23.781239 34.115445 23.78125 33.71875 L 23.78125 32.59375 C 23.781239 31.79415 23.615955 31.019957 23.28125 30.28125 C 22.946525 29.536342 22.387397 28.806913 21.625 28.125 C 22.319215 28.222087 22.827981 28.138263 23.1875 27.84375 C 23.553196 27.546621 23.749989 27.044175 23.75 26.34375 C 23.749989 25.079275 23.324381 23.876543 22.5 22.71875 C 21.6756 21.560971 20.512409 20.52945 19 19.65625 L 14 16.78125 z M 16.25 19.90625 L 19 21.46875 C 19.836781 21.951875 20.465895 22.529564 20.875 23.15625 C 21.284087 23.776748 21.499991 24.411927 21.5 25.09375 C 21.499991 25.806573 21.290286 26.23641 20.875 26.34375 C 20.459697 26.451095 19.779963 26.241235 18.875 25.71875 L 16.25 24.1875 L 16.25 19.90625 z "
+       id="path4007-7-3" />
+    <g
+       style="font-size:19.04157639px;font-style:normal;font-variant:normal;font-weight:500;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Roboto;-inkscape-font-specification:Roboto Medium"
+       id="text3036-0-3"
+       transform="matrix(1,0.57734758,0,1,-4.3291521,-48.756154)" />
+  </g>
+</svg>

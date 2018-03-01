@@ -1,0 +1,18 @@
+doctype html
+html
+  head
+    title Simple Upload Example
+  body
+    //form(action = '/' method = 'post')
+    form(action = '/' enctype = 'multipart/form-data' method = 'post')
+      
+      input(type = 'text' name = 'upload5' value = 'somex')
+      input(type = 'file' name = 'upload' multiple)
+      input(type = 'text' name = 'upload6' value = 'somex')
+      input(type = 'file' name = 'upload3' multiple)
+      //input(type = 'file' name = 'upload0' multiple)
+      //input(type = 'text' name = 'upload2' value = 'some')
+      //input(type = 'text' name = 'upload3' value = 'some1')
+      //input(type = 'text' name = 'upload4' value = 'some2')
+      input(type = 'text' name = 'upload4' value = 'somex')
+      input(type = 'submit' value = 'Upload')

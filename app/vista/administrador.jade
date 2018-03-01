@@ -1,0 +1,115 @@
+extends layout_nav
+block title
+  title Administrador
+
+block css
+  link(rel = 'stylesheet' href = '/css/administrador.css')
+
+block content
+
+  div(class = 'admin-header')
+    h1 Tabla de permisos para usuarios
+
+
+
+
+
+
+  div(class = 'admin-table')
+    table
+      tr
+        th Nro de Asignacion
+        th Nro de Proyectos
+        th usuarios habilitados
+      tr
+        td 251/548
+        td 20
+        td
+          li
+            ul a
+              input(type = 'button' value = 'añadir')
+              input(type = 'button' value = 'eliminar')
+            ul a
+              input(type = 'button' value = 'añadir')
+              input(type = 'button' value = 'eliminar')
+            ul a
+              input(type = 'button' value = 'añadir')
+              input(type = 'button' value = 'eliminar')
+        td
+          input(type = 'button' value = 'eliminar asignacion')
+
+    input(type = 'button' value = 'nueva asignacion')
+
+  div(class = 'admin-table')
+    table(id = 'tblUsuarios')
+      tr
+        th usuario
+        th permiso
+        th restante
+        th reprogramar
+        th eliminar
+        th asignaciones
+
+      -var c = 0
+
+      each usuario in misUsuarios
+        -c++
+        tr
+          form(action = '/administrador' method = 'post'  name = 'myCreateForm' )
+            td #{usuario.usuario}
+              div(class = 'none')
+                input(name = 'usuario' value = '#{usuario.usuario}')
+            td
+
+              if usuario.role == 'superAdmin'
+                select(id = 'sRole' onchange = 'cambiarSelect(this, "iRole_'+c+'")')
+                  option(value = 'superAdmin') superAdmin
+                  option(value = 'simpleUser') simpleUser
+                div(class = 'none')
+                  input(id = 'iRole_'+c name = 'newRole' value = 'superAdmin')
+              else
+                select(id = 'sRole' onchange = 'cambiarSelect(this, "iRole_'+c+'")')
+                  option(value = 'simpleUser') simpleUser
+                  option(value = 'superAdmin') superAdmin
+                div(class = 'none')
+                  input(id = 'iRole_'+c name = 'newRole' value = 'simpleUser')
+            td(id = 'miTiempo_'+c class = 'none')
+              if usuario.tiempo == 'indefinido'
+                | Indefinido
+              else
+                | #{usuario.update.getTime()}
+
+            td(id = 'miLimite_'+c class = 'none')
+              if usuario.tiempo == 'indefinido'
+                | Indefinido
+              else
+                | #{usuario.limite}
+
+            td(id = 'restante_'+c) 0 Hs. 0 m. 0s.
+
+            td
+              input(name = 'newTime' type = 'text' placeholder = '365:24:30:10')
+
+            td
+              input(type = 'checkbox' name = '' value ='false' onchange =  'checado(this, "iEliminar_' + c + '")')
+              //input(type = 'checkbox' name = '' value ='false' onchange =  'checado(this)')
+              div(class = 'none')
+                input(id = 'iEliminar_'+c type = 'text' name = 'eliminar' value ='false')
+
+            td
+              input(type = 'submit' value = 'Hecho')
+
+      //tr
+        form(action = '/administrador' method = 'post'  name = 'myCreateForm' )
+          td admin
+          td
+            select
+              option(value = 'superAdmin') superAdmin
+              option(value = 'simpleUser') simpleUser
+          td 15:45:15
+          td
+            input(type = 'text' placeholder = 'tiempo en horas')
+          td
+            input(type = 'submit' value = 'Hecho')
+block subScripts
+  script(src = '/js/administrador.js')

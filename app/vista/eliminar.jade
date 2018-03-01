@@ -1,0 +1,46 @@
+extends layout_nav
+
+block title
+  title Editar
+
+block css
+  link(rel = 'stylesheet' href = '/css/eliminar.css')
+
+block content
+
+  div(class = 'content')
+    form(action = '/proyecto/editor' method = 'post' onSubmit = 'return confirmar()' name = 'myDeleteForm')
+      div(class = 'form-header')
+        h1 Selección de proyecto para eliminar
+
+      div(class = 'form-control')
+        label Introduce el nombre del proyecto
+
+      div(class = 'form-control')
+        input(type = 'text' name = 'nProyecto' placeholder = '' id = '')
+
+      div(class = 'form-control ocultar')
+        input(type = 'text' name = 'mode' placeholder = '' id = '' value = 'delete')
+
+      //div(class = 'form-alert') #{excelMessage} aaa
+      
+      div(class = 'form-alert') #{dltMessage}
+      div(class = 'form-alert' id = 'myAlertName')
+
+      div(class = 'form-submit' id = 'form-submit')
+        button(type = 'submit' id = 'saveCont') Eliminar
+
+block subScripts
+  script.
+    function confirmar(){
+
+      if(document.forms['myDeleteForm'].elements['nProyecto'].value == ''){
+        //alert('Por favor introduzca un nombre en el campo');
+        document.getElementById('myAlertName').innerHTML = 'Por favor introduzca un nombre en el campo';
+        return false;
+      }else{
+        var r = confirm('Eliminará el elemento ' + document.forms['myDeleteForm'].elements['nProyecto'].value);
+        return r;
+      }
+
+    }

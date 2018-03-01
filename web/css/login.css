@@ -1,0 +1,369 @@
+body {
+  background: #e6edf3;
+  padding: 0px;
+  margin: 0px;
+}
+body .loading {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  background: url("../images/wloader.svg") 50% 50% no-repeat rgba(0,0,0,0.5);
+}
+body .createUser {
+  height: 100px;
+  width: 100%;
+/*.usuario
+      position absolute
+      right 360px
+      top 10px
+    .password
+      position absolute
+      right 180px
+      top 10px*/
+}
+body .createUser .form-header {
+  font-family: 'roboto-regular', Arial, sans-serif;
+  text-align: center;
+  color: #0c5537;
+  padding-top: 1em;
+}
+body .createUser .form-alert {
+  padding: 0px;
+  color: #fff;
+  font-size: 14px;
+}
+body .createUser .form-input {
+  margin: 0 auto;
+  padding-top: 35px;
+  height: 50px;
+  width: 200px;
+/*.usy
+        &:before
+          font-family 'session'
+          content '\e900'
+          font-size 15px//30px
+          color rgb(0, 87, 72)//white//#0C5537//#821100
+          display inline-block
+      .pass
+        &:before
+          font-family 'session'
+          content '\e901'
+          font-size 15px//30px
+          color rgb(0, 87, 72)//white//#0C5537//#821100
+          display inline-block*/
+}
+body .createUser .form-input label {
+  font-family: 'roboto-regular', Arial, sans-serif;
+  display: block;
+  text-align: center;
+  margin-bottom: 10px;
+}
+body .createUser .form-input input {
+  border: 1px solid #0c5537;
+  width: 140px;
+  font-size: 12px;
+  padding: 5px;
+  -webkit-border-radius: 5px;
+  color: #0c5537;
+  width: 100%;
+}
+body .createUser .form-input input:focus {
+  outline: none;
+  border: 1px solid #0c5537;
+  -webkit-box-shadow: 0px 0px 5px #fff;
+}
+body .createUser .form-button {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  text-align: center;
+}
+body .createUser .form-button button {
+  margin: 0 auto;
+  display: block;
+  font-size: 12px;
+  color: #fff;
+  width: 150px;
+  background: #005748;
+  border: 0px solid #fff;
+  -webkit-border-radius: 5px;
+  -webkit-box-shadow: 0px 0px 5px #353535;
+  padding: 5px;
+}
+body .createUser .form-button button:focus {
+  outline: none;
+}
+body .container {
+  text-align: center;
+  font-family: "roboto-regular", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #fff;
+  height: 100px;
+  width: 100%;
+  position: relative;
+  background: #385995;
+}
+body .container .form-header {
+  color: #fff;
+  padding-top: 1em;
+  display: none;
+}
+body .container .form-alert {
+  padding: 0px;
+  color: #fff;
+  font-size: 10px;
+}
+body .container .form-input {
+  padding-top: 35px;
+  position: relative;
+  height: 50px;
+  width: 200px;
+}
+body .container .form-input label {
+  position: absolute;
+  top: 39px;
+  left: 5px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+body .container .form-input .usy:before {
+  font-family: 'session';
+  content: '\e900';
+  font-size: 15px;
+  color: #fff;
+  display: inline-block;
+}
+body .container .form-input .pass:before {
+  font-family: 'session';
+  content: '\e901';
+  font-size: 15px;
+  color: #fff;
+  display: inline-block;
+}
+body .container .form-input input {
+  border: 1px solid #0c5537;
+  width: 140px;
+  font-size: 12px;
+  padding: 5px;
+  -webkit-border-radius: 5px;
+  color: #0c5537;
+}
+body .container .form-input input:focus {
+  outline: none;
+  border: 1px solid #0c5537;
+  -webkit-box-shadow: 0px 0px 5px #fff;
+}
+body .container .form-button {
+  position: absolute;
+  right: 10px;
+  top: 45px;
+}
+body .container .form-button button {
+  font-size: 12px;
+  color: #fff;
+  width: 150px;
+  background: transparent;
+  border: 1px solid #fff;
+  -webkit-border-radius: 5px;
+  -webkit-box-shadow: 0px 0px 5px #353535;
+  padding: 5px;
+  -ms-animation-name: change;
+  -o-animation-name: change;
+  -moz-animation-name: change;
+  -webkit-animation-name: change;
+  -ms-animation-duration: 2s;
+  -o-animation-duration: 2s;
+  -moz-animation-duration: 2s;
+  -webkit-animation-duration: 2s;
+  -ms-animation-iteration-count: infinite;
+  -o-animation-iteration-count: infinite;
+  -moz-animation-iteration-count: infinite;
+  -webkit-animation-iteration-count: infinite;
+}
+body .container .form-button button:focus {
+  outline: none;
+}
+body .container .usuario {
+  position: absolute;
+  right: 360px;
+  top: 10px;
+}
+body .container .password {
+  position: absolute;
+  right: 180px;
+  top: 10px;
+}
+@media only screen and (max-width: 568px) {
+  body {
+    background: #385995;
+  }
+  body .container {
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    position: static;
+    display: block;
+  }
+  body .container .form-header {
+    display: block;
+  }
+  body .container .form-input {
+    text-align: center;
+    position: static;
+    display: block;
+    width: 100%;
+  }
+  body .container .form-input label {
+    position: static;
+  }
+  body .container .form-button {
+    padding-top: 20px;
+    text-align: center;
+    position: static;
+    display: block;
+    width: 100%;
+  }
+  body .container .usuario {
+    position: static;
+  }
+  body .container .password {
+    position: static;
+  }
+  body .createUser .form-header {
+    color: #fff;
+    font-size: 12px;
+  }
+  body .createUser .form-alert {
+    padding: 0px;
+    color: #e03626;
+    font-size: 10px;
+  }
+  body .createUser .form-input {
+    margin: 0 auto;
+    padding-top: 35px;
+  }
+  body .createUser .form-input label {
+    color: #fff;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  body .createUser .form-input input {
+    border: 1px solid #0c5537;
+    width: 140px;
+    font-size: 12px;
+    padding: 5px;
+    width: 100%;
+    -webkit-border-radius: 5px;
+    color: #0c5537;
+  }
+  body .createUser .form-input input:focus {
+    outline: none;
+    border: 1px solid #0c5537;
+    -webkit-box-shadow: 0px 0px 5px #fff;
+  }
+  body .createUser .form-button {
+    margin-bottom: 15px;
+    text-align: center;
+  }
+  body .createUser .form-button button {
+    font-size: 12px;
+    color: #005748;
+    width: 150px;
+    background: rgba(255,255,255,0.6);
+    border: 0px solid #005748;
+    -webkit-border-radius: 5px;
+    padding: 5px;
+  }
+}
+/*@media only screen and (max-height 400px)
+  body
+    .container
+      top 0%
+      transform translate(-50%, 0%)
+
+@media only screen and (max-width 992px)
+  body
+    background url('../images/backgroundbn.jpg') no-repeat fixed center rgb(0, 0, 0)//url('../images/background.jpg') no-repeat fixed center
+    background-size cover
+
+@media only screen and (max-width 768px)
+  body
+    background url('../images/backgroundbn.jpg') no-repeat fixed center rgb(0, 0, 0)//url('../images/background.jpg') no-repeat fixed center
+    background-size auto
+    .container
+      .form-input
+        padding 15px
+
+      .form-button
+        button
+          width 100px
+          height 100px
+          border-radius 50%
+
+@media only screen and (max-width 480px)
+  body
+    background url('../images/backgroundbn.jpg') no-repeat fixed center rgb(0, 0, 0)//url('../images/background.jpg') no-repeat fixed center
+    background-size auto
+
+@media only screen and (max-width 300px)
+  body
+    background url('../images/backgroundbn.jpg') no-repeat fixed center rgb(0, 0, 0)//url('../images/background.jpg') no-repeat fixed center
+    background-size auto
+    .container
+      width 100%*/
+@font-face {
+  font-family: "roboto-regular";
+  src: url("roboto/Roboto-Regular.ttf");
+}
+@font-face {
+  font-family: 'session';
+  src: url("session/icomoon.eot?i3wfqg");
+  src: url("session/icomoon.eot?i3wfqg#iefix") format('embedded-opentype'), url("session/icomoon.ttf?i3wfqg") format('truetype'), url("session/icomoon.woff?i3wfqg") format('woff'), url("session/icomoon.svg?i3wfqg#icomoon") format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+@-moz-keyframes change {
+  0% {
+    -webkit-box-shadow: 0px 0px 5px #353535 /*#821100 */;
+  }
+  50% {
+    -webkit-box-shadow: 0px 0px 20px #fff /*#821100 */;
+  }
+  100% {
+    -webkit-box-shadow: 0px 0px 5px #353535 /*#821100*/;
+  }
+}
+@-webkit-keyframes change {
+  0% {
+    -webkit-box-shadow: 0px 0px 5px #353535 /*#821100 */;
+  }
+  50% {
+    -webkit-box-shadow: 0px 0px 20px #fff /*#821100 */;
+  }
+  100% {
+    -webkit-box-shadow: 0px 0px 5px #353535 /*#821100*/;
+  }
+}
+@-o-keyframes change {
+  0% {
+    -webkit-box-shadow: 0px 0px 5px #353535 /*#821100 */;
+  }
+  50% {
+    -webkit-box-shadow: 0px 0px 20px #fff /*#821100 */;
+  }
+  100% {
+    -webkit-box-shadow: 0px 0px 5px #353535 /*#821100*/;
+  }
+}
+@keyframes change {
+  0% {
+    -webkit-box-shadow: 0px 0px 5px #353535 /*#821100 */;
+  }
+  50% {
+    -webkit-box-shadow: 0px 0px 20px #fff /*#821100 */;
+  }
+  100% {
+    -webkit-box-shadow: 0px 0px 5px #353535 /*#821100*/;
+  }
+}
