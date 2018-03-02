@@ -13201,12 +13201,15 @@ document.getElementById("lienzo-hoja").addEventListener('mousedown', function(e)
           loadSvgLienzo(svgContent, svgZoomContent, zoomEscala, zoomRadioLupa)
         }
         // MOUSE DOWN PARA ADD COMPONENTES
-        // switch (addComponent) {
-        //   case 'tForro':
-        //     setTubForro()
-        //     break;
-        //   default:
-        // }
+        switch (addComponent) {
+          case 'tForro':
+            setTubForro()
+            break;
+          case 'tInstalacion':
+            setInstalacion()
+            break;
+          default:
+        }
         break;
       case 'mover':
         marcarCirculosGrandesZoomPartidaConZoom(eX, eY);
